@@ -1,65 +1,168 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+
+import { ibmPlexSerif } from './fonts'
+
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import Aboutus from './components/home/Aboutus'
+import ServicesSection from './components/home/service'
+import CoreValuesSection from './components/home/CoreValues'
+import DealExperience from './components/home/DealExperience'
+import ProcessSection from './components/home/ProcessSection'
+import FooterSection from './components/home/Footer'
+
+
+
+
+
+const HEADER_OFFSET = 160 // px
+
+export default function Page() {
+  const [mounted, setMounted] = useState(false)
+  const [collapsed, setCollapsed] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+  const [animatingUp, setAnimatingUp] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (animatingUp) {
+      const t = setTimeout(() => {
+        setAnimatingUp(false)
+      }, 2200) // MUST match CSS duration
+
+      return () => clearTimeout(t)
+    }
+  }, [animatingUp])
+
+  if (!mounted) return null
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div className="relative overflow-hidden">
+        {/* HERO WRAPPER — reserves space for absolute image */}
+        <div
+          className={`relative transition-all duration-1500 ${expanded ? 'pt-10 ' : 'pb-36'
+            }`}
+        >
+          <section className="h-screen bg-white flex items-center justify-center text-center px-10 -mt-6 relative overflow-visible">
+            <div className="relative w-full max-w-6xl">
+
+              {/* TEXT */}
+              <div
+                className={`transition-all duration-1500
+          ease-[cubic-bezier(0.77,0,0.175,1)]
+          ${expanded ? 'translate-y-32 opacity-0' : 'translate-y-0 opacity-100'}`}
+              >
+                <h1 className={`text-6xl font-semibold ${ibmPlexSerif.className} leading-[1.15]`}>
+                  Your Strategic Legal Partner
+                  <br />
+                  in the Digital Economy
+                </h1>
+
+                <p className="mt-6 text-lg text-[#5E6784]">
+                  Specialized in Venture Capital, Corporate Law, and M&amp;A
+                </p>
+
+                <button className="mt-6 bg-[#193170] text-white py-3 px-12 text-xl">
+                  Get in touch
+                </button>
+              </div>
+
+              {/* 🔥 TRIGGER ZONE */}
+              {!expanded && (
+                <div
+                  className="absolute left-0 right-0 h-24"
+                  style={{ top: 'calc(50% + 30px)' }}
+                  onMouseEnter={() => {
+                    if (!expanded && !animatingUp) {
+                      setAnimatingUp(true)
+                      setExpanded(true)
+                    }
+                  }}
+                />
+              )}
+
+              {/* IMAGE */}
+              <div
+                className="absolute transition-[transform,width,height]
+          duration-1500
+          ease-[cubic-bezier(0.77,0,0.175,1)]"
+                style={{
+                  top: '120%',
+                  left: '50%',
+                  width: expanded ? '120%' : '70%',
+                  height: expanded ? '90vh' : '20rem',
+                  transform: expanded
+                    ? `translate(-50%, calc(-110% + ${HEADER_OFFSET}px))`
+                    : 'translate(-50%, 0%)',
+                  pointerEvents: animatingUp ? 'none' : 'auto',
+                }}
+              >
+                {expanded && (
+                  <div
+                    className="absolute top-32 left-0 right-0 h-24 z-20"
+                    onMouseEnter={() => setExpanded(false)}
+                  />
+                )}
+
+                <Image
+                  src="/Images/GetInTouch.jpg"
+                  alt="Get In Touch"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+
+            </div>
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+
+        {/* BLUE OVERLAY (unchanged logic) */}
+        <section
+          className={`fixed top-18.5 left-0 w-full h-[calc(105vh-60px)] z-50 overflow-hidden
+    ${collapsed ? 'pointer-events-none' : ''}`}
+          onMouseEnter={() => setCollapsed(true)}
+        >
+          <div className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]
+      transition-transform duration-2000 ease-in-out
+      ${collapsed ? 'translate-y-full' : ''}`}
+          />
+          <div className={`absolute top-0 left-1/3 h-full w-1/3 bg-[#193170]
+      flex items-center justify-center z-10 overflow-hidden
+      transition-transform duration-2000
+      ease-[cubic-bezier(0.77,0,0.175,1)]
+      ${collapsed ? '-translate-y-full' : 'translate-y-0'}`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+            <div className={`transition-all duration-800
+        ease-[cubic-bezier(0.55,0.055,0.675,0.19)]
+        ${collapsed
+                ? 'translate-y-24 scale-95 opacity-0'
+                : 'translate-y-0 scale-100 opacity-100'
+              }`}
+            >
+              <Image src="/Images/T.png" alt="T" width={120} height={120} />
+            </div>
+          </div>
+          <div className={`absolute top-0 right-0 h-full w-1/3 bg-[#193170]
+      transition-transform duration-2000 ease-in-out
+      ${collapsed ? 'translate-y-full' : ''}`}
+          />
+        </section>
+      </div>
+
+      <Aboutus />
+      <ServicesSection />
+      <CoreValuesSection />
+      <DealExperience />
+    <ProcessSection />
+    <FooterSection />
+   
+    </>
+  )
 }
