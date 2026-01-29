@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { ibmPlexSerif } from '@/app/fonts'
+import Link from 'next/link'
 
 const services = [
   {
@@ -13,11 +14,11 @@ const services = [
     bg: 'bg-[#D0DDFF]',
     title_color: 'text-[#193170]',
     desc_color: 'text-[#6A7798]',
-     btn_color:'border-[#19317040]',
-     btn_text:'text-[#193170]',
+    btn_color: 'border-[#19317040]',
+    btn_text: 'text-[#193170]',
     arrow: '#A1B9F9',
-    bot_arrow:'#82A5FF',
-     iconBorder: false, 
+    bot_arrow: '#82A5FF',
+    iconBorder: false,
   },
   {
     title: 'Corporate, M&A, Venture Capital',
@@ -28,11 +29,11 @@ const services = [
     bg: 'bg-[#193170]',
     title_color: 'text-[#FFFFFF]',
     desc_color: 'text-[#C6C6C6]',
-     btn_color:'border-[#FFFFFF66]',
-     btn_text:'text-[#FFFFFF]',
+    btn_color: 'border-[#FFFFFF66]',
+    btn_text: 'text-[#FFFFFF]',
     arrow: '#355098',
-     bot_arrow:'#355098',
-      iconBorder: true, 
+    bot_arrow: '#355098',
+    iconBorder: true,
   },
   {
     title: 'Real Estate Law',
@@ -43,11 +44,11 @@ const services = [
     bg: 'bg-[#212121]',
     title_color: 'text-[#FFFFFF]',
     desc_color: 'text-[#C6C6C6]',
-     btn_color:'border-[#FFFFFF66]',
-     btn_text:'text-[#FFFFFF]',
+    btn_color: 'border-[#FFFFFF66]',
+    btn_text: 'text-[#FFFFFF]',
     arrow: '#5C5C5C',
-     bot_arrow:'#4A4A4A',
-      iconBorder: true, 
+    bot_arrow: '#4A4A4A',
+    iconBorder: true,
   },
   {
     title: 'Employment & Incentives',
@@ -58,11 +59,11 @@ const services = [
     bg: 'bg-white',
     title_color: 'text-[#193170]',
     desc_color: 'text-[#6A7798]',
-    btn_color:'border-[#19317040]',
-    btn_text:'text-[#193170]',
+    btn_color: 'border-[#19317040]',
+    btn_text: 'text-[#193170]',
     arrow: '#A9A9A95C',
-     bot_arrow:'#4A4A4A1F',
-      iconBorder: false, 
+    bot_arrow: '#4A4A4A1F',
+    iconBorder: false,
   },
   {
     title: 'Dispute Resolution',
@@ -73,11 +74,11 @@ const services = [
     bg: 'bg-[#D0DDFF]',
     title_color: 'text-[#193170]',
     desc_color: 'text-[#6A7798]',
-     btn_color:'border-[#19317040]',
-     btn_text:'text-[#193170]',
+    btn_color: 'border-[#19317040]',
+    btn_text: 'text-[#193170]',
     arrow: '#A1B9F9',
-     bot_arrow:'#82A5FF',
-      iconBorder: false, 
+    bot_arrow: '#82A5FF',
+    iconBorder: false,
   },
   {
     title: 'Finance & Restructuring',
@@ -88,11 +89,11 @@ const services = [
     bg: 'bg-[#193170]',
     title_color: 'text-[#FFFFFF]',
     desc_color: 'text-[#C6C6C6]',
-     btn_color:'border-[#FFFFFF66]',
-     btn_text:'text-[#FFFFFF]',
+    btn_color: 'border-[#FFFFFF66]',
+    btn_text: 'text-[#FFFFFF]',
     arrow: '#355098',
-     bot_arrow:'#355098',
-      iconBorder: true, 
+    bot_arrow: '#355098',
+    iconBorder: true,
   }
 ]
 
@@ -100,7 +101,7 @@ export default function ServicesSection() {
   return (
     <section className="w-full bg-white">
       <div className="max-w-7xl mx-auto pl-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-auto">
 
           {/* LEFT – STICKY */}
           <div className="relative">
@@ -113,12 +114,15 @@ export default function ServicesSection() {
                   Trusted advisors in critical moments.
                 </h2>
 
-                <button className="mt-8 bg-[#1E3A75] text-white px-6 py-3 text-sm">
+                <Link
+                  href="/services"
+                  className="inline-block mt-8 bg-[#1E3A75] text-white px-6 py-3 text-sm"
+                >
                   Explore our services
-                </button>
+                </Link>
               </div>
             </div>
-           
+
           </div>
 
           {/* RIGHT – CARDS */}
@@ -134,14 +138,14 @@ export default function ServicesSection() {
 
                   {/* expanding bg */}
                   <div
-  className="absolute top-0 right-0
+                    className="absolute top-0 right-0
              h-28 w-28
              scale-100
              origin-top-right
              transition-all duration-700 ease-out
              group-hover:scale-x-[2]"
-  style={{ backgroundColor: service.arrow }}
-/>
+                    style={{ backgroundColor: service.arrow }}
+                  />
 
 
                   {/* arrow */}
@@ -172,9 +176,9 @@ export default function ServicesSection() {
 
                 {/* BOTTOM RIGHT DECORATIVE BG */}
                 <div
-  className="absolute bottom-0 right-0 h-28 w-28 z-0"
-  style={{ backgroundColor: service.bot_arrow }}
-/>
+                  className="absolute bottom-0 right-0 h-28 w-28 z-0"
+                  style={{ backgroundColor: service.bot_arrow }}
+                />
 
 
                 {/* CONTENT */}
@@ -185,7 +189,7 @@ export default function ServicesSection() {
                       alt={service.title}
                       width={110}
                       height={110}
-                      className={service.iconBorder? 'invert brightness-0 contrast-100' : ''}
+                      className={service.iconBorder ? 'invert brightness-0 contrast-100' : ''}
                     />
                   </div>
 
@@ -214,6 +218,9 @@ export default function ServicesSection() {
           </div>
 
         </div>
+      </div>
+      <div className="col-span-1 lg:col-span-2">
+        <div className="w-full h-px bg-[#D1D5DB] -mt-0.5" />
       </div>
     </section>
   )

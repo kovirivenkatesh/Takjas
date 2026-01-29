@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { ibmPlexSerif } from '@/app/fonts'
+import Link from 'next/link'
 
 export default function Aboutus() {
   const imageRef = useRef<HTMLDivElement | null>(null)
@@ -23,7 +24,7 @@ export default function Aboutus() {
   }, [])
 
   return (
-    <div className="w-full bg-[#1E3A75] py-24 -mt-8">
+    <div className="w-full bg-[#1E3A75] py-24 -mt-8 group">
       <div className="max-w-7xl mx-auto px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT IMAGE */}
@@ -66,28 +67,41 @@ export default function Aboutus() {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="text-white -mt-2">
+        <div className="text-white -mt-2 group">
           <p className="text-sm text-[#F5F5F5] mb-4">→ About Us</p>
 
           <h2
-            className={`
+  className={`
     text-3xl leading-snug font-semibold
     bg-clip-text text-transparent bg-no-repeat
-    transition-[background-position] duration-1500 ease-out
-    ${showQuote
-                ? 'bg-[linear-gradient(90deg,#B2B2B2_0%,#B2B2B2_50%,#ffffff_50%,#ffffff_100%)] bg-size-[200%_100%] bg-position-[0%_0%]'
-                : 'bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_100%)] bg-size-[100%_100%] bg-position-[100%_0%]'
-              }
+
+    /* Pink → White gradient */
+    bg-[linear-gradient(90deg,#F472B6_0%,#F472B6_50%,#ffffff_50%,#ffffff_100%)]
+
+    /* Large background for sliding */
+    bg-size-[200%_100%]
+
+    /* DEFAULT: show PINK */
+    bg-position-[0%_0%]
+
+    /* Smooth animation */
+    transition-[background-position] duration-1000
+    ease-[cubic-bezier(0.77,0,0.175,1)]
+
+    /* HOVER (entire section): turn WHITE */
+    group-hover:bg-position-[100%_0%]
   `}
-          >
+>
+  A business law firm with a dedicated focus on assisting founders,
+  start-ups and scale-ups, investors and executives.
+</h2>
 
-            A business law firm with a dedicated focus on assisting founders,
-            start-ups and scale-ups,investors and executives.
-          </h2>
+          <Link href="/aboutUs">
+            <button className="mt-8 bg-white text-[#1E3A75] px-6 py-2 text-sm font-medium rounded-md">
+              Know more
+            </button>
+          </Link>
 
-          <button className="mt-8 bg-white text-[#1E3A75] px-6 py-2 text-sm font-medium rounded-md">
-            Know more
-          </button>
 
           <div className='flex flex-col mt-10'>
             <p>Defined by our core values:</p>

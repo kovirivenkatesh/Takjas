@@ -5,6 +5,8 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import ServicesDropdown from "./components/Services/SerivceDropdown";
+import ClientScrollReset from "./components/ClientScrollReset";
+import Header from "./components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,68 +35,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* HEADER */}
-        <header className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
-          <div className="max-w-7xl mx-auto flex items-center justify-between px-16 py-4">
+      <Header />
 
-            {/* LOGO */}
-           <Link href="/" className="cursor-pointer">
-  <Image
-    src="/Images/logo.png"
-    alt="Company Logo"
-    width={113}
-    height={42}
-    priority
-  />
-</Link>
+        <ClientScrollReset>
+          {children}
+        </ClientScrollReset>
 
-            {/* NAV */}
-            <nav className="flex items-center gap-8 text-sm font-medium">
-              <Link href="/" className="text-[#000000]">
-                Home
-              </Link>
-              <Link href="/aboutUs" className="text-[#000000]">
-                About Us
-              </Link>
-              {/* SERVICES DROPDOWN */}
-<div className="relative group">
-  <Link href="/services" className="text-[#000000]">
-    Services
-  </Link>
-
-  {/* DROPDOWN */}
-  <div
-  className="
-    absolute left-1/2 -translate-x-1/2 top-full
-    mt-6 
-    opacity-0 invisible
-    -translate-y-5 scale-95
-    group-hover:opacity-100 group-hover:visible
-    group-hover:translate-y-3  group-hover:scale-100
-    transition-all duration-1000 ease-in-out
-    origin-top
-    
-  "
->
-
-   <ServicesDropdown />
-  </div>
-</div>
-
-              <Link href="/career" className="text-[#000000]">
-                Career
-              </Link>
-              <Link
-                href="/contact"
-                className="border border-[#193170] px-4 py-2 text-[#000000]"
-              >
-                Contact Us
-              </Link>
-            </nav>
-          </div>
-        </header>
-
-
-        {children}
 
       </body>
     </html>

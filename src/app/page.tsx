@@ -29,6 +29,14 @@ export default function Page() {
   }, [])
 
   useEffect(() => {
+  const timer = setTimeout(() => {
+    setCollapsed(true)
+  }, 300) // slight cinematic delay
+
+  return () => clearTimeout(timer)
+}, [])
+
+  useEffect(() => {
     if (animatingUp) {
       const t = setTimeout(() => {
         setAnimatingUp(false)
@@ -39,6 +47,7 @@ export default function Page() {
   }, [animatingUp])
 
   if (!mounted) return null
+
 
   return (
     <>
@@ -125,10 +134,10 @@ export default function Page() {
 
         {/* BLUE OVERLAY (unchanged logic) */}
         <section
-          className={`fixed top-18.5 left-0 w-full h-[calc(105vh-60px)] z-50 overflow-hidden
+  className={`fixed top-18.5 left-0 w-full h-[calc(105vh-60px)] z-50 overflow-hidden
     ${collapsed ? 'pointer-events-none' : ''}`}
-          onMouseEnter={() => setCollapsed(true)}
-        >
+>
+
           <div className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]
       transition-transform duration-2000 ease-in-out
       ${collapsed ? 'translate-y-full' : ''}`}

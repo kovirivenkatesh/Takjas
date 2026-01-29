@@ -33,7 +33,7 @@ const services = [
 
 export default function OurSolutionsSection() {
   return (
-    <section className="max-w-7xl mx-auto px-10 py-20">
+    <section className="max-w-7xl mx-8 px-10 py-20">
       {/* HEADER */}
       <p className="text-sm text-gray-500 mb-4">→ Our Solutions</p>
 

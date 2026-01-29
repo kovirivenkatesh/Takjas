@@ -33,7 +33,7 @@ const services = [
 
 export default function OurSolutionsSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section className="max-w-7xl mx-8 px-6 py-20">
       {/* HEADER */}
       <p className="text-sm text-gray-500 mb-4">→ Our Solutions</p>
 
@@ -78,7 +78,7 @@ export default function OurSolutionsSection() {
                 <div className="relative flex-1 px-10 py-8 bg-[#F5F5F5] group-hover:bg-white">
                   {/* SKY BLUE FLOW RIGHT ON HOVER */}
                   <div
-                    className="absolute inset-y-0 left-0 w-full bg-[#EAF1FF] scale-x-0 group-hover:scale-x-50 origin-left transition-transform duration-2500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                    className="absolute inset-y-0 left-0 w-full bg-[#EAF1FF] scale-x-0 group-hover:scale-x-40 origin-left transition-transform duration-2500 ease-[cubic-bezier(0.22,1,0.36,1)]"
 
                   />
 
@@ -109,7 +109,7 @@ export default function OurSolutionsSection() {
 
             <div className="relative z-10 flex flex-col">
               {/* HEADER */}
-              <div className="bg-[#193170] text-white px-6 py-3">
+              <div className="bg-[#193170] text-white px-6 py-4">
                 <h3 className={`text-lg mb-1 ${ibmPlexSerif.className} `}>Begin Your Inquiry</h3>
                 <p className="text-sm opacity-80">
                   Talk to an M&A specialist for quick, secure communication.
@@ -125,7 +125,7 @@ export default function OurSolutionsSection() {
                     {label === "Message" ? (
                       <textarea
                         placeholder={label}
-                        className="relative z-10 w-full h-24 resize-none px-4 py-3 bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] placeholder-[#5E6784] outline-none"
+                        className="relative z-10 w-full h-26 resize-none px-4 py-3 bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] placeholder-[#5E6784] outline-none"
                       />
                     ) : (
                       <input

@@ -33,7 +33,7 @@ const services = [
 
 export default function OurSolutionsSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section className="max-w-7xl mx-8 px-6 py-20">
       {/* HEADER */}
       <p className="text-sm text-gray-500 mb-4">→ Our Solutions</p>
 
@@ -109,7 +109,7 @@ export default function OurSolutionsSection() {
 
             <div className="relative z-10 flex flex-col">
               {/* HEADER */}
-              <div className="bg-[#193170] text-white px-6 py-3">
+              <div className="bg-[#193170] text-white px-6 py-5">
                 <h3 className={`text-lg mb-1 ${ibmPlexSerif.className} `}>Begin Your Inquiry</h3>
                 <p className="text-sm opacity-80">
                   Talk to an M&A specialist for quick, secure communication.

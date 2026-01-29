@@ -1,6 +1,62 @@
+'use client'
+
 import { ibmPlexSerif } from "@/app/fonts";
+import { useEffect, useRef, useState } from "react";
 
 export default function MissionVisionSection() {
+const [hasEntered, setHasEntered] = useState(false);
+const [stripTop, setStripTop] = useState(20);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const missionRef = useRef<HTMLDivElement>(null);
+  const visionRef = useRef<HTMLDivElement>(null);
+
+  const [active, setActive] = useState<"mission" | "vision">("mission");
+
+ useEffect(() => {
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!hasEntered || !missionRef.current || !visionRef.current || !containerRef.current) return;
+
+    const y = e.clientY;
+    const containerTop = containerRef.current.getBoundingClientRect().top;
+
+    const missionTop = missionRef.current.getBoundingClientRect().top - containerTop;
+    const visionTop = visionRef.current.getBoundingClientRect().top - containerTop;
+
+    if (y < visionRef.current.getBoundingClientRect().top) {
+      setActive("mission");
+      setStripTop(missionTop);
+    } else {
+      setActive("vision");
+      setStripTop(visionTop);
+    }
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+  return () => window.removeEventListener("mousemove", handleMouseMove);
+}, [hasEntered]);
+
+  useEffect(() => {
+  if (!containerRef.current || !missionRef.current) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        const missionRect = missionRef.current!.getBoundingClientRect();
+        const containerRect = containerRef.current!.getBoundingClientRect();
+
+        setStripTop(missionRect.top - containerRect.top);
+        setHasEntered(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(containerRef.current);
+
+  return () => observer.disconnect();
+}, []);
+
   return (
     <section className="bg-white py-32 -mt-40">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 ml-10">
@@ -33,34 +89,80 @@ export default function MissionVisionSection() {
         </div>
 
         {/* RIGHT BLUE CONTENT */}
-        <div className="bg-[#193170] px-16 py-24">
+         <div
+          ref={containerRef}
+          className="relative bg-[#193170] px-16 py-24"
+        >
+        
+      {/* BLUE STRIP */}
+<div
+  className={`
+    absolute -left-2 w-2 bg-[#0b2e7a]
+    transition-all duration-1500 ease-out
+    ${hasEntered ? "opacity-100" : "opacity-0"}
+  `}
+  style={{
+    height: "257px",
+    top: stripTop,
+
+  }}
+/>
+
 
           {/* MISSION */}
-          <div className="mb-40">
-            <p className="text-md tracking-wide text-[#F5F5F5] mb-6">
-             → Our Mission
+          <div ref={missionRef} className="mb-40 pl-6">
+            <p className="text-sm tracking-wide mb-6 text-[#F5F5F5]">
+              → Our Mission
             </p>
-            <p className={`text-2xl leading-relaxed text-[#B2B2B2] max-w-md ${ibmPlexSerif.className}`}>
+
+            <p
+  className={`
+    relative text-2xl leading-relaxed max-w-md
+    ${ibmPlexSerif.className}
+
+    text-transparent
+    bg-clip-text
+    transition-[background-position] duration-1500 ease-out
+
+    ${
+      active === "mission"
+        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-left"
+        : "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-right"
+    }
+  `}
+>
+        
               A business law firm with a dedicated focus on assisting founders,
-              start-ups and scale-ups, investors and executives. We give the
-              highest priority to our clients’ peace of mind by being responsive,
-              empathetic and business-savvy problem solvers and project managers.
+              start-ups and scale-ups, investors and executives.
             </p>
           </div>
 
           {/* VISION */}
-          <div>
-            <p className="text-md tracking-wide text-[#F5F5F5] mb-6">
+          <div ref={visionRef} className="pl-6">
+            <p className="text-sm tracking-wide mb-6 text-[#F5F5F5]">
               → Our Vision
             </p>
-            <p className={`text-2xl leading-relaxed text-[#B2B2B2] max-w-md ${ibmPlexSerif.className}`}>
+
+         <p
+  className={`
+    relative text-2xl leading-relaxed max-w-md
+    ${ibmPlexSerif.className}
+
+    text-transparent
+    bg-clip-text
+    transition-[background-position] duration-1500 ease-out
+
+    ${
+      active === "vision"
+        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-left"
+        : "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-right"
+    }
+  `}
+>
               We aim to set the standard for business-focused legal counsel in the
-              European digital economy. Our goal is to be a strategic partner for
-              founders and investors, using our legal expertise and operational
-              insight to reduce friction and support their ambitious growth.
+              European digital economy.
             </p>
           </div>
-
         </div>
       </div>
     </section>
