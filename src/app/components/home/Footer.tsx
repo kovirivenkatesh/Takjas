@@ -85,7 +85,7 @@ export default function FooterSection() {
 
   return (
     <div className="mt-33.75 ">
-    <section className="relative w-full bg-[#1b3470] text-white  overflow-hidden group">
+    <section className="relative bg-[#1b3470] text-white  overflow-hidden group">
   
   {/* ===== BLUE CURTAIN (RIGHT HALF) ===== */}
   <div
@@ -93,7 +93,7 @@ export default function FooterSection() {
 
   />
 
-  <div className=" mx-20.75 relative max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5">
+  <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5">
 
     {/* ===== LEFT CONTENT ===== */}
     <div className="flex flex-col justify-between">
@@ -267,7 +267,7 @@ export default function FooterSection() {
 <footer className="bg-white mt-13  ">
 
   {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
-  <div className="relative overflow-hidden group  min-h-105">
+  <div className="relative overflow-hidden group  ">
 
     {/* TAKJAS WATERMARK IMAGE */}
    <Image

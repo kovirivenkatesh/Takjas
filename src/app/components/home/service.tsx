@@ -99,17 +99,17 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto pl-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-auto">
+    <section className=" bg-white">
+      <div className="">
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
 
          
          {/* LEFT – STICKY */}
 <div className="relative">
-  <div className="sticky top-0 flex items-center h-183.5">
+  <div className="sticky top-0    h-183.5">
 
     {/* LEFT CARD */}
-    <div className="h-183.5 pl-21.25 pt-35.25 max-w-md ">
+    <div className="h-183.5 px-21.25 pt-35.25 ">
       <p className="text-[16px] mb-[16.5px]">→ Our Services</p>
 
       <h2
@@ -185,7 +185,7 @@ export default function ServicesSection() {
 
 
                 {/* CONTENT */}
-                <div className="relative z-10 pl-16 max-w-md">
+                <div className="relative z-10 pl-16 ">
                   <div className="mb-7.25 ml-[59.65px]">
                     <Image
                       src={service.icon}
@@ -200,11 +200,11 @@ export default function ServicesSection() {
                     {service.title}
                   </h3>
 
-                  <p className={`text-[20px] pl-14.75  mb-8.5 ${service.desc_color}`}>
+                  <p className={`text-[20px] px-14.75  mb-8.5 ${service.desc_color}`}>
                     {service.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 ml-14.75">
+                  <div className="flex flex-wrap gap-2 ml-14.75 mr-50">
                     {service.tags.map(tag => (
                       <span
                         key={tag}
