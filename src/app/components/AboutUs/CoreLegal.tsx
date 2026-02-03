@@ -6,31 +6,31 @@ const items = [
     {
         image: "/Images/venture.png",
         label: "Venture Capital & Financing",
-        size: 52,
+        size: 60,
         msg: 'We manage the legal execution of financing rounds, venture debt, and convertible loan agreements to secure your path to growth.'
     },
     {
         image: "/Images/M&A.png",
         label: "M&A and Corporate Structuring",
-        size: 36,
+        size: 40,
         msg: 'Expert counsel for mergers, acquisitions, and corporate spin-offs, ensuring your structure is legally optimized and always transaction-ready.'
     },
     {
         image: "/Images/risk.png",
         label: "Risk & Special Situations",
-        size: 36,
+        size: 40,
         msg: 'Proactive legal strategy for complex disputes, including specialized advice on liability, risk assessment, and crisis management.'
     },
     {
         image: "/Images/incentives.png",
         label: "Incentives & Employment",
-        size: 36,
+        size: 40,
         msg: 'Proactive legal strategy for complex disputes, including specialized advice on liability, risk assessment, and crisis management.'
     },
     {
         image: "/Images/privacy.png",
         label: "Privacy & Compliance",
-        size: 36,
+        size: 40,
         msg: 'Establishing robust compliance frameworks and navigating complex regulatory requirements, with specific expertise in GDPR and data privacy.'
     },
 ];
@@ -38,13 +38,13 @@ const items = [
 
 export default function CoreLegalCompetence() {
     return (
-        <section className="w-6xl mx-10 px-6 py-12 text-[#2C2C2C]">
-            <p className="text-sm text-slate-500 mb-2">
+        <section className="mt-32.25 text-[#2C2C2C] pl-22.5  pr-21.25">
+            <p className="text-[16px] text-slate-500 mb-2.25">
                 → Our Core Legal Competence
             </p>
 
             <h2
-                className={`text-2xl md:text-3xl max-w-3xl leading-snug mb-10 font-semibold ${ibmPlexSerif.className}`}
+                className={`text-[36px]  text-[#2C2C2C]   mb-18.75  leading-13.75 font-medium ${ibmPlexSerif.className}`}
             >
                 Specialized counsel built on deep transactional expertise across the
                 entire growth lifecycle.
@@ -62,15 +62,15 @@ export default function CoreLegalCompetence() {
 
                         >
 
-                            <div className="flex items-start gap-6">
+                            <div className="flex items-start gap-6.5">
                                 <div className="relative">
                                     {/* Animated bar */}
                                     <div
-                                        className="absolute top-0 left-16 h-2 bg-[#193170] w-14 transition-all duration-700 ease-in-out group-hover:translate-x-150   group-hover:w-110   "
+                                        className="absolute top-0 left-14 h-2 bg-[#193170] w-13 transition-all duration-700 ease-in-out group-hover:translate-x-144   group-hover:w-115   "
                                     />
 
                                     {/* Icon box */}
-                                    <div className="w-20 h-20 bg-[#193170] flex items-center justify-center ">
+                                    <div className="w-22 h-22 bg-[#193170] flex items-center justify-center mb-15.5 ">
                                         <div
                                             className="relative"
                                             style={{ width: item.size, height: item.size }}
@@ -86,7 +86,7 @@ export default function CoreLegalCompetence() {
                                 </div>
 
                                 <span
-                                    className={`text-2xl text-[#193170] mt-7 ${ibmPlexSerif.className}`}
+                                    className={`text-[32px]  leading-7.75 text-[#193170] mt-7.75 ${ibmPlexSerif.className}`}
                                 >
                                     {item.label}
                                 </span>
@@ -94,7 +94,7 @@ export default function CoreLegalCompetence() {
 
                             {/* Message */}
                             <div
-                                className="absolute top-5 -right-2 opacity-0 -translate-y-4 scale-95 group-hover:opacity-100 group-hover:translate-y-2 group-hover:scale-100 transition-all duration-300 ease-out delay-250 text-[#606060] text-sm leading-relaxed max-w-md z-20"
+                                className="absolute top-5 right-2 opacity-0 -translate-y-4 scale-95 group-hover:opacity-100 group-hover:translate-y-2 group-hover:scale-100 transition-all duration-300 ease-out delay-250 text-[#606060] text-[18px] leading-6.25 max-w-md z-20"
 
                             >
                                 {item.msg}

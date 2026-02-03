@@ -32,42 +32,45 @@ const coreValues = [
 
 export default function CoreValues() {
   return (
-    <section className="max-w-7xl px-6 mx-10">
-      <p className="text-sm mb-4">→ Our Core Values</p>
+    <div className=" mt-32.25">
+      <div className="pl-22.5  pr-21.25">
+         <p className="text-[16px] mb-2.25">→ Our Core Values</p>
 
       <h2
-        className={`text-4xl font-semibold mb-12 max-w-3xl text-[#2C2C2C] ${ibmPlexSerif.className}`}
+        className={`text-[55px] font-medium mb-18.75 leading-17.75  text-[#2C2C2C] ${ibmPlexSerif.className}`}
       >
         The foundational pillars that define every client interaction and legal
         strategy.
       </h2>
+      </div>
+     
 
       {/* ================= CORE VALUES ================= */}
-      <div className="grid grid-cols-1 md:grid-cols-4">
+      <div className="grid grid-cols-4 ml-22.5  mr-21.25">
         {coreValues.map((item, index) => (
           <div
             key={index}
-            className="group relative overflow-hidden border border-[#0000004D] bg-white h-70 p-6"
+            className="group relative overflow-hidden border border-[#0000004D] bg-white  w-76.25 h-81 pt-5.25"
           >
             {/* animated blue layer */}
             <div className="absolute top-0 left-0 h-2 w-20 bg-[#1E3A8A] transition-all duration-500 ease-in-out group-hover:w-full group-hover:h-full origin-top-left" />
 
             {/* content */}
-            <div className="relative z-10 h-full">
+            <div className="relative z-10">
               <h3
-                className={`text-xl font-semibold mb-2 text-[#193170] transition-colors duration-300 group-hover:text-white ${ibmPlexSerif.className}`}
+                className={`text-[32px] font-medium mb-4.5  px-6 text-[#193170] transition-colors duration-300 group-hover:text-white ${ibmPlexSerif.className}`}
               >
                 {item.title}
               </h3>
 
-              <p className="text-sm leading-relaxed opacity-90 transition-colors duration-300 group-hover:text-white">
+              <p className="text-[16px] leading-5.75 px-10 text-[#4A4A4A] transition-colors duration-300 group-hover:text-white">
                 {item.description}
               </p>
             </div>
 
             {/* bottom-left image box */}
-            <div className="absolute bottom-0 left-0 w-20 h-20 bg-[#CEDBFF80] flex items-center justify-center transition-colors duration-300 group-hover:bg-white z-10">
-              <div className="relative w-12 h-12">
+            <div className="absolute bottom-0 left-0 w-27.5 h-24.25 bg-[#CEDBFF80] flex items-center justify-center transition-colors duration-300 group-hover:bg-white z-10">
+              <div className="relative w-16.25 h-16.25">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -81,47 +84,53 @@ export default function CoreValues() {
       </div>
 
       {/* ================= IMAGE SECTION ================= */}
-      <div className="relative mt-10 w-full overflow-hidden group">
+  <div className="relative mt-32.25 w-full overflow-hidden group">
+
+        {/* IMAGE */}
         <img
           src="/Images/GetInTouch.jpg"
           alt="Legal discussion"
-          className="w-full h-130 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+          className=" w-360 h-144 object-cover transition-transform duration-700 ease-in-out  group-hover:scale-110"
+    
         />
 
+        {/* MAIN DARK BLUE OVERLAY */}
         <div className="absolute inset-0 bg-[#0f1f4a]/70" />
 
-        <div className="absolute inset-0 p-10">
-          <div className="absolute top-0 left-0 bg-white/20 h-20 w-40 p-3">
-            <div className="w-10 h-10 bg-white flex items-center justify-center ml-8">
-              <span className="text-[#193170] font-bold">T</span>
+        {/* CONTENT WRAPPER */}
+        <div className="absolute inset-0 flex flex-col justify-between p-10">
+
+
+          {/* TOP-LEFT LOGO WRAPPER — ATTACHED TO IMAGE */}
+          <div className="absolute top-0 left-0 bg-white/20 w-97.5 h-31 mb-43.5">
+            <div className="w-7.5 h-7.75 bg-white flex items-center justify-center ml-23.5 mt-12.25 mb-11">
+              <span className={`text-[#193170] font-medium text-[22px] ${ibmPlexSerif.className}`}>T</span>
             </div>
           </div>
 
-          <div className="max-w-xl mt-60">
-            <h2
-              className={`text-white text-4xl font-semibold leading-tight ${ibmPlexSerif.className}`}
-            >
+
+          {/* 🔹 CENTER-LEFT TEXT */}
+          <div className="max-w-xl mt-60 ml-20.75">
+            <h2 className={`text-white text-[48px] font-bold leading-16.75 ${ibmPlexSerif.className}`}>
               Legal certainty is the foundation
-              <br />
               of operational confidence.
             </h2>
 
-            <p className="mt-4 text-white/80 text-md">
+            <p className=" text-[#FFFFFF] text-[16px] leading-5.75">
               We uphold uncompromising standards of integrity and transparency.
               Our proactive approach ensures every strategy is guided by clear
               commercial objectives and prompt, decisive communication.
             </p>
           </div>
 
-          <div className="absolute bottom-0 right-0 bg-white/20 h-20 w-48 p-3">
-            <div className="bg-white px-4 py-2 mt-3 ml-10">
-              <span className="text-[#193170] font-bold">
-                Get in touch
-              </span>
+          {/* BOTTOM-RIGHT BUTTON WRAPPER — ATTACHED TO IMAGE */}
+          <div className="absolute bottom-0 right-0 bg-white/20 w-97 h-40 flex ">
+            <div className=" bg-white  w-40 h-10 flex items-center justify-center  mx-26 my-16">
+              <span className="text-[#193170]  text-[17px]">Get in touch</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

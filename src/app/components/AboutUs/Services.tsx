@@ -58,28 +58,28 @@ const [stripTop, setStripTop] = useState(20);
 }, []);
 
   return (
-    <section className="bg-white py-32 -mt-40">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 ml-10">
+    <section className="bg-white mt-16 pl-22.5">
+      <div className="  grid grid-cols-1 md:grid-cols-2 gap-10 ">
 
         {/* LEFT STICKY CARD */}
         <div className="relative">
-          <div className="sticky top-32">
+          <div className="sticky top-16 ">
             <div className="bg-[white]">
 
               {/* IMAGE */}
               <img
                 src="/Images/aboutus.png"
                 alt="Team"
-                className="w-full object-cover"
+                className="w-173 h-123 object-cover mb-3.5"
               />
 
               {/* QUOTE BOX */}
-              <div className="border border-[#193170] bg-[#E4ECFF] px-5 py-4 mt-3">
-                <p className={`text-lg text-[#193170] leading-snug  font-semibold ${ibmPlexSerif.className}
+              <div className="border border-[#193170] bg-[#E4ECFF] pt-4.75 pb-4.5 pl-5 pr-6.5 mb-2 ">
+                <p className={`text-[20px] text-[#193170] leading-6  font-medium mb-2 ${ibmPlexSerif.className}
             `}>
                   “Our expertise eliminates friction and secures the<br/> transaction.”
                 </p>
-                <span className="block text-xs text-gray-500 mt-2">
+                <span className="block text-[12px] text-gray-500 leading-6">
                   — Philip S. Taube, Co-Founder, Partner, Managing Director
                 </span>
               </div>
@@ -110,14 +110,14 @@ const [stripTop, setStripTop] = useState(20);
 
 
           {/* MISSION */}
-          <div ref={missionRef} className="mb-40 pl-6">
-            <p className="text-sm tracking-wide mb-6 text-[#F5F5F5]">
+          <div ref={missionRef} className="pt-27.75 pl-9.25 pr-22">
+            <p className="text-[20px] tracking-wide leading-6.25 mb-6.5 text-[#F5F5F5]">
               → Our Mission
             </p>
 
             <p
   className={`
-    relative text-2xl leading-relaxed max-w-md
+    relative text-[32px]  mb-71.25
     ${ibmPlexSerif.className}
 
     text-transparent
@@ -138,14 +138,14 @@ const [stripTop, setStripTop] = useState(20);
           </div>
 
           {/* VISION */}
-          <div ref={visionRef} className="pl-6">
-            <p className="text-sm tracking-wide mb-6 text-[#F5F5F5]">
+          <div ref={visionRef} className="pl-9.25 pr-22">
+            <p className="text-[20px] tracking-wide leading-6.25 mb-6.5 text-[#F5F5F5]">
               → Our Vision
             </p>
 
          <p
   className={`
-    relative text-2xl leading-relaxed max-w-md
+    relative  text-[32px]  leading-relaxed max-w-md
     ${ibmPlexSerif.className}
 
     text-transparent

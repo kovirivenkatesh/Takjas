@@ -50,47 +50,47 @@ const people = [
   {
     name: "Philipp S. Takjas",
     role: "Co-Founder, Partner, Managing \n Director (MD)",
-    className: "left-8 bottom-16",
+    className: "left-[31px] bottom-[79px] w-[241px] h-[94px]",
   },
   {
     name: "Ben L. Elleser",
     role: "Junior Lawyer",
-    className: "left-[32%] top-[45%]",
+    className: "left-[357px] bottom-[256px] w-[200px] h-[66px]",
   },
   {
     name: "Amarjot S. Mashon",
     role: "Junior Lawyer",
-    className: "left-[55%] top-[45%]",
+    className: "left-[743px] bottom-[205px] w-[200px] h-[66px]",
   },
   {
     name: "Bruno Trommer",
     role: "Junior Lawyer",
-    className: "right-8 bottom-14",
+    className: "right-[23px] bottom-[13px] w-[200px] h-[66px]",
   },
 ];
 
 export default function OurTeam() {
   return (
-    <section className="max-w-7xl ml-10 px-6 pt-20">
-      <p className="text-sm text-black mb-3">→ Our Team</p>
+    <section className="mt-32.25 pl-22.5 pr-21">
+      <p className="text-[16px] text-black mb-2.25">→ Our Team</p>
 
       <h2
-        className={`text-3xl md:text-4xl max-w-3xl mb-16 font-semibold ${ibmPlexSerif.className}`}
+        className={`text-[55px] mr-21.25 leading-17.75 text-[#2C2C2C]  mb-16 font-medium ${ibmPlexSerif.className}`}
       >
         Meet the legal strategists who drive your business forward
       </h2>
 
       {/* ROW */}
-      <div className="flex items-start gap-8 overflow-visible">
+      <div className="flex items-start gap-5 overflow-visible">
         {team.map((member, i) => (
           <div
             key={i}
-            className={`relative  group  flex flex-none bg-[#1E3A8A] transition-all duration-500 ease-in-out h-110 overflow-hidden
+            className={`relative  group  flex  flex-none p-2 bg-[#1E3A8A] transition-all duration-500 ease-in-out h-126.5  overflow-hidden
 ${i === 0
-                ? "w-68 hover:w-230"
+                ? "w-67 hover:w-200.5"
                 : i >= 2
-                  ? `flex-row-reverse w-68 hover:w-125 `
-                  : "w-68 hover:w-125"
+                  ? `flex-row-reverse w-67  hover:w-139.5 `
+                  : "w-67 hover:w-139.5"
               }
 
 `}
@@ -102,11 +102,11 @@ ${i === 0
             <div className="relative w-63 shrink-0 h-full ">
               {/* IMAGE HEIGHT CONTROLLER */}
               <div
-                className=" absolute top-2 left-2.5 w-full h-85 group-hover:h-105 transition-[height] duration-500 ease-in-out  "
+                className="  w-full h-96 group-hover:h-122.25 transition-[height] duration-500 ease-in-out  "
               >
                 {/* PADDING LAYER */}
                 <div
-                  className={`relative w-full h-full ${i >= 2 ? "right-5" : ""}`}
+                  className={`relative w-full h-full `}
                 >
 
                   {/* IMAGE WRAPPER */}
@@ -123,20 +123,13 @@ ${i === 0
 
               {/* BOTTOM TEXT */}
               <div
-                className={`absolute left-0 w-full p-4 text-white transition-opacity duration-300 group-hover:opacity-0
-    ${i === 0
-                    ? "bottom-0"
-                    : i === 1
-                      ? "bottom-5 pr-2"
-                      : "bottom-5 -ml-6"
-                  }
-
+                className={`w-full mt-3 text-white transition-opacity duration-300 group-hover:opacity-0
   `}
               >
-                <h3 className={`text-lg ${ibmPlexSerif.className}`}>
+                <h3 className={`text-[24px]  leading-6.25 mb-1.25 font-semibold ${ibmPlexSerif.className}`}>
                   {member.name}
                 </h3>
-                <p className={`text-sm text-white/80 whitespace-pre-line ${ibmPlexSerif.className}`}>
+                <p className={`text-[16px] leading-5.5 mb-6 text-[#D4D4D4]  ${ibmPlexSerif.className}`}>
                   {member.role}
                 </p>
               </div>
@@ -145,38 +138,43 @@ ${i === 0
 
             {/* RIGHT DETAIL PANEL */}
             <div
-              className={`flex-1 p-6 text-white opacity-0 pointer-events-none transition-all duration-500
+              className={`flex-1  mt-10 opacity-0 pointer-events-none transition-all duration-500
     ${i >= 2
-                  ? "-translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto"
-                  : "translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto"
+                  ? "-translate-x-6 mr-5.75 ml-3.75 group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto"
+                  : "translate-x-6 ml-5.75 group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto"
                 }
   `}
             >
 
 
-              <h3 className={`text-xl mb-1 ${ibmPlexSerif.className}`}>
+              <h3 className={`text-[24px] leading-6.25 text-[#FFFFFF] mb-1.25 ${ibmPlexSerif.className}`}>
                 {member.name}
               </h3>
 
-              <p className={`text-sm text-[#D4D4D4] mb-4 ${ibmPlexSerif.className}`}>
+              <p className={`text-[16px] text-[#D4D4D4] leading-5.5 mb-2.75 ${ibmPlexSerif.className} `}>
                 {member.role}
               </p>
 
-              <div className="flex gap-6 text-md mb-4">
-                <span className="flex items-center gap-2 text-[#D4D4D4]">
-                  <GraduationCap size={20} /> {member.degree}
+              <div className="flex gap-6  mb-2.75">
+                <span className="flex items-center gap-2 text-[#D4D4D4] text-[16px]">
+                  <GraduationCap size={25} /> {member.degree}
                 </span>
                 <span className="flex items-center gap-2 text-[#D4D4D4]">
-                  <MapPin size={20} /> {member.location}
+                  <MapPin size={25} /> {member.location}
                 </span>
               </div>
 
-              <p className="text-sm leading-relaxed text-[#DADADA]">
+              <p className={`text-[15px] leading-6 text-[#DADADA]
+               ${i >= 1
+                  ? "mb-24.75"
+                  : "mb-6"
+                }
+              `}>
                 {member.bio}
               </p>
 
               {member.highlights && member.highlights.length > 0 && (
-                <ul className="text-sm text-[#DADADA] space-y-2 list-disc list-outside mt-5 ml-4">
+                <ul className="text-[15px] text-[#DADADA] space-y-2 leading-6 list-disc list-outside mt-5 ml-3">
                   {member.highlights.map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
@@ -188,14 +186,14 @@ ${i === 0
         ))}
       </div>
 
-      <div className="relative h-120 w-full overflow-hidden mt-12 group">
+      <div className="relative h-163 w-full overflow-hidden mt-32.25 group">
         {/* IMAGE */}
         <Image
           src="/Images/clients.png"
           alt="Team"
           fill
           priority
-          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+          className="object-cover  transition-transform  duration-700 ease-in-out group-hover:scale-105"
         />
 
         {/* BLUE MASK (INITIAL STATE) */}
@@ -205,13 +203,13 @@ ${i === 0
 
         {/* TAKJAS IMAGE */}
         <div
-          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 -ml-16 mt-32 flex justify-center transition-all duration-1500 ease-in-out group-hover:top-full group-hover:translate-y-0`}
+          className={`absolute bottom-1 translate-y-1 ml-73 mr-69.25  transition-all duration-1500 ease-in-out  group-hover:-bottom-full group-hover:translate-y-0`}
         >
           <Image
             src="/Images/takjas.png"   // <-- your image
             alt="Takjas"
-            width={600}                     // adjust size
-            height={90}
+            width={715}                     // adjust size
+            height={266}
             priority
             className="object-contain"
           />
@@ -221,13 +219,13 @@ ${i === 0
         {people.map((p, i) => (
           <div
             key={i}
-            className={`absolute ${p.className} bg-[#193170] text-white px-6 py-4 scale-0 origin-center transform-gpu will-change-transform transition-transform duration-2000 ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 group-hover:scale-100 shadow-lg flex flex-col items-center justify-center text-center whitespace-pre-line ${ibmPlexSerif.className}`}
+            className={`absolute ${p.className} bg-[#193170] text-white  scale-0 origin-center transform-gpu will-change-transform transition-transform duration-2000 ease-[cubic-bezier(0.22,1,0.36,1)] delay-200 group-hover:scale-100 shadow-lg flex flex-col    ${ibmPlexSerif.className}`}
 
           >
-            <p className="text-md leading-tight">
+            <p className="text-[16px] leading-6.25 flex justify-center font-semibold mb-1 pt-2.25">
               {p.name}
             </p>
-            <p className="text-sm text-[#D4D4D4] leading-tight">
+            <p className="text-[14px] text-[#D4D4D4] flex justify-center text-center  ml-3.5 mr-5.5 mb-2.25 leading-5.5">
               {p.role}
             </p>
           </div>

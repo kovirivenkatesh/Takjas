@@ -11,20 +11,20 @@ const values = [
 
 export default function CoreValuesSection() {
   return (
-    <div className='mt-28'>
-      <section className="space-y-12  px-10">
-        <p className="text-sm mb-4">→ Our Core Values</p>
-        <h1 className={`text-5xl ${ibmPlexSerif.className}`}>The foundational pillars that define every client interaction and legal strategy.</h1>
+    <div className='mt-33.75'>
+      <section className="  ml-21.25 mr-10.75">
+        <p className="text-[16px] mb-2">→ Our Core Values</p>
+        <h1 className={`text-[55px] font-medium leading-17.75 text-[#2C2C2C] mb-18.75 ${ibmPlexSerif.className}`}>The foundational pillars that define every client interaction and legal strategy.</h1>
 
         {/* ===== TOP BUTTONS ===== */}
-        <div className="flex border border-gray-300 bg-white w-full max-w-4xl">
+        <div className="flex border border-[#0000004D] bg-white w-full max-w-5xl">
           {values.map((item, index) => (
             <button
               key={index}
               className="
         relative overflow-hidden
-        flex-1
-        px-6 py-4
+       w-64
+        px-6 py-5.25
         border-r last:border-r-0
         group
 
@@ -36,10 +36,10 @@ export default function CoreValuesSection() {
               <span
                 className="
           absolute top-0 left-0
-          w-10 h-0.75
+          w-22.25 h-2
           bg-[#1f3a8a]
           transition-all duration-600
-          ease-[cubic-bezier(0.77,0,0.175,1)]
+          ease-in-out
           group-hover:w-full
           group-hover:h-full
         "
@@ -49,9 +49,9 @@ export default function CoreValuesSection() {
               <span
                 className={`
           relative z-10
-          text-[#193170] font-semibold
+          text-[#193170] font-medium
           transition-colors duration-300
-          group-hover:text-white
+          group-hover:text-white text-[28px]
           ${ibmPlexSerif.className}
         `}
               >
@@ -64,14 +64,14 @@ export default function CoreValuesSection() {
 
 
       {/* ===== IMAGE SECTION ===== */}
-      <div className="relative mt-24 w-full overflow-hidden group">
+      <div className="relative mt-33.75 w-full overflow-hidden group">
 
         {/* IMAGE */}
         <img
           src="/Images/GetInTouch.jpg"
           alt="Legal discussion"
           className="
-      w-full h-130 object-cover
+      w-360 h-144 object-cover
       transition-transform duration-700 ease-in-out
       group-hover:scale-110
     "
@@ -85,22 +85,21 @@ export default function CoreValuesSection() {
 
 
           {/* TOP-LEFT LOGO WRAPPER — ATTACHED TO IMAGE */}
-          <div className="absolute top-0 left-0 bg-white/20 w-xs h-20 flex items-start p-3">
-            <div className="w-10 h-10 bg-white flex items-center justify-center ml-12">
-              <span className="text-[#193170] font-bold">T</span>
+          <div className="absolute top-0 left-0 bg-white/20 w-97.5 h-31 mb-43.5">
+            <div className="w-7.5 h-7.75 bg-white flex items-center justify-center ml-23.5 mt-12.25 mb-11">
+              <span className={`text-[#193170] font-medium text-[22px] ${ibmPlexSerif.className}`}>T</span>
             </div>
           </div>
 
 
           {/* 🔹 CENTER-LEFT TEXT */}
-          <div className="max-w-xl mt-60">
-            <h2 className={`text-white text-4xl font-semibold leading-tight ${ibmPlexSerif.className}`}>
+          <div className="max-w-xl mt-60 ml-20.75">
+            <h2 className={`text-white text-[48px] font-bold leading-16.75 ${ibmPlexSerif.className}`}>
               Legal certainty is the foundation
-              <br />
               of operational confidence.
             </h2>
 
-            <p className="mt-4 text-white/80 text-md">
+            <p className=" text-[#FFFFFF] text-[16px] leading-5.75">
               We uphold uncompromising standards of integrity and transparency.
               Our proactive approach ensures every strategy is guided by clear
               commercial objectives and prompt, decisive communication.
@@ -108,9 +107,9 @@ export default function CoreValuesSection() {
           </div>
 
           {/* BOTTOM-RIGHT BUTTON WRAPPER — ATTACHED TO IMAGE */}
-          <div className="absolute bottom-0 right-0 bg-white/20 w-xs h-20 flex items-start p-3">
-            <div className=" bg-white flex items-center justify-center p-2 mt-3 ml-20">
-              <span className="text-[#193170] font-bold">Get in touch</span>
+          <div className="absolute bottom-0 right-0 bg-white/20 w-97 h-40 flex ">
+            <div className=" bg-white  w-40 h-10 flex items-center justify-center  mx-26 my-16">
+              <span className="text-[#193170]  text-[17px]">Get in touch</span>
             </div>
           </div>
         </div>

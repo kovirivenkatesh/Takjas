@@ -18,13 +18,13 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <div className="relative w-full flex">
+    <div className="relative  ml-22 flex gap-18 ">
       {/* LEFT SECTION */}
-      <div className="relative w-1/2 bg-white flex flex-col justify-center px-16 py-24 mt-16">
-        <p className="text-sm mb-4 text-[#5E6784]">
+      <div className="relative w-163  bg-white flex flex-col  mt-29.5">
+        <p className="text-[16px]  text-[#5E6784] mb-5.25">
   <Link
     href="/"
-    className="hover:text-[#193170] transition-colors"
+    className="hover:text-[#193170]  transition-colors"
   >
     Home
   </Link>
@@ -43,7 +43,7 @@ export default function AboutSection() {
         >
           <h2
             className={`
-              text-[clamp(3rem,4vw,3.75rem)] font-semibold mt-10 leading-16
+              text-[65px] font-medium leading-20  mb-6
               ${ibmPlexSerif.className}
             `}
           >
@@ -51,18 +51,18 @@ export default function AboutSection() {
           </h2>
         </div>
 
-        <p className="text-[#5E6784] mb-6 max-w-md mt-6 text-sm">
+        <p className="text-[#5E6784] mb-10.75 max-w-md text-[16px] leading-6.25">
           We are an integrated legal practice committed to ensuring certainty
           and compliance throughout the complex digital economy lifecycle.
         </p>
 
-        <button className="w-fit px-6 py-3 bg-[#193170] text-white">
+        <button className="w-45.25 h-12.15 px-6 py-3 bg-[#193170] text-white mb-29.5">
           Get in touch
         </button>
       </div>
 
       {/* RIGHT IMAGE SECTION */}
-      <div className="relative w-1/2 h-140 overflow-hidden">
+      <div className="relative w-257 h-185  overflow-hidden">
         <Image
           src="/Images/GetInTouch.jpg"
           alt="About"

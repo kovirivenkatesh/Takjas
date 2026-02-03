@@ -105,20 +105,20 @@ const services = [
 
 export default function ScopeSection() {
   return (
-    <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto px-10">
-        <p className="text-sm mb-4">→ The Scope of Our Practice</p>
+    <section className=" bg-white mt-18.5">
+      <div className="ml-21.25 mr-22.5">
+        <p className="text-[16px] mb-2 leading-6.25">→ The Scope of Our Practice</p>
 
-        <h2 className={`text-3xl font-semibold leading-snug ${ibmPlexSerif.className}`}>
-          Counsel throughout the corporate lifecycle,<br /> from structuring to transactions and defense
+        <h2 className={`text-[55px] font-medium leading-17.75 mb-22.75 ${ibmPlexSerif.className}`}>
+          Counsel throughout the corporate lifecycle, from structuring to transactions and defense
         </h2>
 
         {/*  CARDS GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative h-130 overflow-hidden border border-white ${service.bg}`}
+              className={`group relative h-171 overflow-hidden border border-white ${service.bg}`}
             >
               {/* ARROW CORNER */}
               <div className="absolute top-0 right-0 z-20 flex items-center gap-2 pr-6 pt-6">
@@ -126,7 +126,7 @@ export default function ScopeSection() {
                 {/* KNOW MORE TEXT */}
                <Link
   href={service.href}
-  className={`absolute right-0 text-md whitespace-nowrap translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-24 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
+  className={`absolute right-0 text-[20px] font-medium leading-17.75 translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-24 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
 >
   Know more
 </Link>
@@ -134,23 +134,23 @@ export default function ScopeSection() {
 
 
                 {/* ARROW BG */}
-                <div
-                  className="  absolute top-0 right-0 h-32 w-32  origin-top-right transition-all duration-700 ease-out  group-hover:scale-x-[2]"
-                  style={{ backgroundColor: service.arrow }}
-                />
+               <div
+ className="absolute top-0 right-0 h-33 w-33 origin-top-right transition-[width] duration-700 ease-out group-hover:w-75"
 
+  style={{ backgroundColor: service.arrow }}
+/>
                 {/* ARROW */}
                 <div
                   className=" relative h-24 w-24 flex items-center justify-center transition-transform duration-500 ease-out  -rotate-45  group-hover:rotate-0"
 
                 >
                   <svg
-                    width="40"
-                    height="40"
+                    width="77"
+                    height="77"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="#6A7798"
-                    strokeWidth="2"
+                    strokeWidth="1"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
@@ -162,18 +162,18 @@ export default function ScopeSection() {
 
               {/* BOTTOM RIGHT DECOR */}
               <div
-                className="absolute bottom-0 right-0 h-28 w-28 z-0"
+                className="absolute bottom-0 right-0 h-33 w-33 z-0"
                 style={{ backgroundColor: service.bot_arrow }}
               />
 
               {/* CONTENT */}
-              <div className="relative z-10 p-16 max-w-md h-full flex flex-col">
-                <div className="mb-6">
+              <div className="relative z-10 pl-12.5 pr-17.5 mt-16 flex flex-col">
+                <div className="pt-16.5 ">
                   <Image
                     src={service.icon}
                     alt={service.title}
-                    width={110}
-                    height={110}
+                    width={144}
+                    height={144}
                     className={
                       service.iconBorder
                         ? 'invert brightness-0 contrast-100'
@@ -183,20 +183,20 @@ export default function ScopeSection() {
                 </div>
 
                 <h3
-                  className={`text-4xl mb-6 ${service.title_color} ${ibmPlexSerif.className}`}
+                  className={`text-[54px] leading-15 mb-6 ${service.title_color} ${ibmPlexSerif.className}`}
                 >
                   {service.title}
                 </h3>
 
-                <p className={`text-sm mb-6 ${service.desc_color}`}>
+                <p className={`text-[17px] leading-6 mb-7.25 ${service.desc_color}`}>
                   {service.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2  mt-auto ">
+                <div className="flex flex-wrap gap-3.5 pr-21.75 ">
                   {service.tags.map(tag => (
                     <span
                       key={tag}
-                      className={`border ${service.btn_color} text-xs ${service.btn_text} px-3 py-2 rounded-md`}
+                      className={`border ${service.btn_color} text-[14px] font-medium leading-4.5 ${service.btn_text} p-1.75 rounded-[7px]`}
                     >
                       {tag}
                     </span>

@@ -8,17 +8,17 @@ const steps = [
   {
     id: "01",
     title: "Consultation",
-    desc: "Providing expert legal advice tailored to your\n specific needs",
+    desc: "Providing expert legal advice tailored to your specific needs",
   },
   {
     id: "02",
     title: "Strategy & Planning",
-    desc: "Creating a tailored legal strategy to meet your\n goals.",
+    desc: "Creating a tailored legal strategy to meet your goals.",
   },
   {
     id: "03",
     title: "Execution",
-    desc: "Executing the legal strategy for resolution of \nyour legal matters. ",
+    desc: "Executing the legal strategy for resolution of your legal matters. ",
   },
 ];
 
@@ -40,7 +40,7 @@ const DealExperience = () => {
 
       if (current > lastScrollY) {
         // scrolling DOWN → left to right
-        animate(x, 343, { duration: 1, ease: "easeOut" });
+        animate(x, 310, { duration: 1, ease: "easeOut" });
       } else {
         // scrolling UP → right to left
         animate(x, 0, { duration: 1, ease: "easeOut" });
@@ -91,21 +91,21 @@ const DealExperience = () => {
 
       {/* ================= DESKTOP VIEW ================= */}
 
-      <div className="hidden sm:block mt-28">
-        <section className="w-full px-8">
+      <div className="hidden sm:block mt-33.75 mx-20.75">
+        <section className="w-full">
           <section className="space-y-12  px-2">
-                       <p className="text-sm mb-4">→ Our Process</p>
-                       <h1 className={`text-5xl ${ibmPlexSerif.className} `}>
-                      A precise, business-first methodology<br/> designed for efficiency and legal clarity.
+                       <p className="text-[16px] mb-2">→ Our Process</p>
+                       <h1 className={`text-[55px] font-medium leading-17.75 ${ibmPlexSerif.className} `}>
+                      A precise, business-first methodology designed for efficiency and legal clarity.
                          </h1>
                </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 my-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-18.75">
             {steps.map((step, index) => (
               <div
                 key={index}
                 className={`
-              relative border border-[#193170]  pt-10 pb-10 pl-6
+              relative border border-[#193170]  pt-10 pb-10 px-4
               ${index === 0 ? "border-b-0" : ""}
               ${index === 1 ? "border-t-0" : ""}
               ${index === 2 ? "border-b-0" : ""}
@@ -128,17 +128,17 @@ const DealExperience = () => {
                 )}
 
                 {/* Number box */}
-                <div className="w-14 h-14 border border-[#193170] flex items-center justify-center mb-8">
-                  <span className="text-[#193170] text-xl font-medium">
+                <div className="w-22.5 h-22.5 border border-[#193170] flex items-center justify-center mb-10 mt-8.75">
+                  <span className="text-[#193170] text-[32px] font-medium">
                     {step.id}
                   </span>
                 </div>
 
-                <h2 className={`text-[#313131] text-2xl font-semibold mb-4 ${ibmPlexSerif.className} `}>
+                <h2 className={`text-[#313131] text-[32px] font-semibold mb-10.25 ${ibmPlexSerif.className} `}>
                   {step.title}
                 </h2>
 
-                <p className="text-[#606060]  text-md leading-relaxed whitespace-pre-line">
+                <p className="text-[#606060]  text-[16px] leading-relaxed mb-18.75">
                   {step.desc}
                 </p>
               </div>

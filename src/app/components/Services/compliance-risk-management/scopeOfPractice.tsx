@@ -128,12 +128,12 @@ export default function ScopeOfPracticeSection() {
 
 
     return (
-        <section className="w-full bg-white">
-            <div className="max-w-7xl mx-auto pl-16">
-                <p className="text-sm mb-4">→ The Scope of Our Practice</p>
+        <section className="mt-23.5 ml-22.75 mr-16.75">
+            <div className="">
+                <p className="leading-6.25 text-[16px] mb-2.5">→ The Scope of Our Practice</p>
 
-                <h2 className={`text-3xl font-semibold leading-snug ${ibmPlexSerif.className}`}>
-                    Counsel throughout the corporate lifecycle,<br /> from structuring to transactions and defense
+                <h2 className={`text-[55px] font-medium mb-18.75 leading-17.75 text-[#2C2C2C] ${ibmPlexSerif.className}`}>
+                    Counsel throughout the corporate lifecycle, from structuring to transactions and defense
                 </h2>
 
                 {/*  CARDS GRID */}
@@ -144,93 +144,93 @@ export default function ScopeOfPracticeSection() {
 
                     {services.map((service, index) => (
                         <div
-                            key={index}
-                            className={`group relative h-130 w-140 overflow-hidden border border-white ${service.bg}`}
-                        >
-                            {/* ARROW CORNER */}
-                            <div className="absolute top-0 right-0 z-20 flex items-center gap-2 pr-6 pt-6">
+              key={index}
+              className={`group relative h-171 overflow-hidden border border-white ${service.bg}`}
+            >
+              {/* ARROW CORNER */}
+              <div className="absolute top-0 right-0 z-20 flex items-center gap-2 pr-6 pt-6">
 
-                                {/* KNOW MORE TEXT */}
-                                <Link
-                                    href={service.href}
-                                    className={`absolute right-0 text-md whitespace-nowrap translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-24 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
-                                >
-                                    Know more
-                                </Link>
+                {/* KNOW MORE TEXT */}
+               <Link
+  href={service.href}
+  className={`absolute right-0 text-[20px] font-medium leading-17.75 translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-24 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
+>
+  Know more
+</Link>
 
 
 
-                                {/* ARROW BG */}
-                                <div
-                                    className="  absolute top-0 right-0 h-32 w-32  origin-top-right transition-all duration-700 ease-out  group-hover:scale-x-[2]"
-                                    style={{ backgroundColor: service.arrow }}
-                                />
+                {/* ARROW BG */}
+               <div
+ className="absolute top-0 right-0 h-33 w-33 origin-top-right transition-[width] duration-700 ease-out group-hover:w-75"
 
-                                {/* ARROW */}
-                                <div
-                                    className=" relative h-24 w-24 flex items-center justify-center transition-transform duration-500 ease-out  -rotate-45  group-hover:rotate-0"
+  style={{ backgroundColor: service.arrow }}
+/>
+                {/* ARROW */}
+                <div
+                  className=" relative h-24 w-24 flex items-center justify-center transition-transform duration-500 ease-out  -rotate-45  group-hover:rotate-0"
 
-                                >
-                                    <svg
-                                        width="40"
-                                        height="40"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="#6A7798"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                        <polyline points="12 5 19 12 12 19" />
-                                    </svg>
-                                </div>
-                            </div>
+                >
+                  <svg
+                    width="77"
+                    height="77"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#6A7798"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </div>
+              </div>
 
-                            {/* BOTTOM RIGHT DECOR */}
-                            <div
-                                className="absolute bottom-0 right-0 h-28 w-28 z-0"
-                                style={{ backgroundColor: service.bot_arrow }}
-                            />
+              {/* BOTTOM RIGHT DECOR */}
+              <div
+                className="absolute bottom-0 right-0 h-33 w-33 z-0"
+                style={{ backgroundColor: service.bot_arrow }}
+              />
 
-                            {/* CONTENT */}
-                            <div className="relative z-10 p-16 max-w-md h-full flex flex-col">
-                                <div className="mb-6">
-                                    <Image
-                                        src={service.icon}
-                                        alt={service.title}
-                                        width={110}
-                                        height={110}
-                                        className={
-                                            service.iconBorder
-                                                ? 'invert brightness-0 contrast-100'
-                                                : ''
-                                        }
-                                    />
-                                </div>
+              {/* CONTENT */}
+              <div className="relative z-10 pl-12.5 pr-17.5 mt-16 flex flex-col">
+                <div className="pt-16.5 ">
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={144}
+                    height={144}
+                    className={
+                      service.iconBorder
+                        ? 'invert brightness-0 contrast-100'
+                        : ''
+                    }
+                  />
+                </div>
 
-                                <h3
-                                    className={`text-4xl mb-6 ${service.title_color} ${ibmPlexSerif.className}`}
-                                >
-                                    {service.title}
-                                </h3>
+                <h3
+                  className={`text-[54px] leading-15 mb-6 ${service.title_color} ${ibmPlexSerif.className}`}
+                >
+                  {service.title}
+                </h3>
 
-                                <p className={`text-sm mb-6 ${service.desc_color}`}>
-                                    {service.description}
-                                </p>
+                <p className={`text-[17px] leading-6 mb-7.25 ${service.desc_color}`}>
+                  {service.description}
+                </p>
 
-                                <div className="flex flex-wrap gap-2  mt-auto ">
-                                    {service.tags.map(tag => (
-                                        <span
-                                            key={tag}
-                                            className={`border ${service.btn_color} text-xs ${service.btn_text} px-3 py-2 rounded-md`}
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                <div className="flex flex-wrap gap-3.5 pr-21.75 ">
+                  {service.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className={`border ${service.btn_color} text-[14px] font-medium leading-4.5 ${service.btn_text} p-1.75 rounded-[7px]`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
                     ))}
                 </div>
 

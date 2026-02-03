@@ -18,7 +18,7 @@ export default function GetInTouchSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-150 overflow-hidden">
+    <section className="relative pl-22.25 h-150 overflow-hidden">
       {/* ================= CURTAIN (BLUE) ================= */}
       <div className="absolute inset-0 flex z-20 pointer-events-none">
         {[0, 1, 2].map((i) => (
@@ -41,10 +41,10 @@ export default function GetInTouchSection() {
       </div>
 
       {/* ================= CONTENT ================= */}
-      <div className="relative z-10 h-full grid grid-cols-2 items-center">
+      <div className="relative z-10 h-full grid grid-cols-2 gap-18">
 
         {/* LEFT CONTENT */}
-        <div className="px-16 relative overflow-hidden">
+        <div className=" relative   mt-29.5 overflow-hidden">
 
           {/* REVEAL MASK */}
           <div
@@ -64,7 +64,7 @@ export default function GetInTouchSection() {
               ${revealed ? "scale-100" : "scale-110"}
             `}
           >
-           <p className="text-sm text-gray-500 mb-3">
+           <p className="text-[16px] text-gray-500 mb-5.25">
   <Link
     href="/"
     className="hover:text-[#193170] transition-colors"
@@ -83,37 +83,37 @@ export default function GetInTouchSection() {
 
   {" / "}
 
-  <span className="text-[#193170]">
+  <span className="text-[#193170] ">
     Compliance & Risk Management
   </span>
 </p>
 
             <h2
-              className={`text-6xl font-semibold leading-snug mb-4 ${ibmPlexSerif.className}`}
+              className={`text-[66px] font-medium leading-20 mb-6 ${ibmPlexSerif.className}`}
             >
-              Securing Your<br />Business Against<br />Regulatory Risk
+              Securing Your Business Against Regulatory Risk
             </h2>
 
-            <p className="text-sm text-gray-600 mb-6 max-w-md">
+            <p className="text-[16px] text-gray-600 mb-10.75 leading-6.25">
               Expert legal counsel essential for navigating data protection,
               compliance frameworks, and long-term regulatory adherence
             </p>
 
-            <button className="bg-[#193170] text-white px-6 py-3 text-sm">
+            <button className="bg-[#193170] text-white px-2.5 py-3 text-[16px]">
               Get in touch
             </button>
           </div>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="relative h-full w-full overflow-hidden">
+        <div className="relative h-171 ">
           <Image
             src="/Images/2a.jpg"
             alt="Corporate meeting"
             fill
-            priority
+           
             className={`
-              object-cover
+              object-cover 
               transition-transform duration-1000 ease-out
               ${revealed ? "scale-100" : "scale-150"}
             `}
