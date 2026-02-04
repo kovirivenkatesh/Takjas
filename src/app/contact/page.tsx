@@ -233,127 +233,134 @@ useEffect(() => {
 </section>
 
         {/* ================= FOOTER ================= */}
-      <footer className="bg-white mt-13  ">
-      
-        {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
-        <div className="relative overflow-hidden group  ">
-      
-          {/* TAKJAS WATERMARK IMAGE */}
-         <Image
-        src="/Images/takjas.png"
-        alt="Takjas watermark"
-        width={900}
-        height={400}
-        className=" absolute right-0 bottom-65 z-0 opacity-30 pointer-events-none select-none transition-all duration-1200 ease-out  group-hover:bottom-0"
-      />
-      
-      
-      
-          {/* FOOTER CONTENT */}
-          <div className="relative z-10 ml-22 mr-18.75">
-            <section className="">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-25.5 ">
-      
-                {/* ===== BRAND ===== */}
-                <div className="flex flex-col  mb-15.25">
-      
-                  <div
-                    className={`w-12.75 h-12.75 bg-[#1b3470] flex items-center justify-center text-white mb-2.25 font-bold text-2xl ${ibmPlexSerif.className}`}
-                  >
-                    T
-                  </div>
-      
-                  <p className={`text-[11px] text-[#193170] font-medium mb-22.75 ${ibmPlexSerif.className} `}>
-                    Legal Certainty.Business Clarity.
-                  </p>
-      
-                  <div className="flex flex-col gap-2 ">
-                    <div className="w-8.75 h-8.75 p-1.25 mb-1.25  bg-[#F6F6F6] rounded-sm">
-                      <MapPin size={24} className="text-[#1b3470]" />
+     <footer className="bg-white mt-13 relative overflow-hidden ">
+  
+          {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
+          <div className="relative  group  ">
+            {/* FOOTER CONTENT */}
+            <div className="relative ml-22 mr-18.75">
+              <section className="">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-25.5 ">
+  
+                  {/* ===== BRAND ===== */}
+                  <div className="flex flex-col  mb-15.25">
+  
+                    <div
+                      className={`w-12.75 h-12.75 bg-[#1b3470] flex items-center justify-center text-white mb-2.25 font-bold text-2xl ${ibmPlexSerif.className}`}
+                    >
+                      T
                     </div>
-      
-                    <p className=" text-[#626262] text-[15px] leading-5.5  mb-8.75">
-                      Fehrbelliner Str. 23,
-                      
-                      10119 Berlin, Germany
+  
+                    <p className={`text-[11px] text-[#193170] font-medium mb-22.75 ${ibmPlexSerif.className} `}>
+                      Legal Certainty.Business Clarity.
                     </p>
+  
+                    <div className="flex flex-col gap-2 ">
+                      <div className="w-8.75 h-8.75 p-1.25 mb-1.25  bg-[#F6F6F6] rounded-sm">
+                        <MapPin size={24} className="text-[#1b3470]" />
+                      </div>
+  
+                      <p className=" text-[#626262] text-[15px] leading-5.5  mb-8.75">
+                        Fehrbelliner Str. 23,
+  
+                        10119 Berlin, Germany
+                      </p>
+                    </div>
+  
+                    <div className="flex  gap-4">
+                      <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
+                        <LinkedinIcon size={18} />
+                      </a>
+                      <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
+                        <Phone size={18} />
+                      </a>
+                      <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
+                        <Mail size={18} />
+                      </a>
+                    </div>
+  
                   </div>
-      
-                  <div className="flex  gap-4">
-                    <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
-                      <LinkedinIcon size={18} />
-                    </a>
-                    <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
-                      <Phone size={18} />
-                    </a>
-                    <a className="w-8.75 h-8.75 p-1.25 flex items-center justify-center border border-gray-200 rounded-sm bg-[#F6F6F6] text-[#1b3470]">
-                      <Mail size={18} />
-                    </a>
-                  </div>
-      
-                </div>
-      
-                {/* ===== LINKS ===== */}
-                <FooterColumn
-                  title="Links"
-                  items={[
-                    { label: "Home", href: "/" },
-                    { label: "About Us", href: "/aboutUs" },
-                    { label: "Services", href: "/services" },
-                    { label: "Career", href: "/career" },
-                    { label: "Legal Notice\n (Imprint)", href: "/imprint" },
-                    { label: "Privacy Policy", href: "/privacy-policy" },
-                  ]}
-                />
-      
-                {/* ===== SERVICES ===== */}
-                <div className="">
+  
+                  {/* ===== LINKS ===== */}
                   <FooterColumn
-                    title="Services"
+                    title="Links"
                     items={[
-                      { label: "Compliance & Risk Management", href: "/services/compliance-risk-management" },
-                      { label: "Corporate, M&A, Venture Capital", href: "/services/corporate-ma-venture-capital" },
-                      { label: "Real Estate Law", href: "/services/real-estate-law" },
-                      { label: "Employment & Incentives", href: "/services/employment-incentives" },
-                      { label: "Dispute Resolution", href: "/services/dispute-resolution" },
-                      { label: "Finance & Restructuring", href: "/services/finance-restructuring" },
+                      { label: "Home", href: "/" },
+                      { label: "About Us", href: "/aboutUs" },
+                      { label: "Services", href: "/services" },
+                      { label: "Career", href: "/career" },
+                      { label: "Legal Notice\n (Imprint)", href: "/imprint" },
+                      { label: "Privacy Policy", href: "/privacy-policy" },
                     ]}
                   />
-                </div>
-      
-                {/* ===== NEWSLETTER ===== */}
-                <div className="">
-                  <h4 className={`font-semibold  relative mb-3.75 ${ibmPlexSerif.className}`}>
-                    Subscribe for Newsletter
-                   
-                  </h4>
-      
-                  <div className="flex flex-wrap">
-                    <input
-                      className="w-52 h-14 pl-4 pr-10 py-4.5 border border-gray-200 text-[14px] bg-[#F6F6F6]"
-                      placeholder="Your email"
+  
+                  {/* ===== SERVICES ===== */}
+                  <div className="">
+                    <FooterColumn
+                      title="Services"
+                      items={[
+                        { label: "Compliance & Risk Management", href: "/services/compliance-risk-management" },
+                        { label: "Corporate, M&A, Venture Capital", href: "/services/corporate-ma-venture-capital" },
+                        { label: "Real Estate Law", href: "/services/real-estate-law" },
+                        { label: "Employment & Incentives", href: "/services/employment-incentives" },
+                        { label: "Dispute Resolution", href: "/services/dispute-resolution" },
+                        { label: "Finance & Restructuring", href: "/services/finance-restructuring" },
+                      ]}
                     />
-                    <button className="bg-[#1b3470] text-white px-6 w-32 h-14 text-sm">
-                      Send
-                    </button>
                   </div>
-      
-                  <p className="text-[14px] leading-0.2 text-[#8D8D8D] mt-4">
-                    No spam. Only releases, updates and discounts
-                  </p>
+  
+                  {/* ===== NEWSLETTER ===== */}
+                  <div className="">
+                    <h4 className={`font-semibold  relative mb-3.75 ${ibmPlexSerif.className}`}>
+                      Subscribe for Newsletter
+  
+                    </h4>
+  
+                    <div className="flex flex-wrap">
+                      <input
+                        className="w-52 h-14 pl-4 pr-10 py-4.5 border border-gray-200 text-[14px] bg-[#F6F6F6]"
+                        placeholder="Your email"
+                      />
+                      <button className="bg-[#1b3470] text-white px-6 w-32 h-14 text-sm">
+                        Send
+                      </button>
+                    </div>
+  
+                    <p className="text-[14px] leading-0.2 text-[#8D8D8D] mt-4">
+                      No spam. Only releases, updates and discounts
+                    </p>
+                  </div>
+  
                 </div>
-      
-              </div>
-            </section>
+              </section>
+            </div>
+  
+             {/* ===== DECORATIVE RIGHT IMAGE ===== */}
+          <div
+            className="
+      absolute right-0 bottom-0
+      translate-y-20 opacity-0
+      transition-all duration-700 ease-out
+      group-hover:translate-y-0
+      group-hover:opacity-15
+      pointer-events-none
+      z-10
+    "
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 554 206" fill="none">
+              <path d="M510.522 84.748L530.988 91.443C546.618 96.0647 553.708 104.831 553.708 119.494C553.708 144.837 533.405 149.14 516.968 149.14C500.531 149.14 485.385 140.214 480.067 133.043V101.802H482.806C486.029 127.304 497.631 141.649 517.13 141.649C536.627 141.649 540.173 134.796 540.173 122.045C540.173 109.293 535.661 107.541 523.414 103.556L504.077 97.3398C490.058 93.0367 482.162 85.0666 482.162 71.5192C482.162 57.9709 492.474 44.7421 516.807 44.7421C541.139 44.7421 542.59 48.7266 550.324 55.4207L552.097 82.6756H549.357C543.557 61.4776 533.566 52.0741 517.291 52.0741C501.015 52.0741 495.698 58.9274 495.698 68.8097C495.698 78.691 500.21 81.5607 510.361 84.5888L510.522 84.748ZM455.46 92.4721V130.943C455.46 141.637 461.706 144.191 467.952 144.191V147.544H441.689V116.576H440.728C437.205 131.262 428.878 149.14 407.099 149.14C385.32 149.14 379.395 139.562 379.395 114.34C379.395 89.1188 380.036 102.688 381.157 96.4624L441.368 90.7153V85.6073C441.368 68.2079 436.725 52.0846 416.707 52.0846C396.69 52.0846 394.929 61.1839 394.929 70.1239C394.929 79.0639 396.21 77.9462 398.291 79.2232V80.1807L382.758 81.7772C381.797 79.3834 381.157 76.1904 381.157 72.8382C381.157 59.2698 391.406 44.743 417.668 44.743C443.931 44.743 455.141 72.2001 455.141 92.7915L455.46 92.4721ZM412.383 139.562C431.92 139.562 439.447 116.735 441.048 94.7066L395.57 102.049C394.448 106.519 394.288 110.988 394.288 115.299C394.288 130.782 399.412 139.722 412.383 139.722V139.562ZM347.166 27.4667L333.584 13.5741L347.166 0L360.749 13.5741L347.166 27.4667ZM354.517 46.6294V157.294L339.017 206H336.619L339.975 147.713V63.2372C339.975 52.5376 333.423 49.9827 327.191 49.9827V46.6294H354.517ZM273.37 94.0657L298.471 133.14C304.227 142.193 313.66 143.781 319.735 143.781V147.117H291.756L257.701 95.336L242.672 112.967V130.757C242.672 141.399 249.228 143.941 255.142 143.941V147.276H215.332V143.941C221.567 143.941 228.123 141.558 228.123 130.757V22.1116C228.123 11.4702 221.567 8.92857 215.332 8.92857V5.59252H242.672V101.372L278.965 59.4386C286.16 51.1796 276.727 50.0675 264.416 50.0675V46.7315H312.221V49.9083C304.546 49.9083 294.954 52.1323 287.759 60.8682L260.259 92.6361L273.209 94.224L273.37 94.0657ZM194.452 92.4711V130.944C194.452 141.638 200.696 144.192 206.942 144.192V147.545H180.679V116.577H179.719C176.196 131.263 167.868 149.141 146.09 149.141C124.311 149.141 118.386 139.563 118.386 114.341C118.386 89.1198 119.026 102.689 120.148 96.4633L180.36 90.7163V85.6083C180.36 68.2089 175.715 52.0856 155.698 52.0856C135.681 52.0856 133.919 61.1849 133.919 70.1239C133.919 79.0639 135.201 77.9462 137.282 79.2232V80.1807L121.749 81.7772C120.788 79.3834 120.148 76.1904 120.148 72.8382C120.148 59.2698 130.396 44.743 156.659 44.743C182.921 44.743 194.131 72.2001 194.131 92.7915L194.452 92.4711ZM151.375 139.562C170.911 139.562 178.438 116.735 180.039 94.7066L134.56 102.049C133.438 106.519 133.279 110.988 133.279 115.299C133.279 130.782 138.403 139.722 151.375 139.722V139.562ZM120.632 2.95648L121.589 10.939L123.979 34.4068L120.154 34.8855C119.038 24.987 115.692 14.2912 103.9 14.2912H69.7978V129.076C69.7978 140.891 77.766 143.445 85.5739 143.445V147.276H38.564V143.445C46.2127 143.445 54.3401 141.05 54.3401 129.076V14.2912H20.3978C8.60527 14.2912 4.94019 24.8278 3.82435 34.566L0 34.0873L2.70852 10.7788L3.66508 2.79626C7.48944 4.55203 12.5889 4.87152 19.9191 4.87152H104.219C111.549 4.87152 116.648 4.71225 120.473 2.79626L120.632 2.95648Z" fill="#193170" />
+            </svg>
           </div>
-        </div>
-      
-        {/* ===== COPYRIGHT (SEPARATE) ===== */}
-        <div className="bg-[#1b3470] text-white text-center py-4.5 text-medium text-[14px]">
-          © 2025 Takjas, All rights reserved.
-        </div>
-      
-      </footer>
+          </div>
+  
+         
+  
+          {/* ===== COPYRIGHT (SEPARATE) ===== */}
+          <div className="bg-[#1b3470] text-white relative z-20 text-center py-4.5  text-medium text-[14px]">
+            © 2025 Takjas, All rights reserved.
+          </div>
+  
+        </footer>
       </motion.div>
     
     </div>

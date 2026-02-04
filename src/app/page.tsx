@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 const CURTAIN_DELAY = 300;
 const CURTAIN_DURATION = 2000;
 
-const HEADER_OFFSET = 73
+const HEADER_OFFSET = 96
 export default function ScrollImageTakeover() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -139,7 +139,7 @@ export default function ScrollImageTakeover() {
           ref={textRef}
           className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-68 text-center"
         >
-          <h1 className="mb-2.5 text-[65px] leading-20 font-medium  ">
+          <h1 className="mb-2.5 text-[65px] leading-20 font-medium pt-10  ">
             Your Strategic Legal Partner in the Digital Economy
           </h1>
           <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
