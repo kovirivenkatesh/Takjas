@@ -106,7 +106,7 @@ export default function ServicesSection() {
          
          {/* LEFT – STICKY */}
 <div className="relative">
-  <div className="sticky top-0    h-183.5">
+  <div className="sticky top-0  bg-[#F5F5F5]  h-183.5">
 
     {/* LEFT CARD */}
     <div className="h-183.5 px-21.25 pt-35.25 ">
