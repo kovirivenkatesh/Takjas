@@ -2,7 +2,7 @@
 
 import { ibmPlexSerif } from './fonts'
 import Image from 'next/image'
-import { useState, useEffect ,useRef} from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLayoutEffect } from "react";
 
 import Aboutus from './components/home/Aboutus'
@@ -55,62 +55,62 @@ export default function ScrollImageTakeover() {
   }, [curtainDone]);
 
   /* ================= GSAP SCROLL ================= */
-useLayoutEffect(() => {
-  if (!curtainDone) return;
-  if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+  useLayoutEffect(() => {
+    if (!curtainDone) return;
+    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
 
-  let ctx = gsap.context(() => {
-    gsap.set(imageRef.current, {
-      width: "58%",
-      height: "45vh",
-      y: 200,
-      borderRadius: "36px",
-    });
+    let ctx = gsap.context(() => {
+      gsap.set(imageRef.current, {
+        width: "58%",
+        height: "45vh",
+        y: 200,
+        borderRadius: "36px",
+      });
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=240%",
-        scrub: 1.4,
-        pin: sectionRef.current, // 👈 EXPLICIT pin target
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    })
-    .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
-    .to(textRef.current, {
-      autoAlpha: 0,
-      y: -80,
-      pointerEvents: "none",
-    }, 0.25)
-    .to(imageRef.current, {
-      width: "100%",
-      height: "100vh",
-      borderRadius: "0px",
-    }, 0.25);
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=240%",
+          scrub: 1.4,
+          pin: sectionRef.current, // 👈 EXPLICIT pin target
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+        .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
+        .to(textRef.current, {
+          autoAlpha: 0,
+          y: -80,
+          pointerEvents: "none",
+        }, 0)
+        .to(imageRef.current, {
+          width: "100%",
+          height: "100vh",
+          borderRadius: "0px",
+        }, 0.25);
 
-  }, sectionRef);
+    }, sectionRef);
 
-  return () => {
-    // 🔥 THIS PREVENTS removeChild ERROR
-    ScrollTrigger.getAll().forEach(st => st.kill());
-    ctx.revert();
-  };
-}, [curtainDone]);
+    return () => {
+      // 🔥 THIS PREVENTS removeChild ERROR
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      ctx.revert();
+    };
+  }, [curtainDone]);
 
 
   return (
     <>
       {/* ================= BLUE CURTAIN ================= */}
-     <section
-  className={`fixed left-0 w-full z-50 overflow-hidden
+      <section
+        className={`fixed left-0 w-full z-50 overflow-hidden
   ${collapsed ? 'pointer-events-none' : ''}`}
-  style={{
-    top: `${HEADER_OFFSET}px`,
-    height: `calc(100vh - ${HEADER_OFFSET}px)`,
-  }}
->
+        style={{
+          top: `${HEADER_OFFSET}px`,
+          height: `calc(100vh - ${HEADER_OFFSET}px)`,
+        }}
+      >
 
         <div
           className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]  transition-transform duration-2000
@@ -140,10 +140,10 @@ useLayoutEffect(() => {
           className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-68 text-center"
         >
           <h1 className="mb-2.5 text-[65px] leading-20 font-medium  ">
-           Your Strategic Legal Partner in the Digital Economy
+            Your Strategic Legal Partner in the Digital Economy
           </h1>
           <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
-           Specialized in Venture Capital, Corporate Law, and M&A
+            Specialized in Venture Capital, Corporate Law, and M&A
           </p>
           <button className='w-45.25  mb-18 h-12.25 bg-[#193170] text-white rounded-md p-4'>Get in touch</button>
         </div>
@@ -165,16 +165,16 @@ useLayoutEffect(() => {
         </div>
       </section>
 
-<section>
-      <Aboutus />
-      <ServicesSection />
-      <CoreValuesSection />
-      <DealExperience />
-    <ProcessSection />
-    <FooterSection />
-   
-</section>
-      
+      <section>
+        <Aboutus />
+        <ServicesSection />
+        <CoreValuesSection />
+        <DealExperience />
+        <ProcessSection />
+        <FooterSection />
+
+      </section>
+
     </>
   );
 }
