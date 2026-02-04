@@ -160,15 +160,8 @@ const DealExperience = () => {
 
             {/* STATIC VERTICAL LINE */}
             <div
-              className="
-    absolute
-    left-2
-    top-0
-    bottom-0
-    w-0.5
-    bg-[#8A38F5]/30
-    rounded-full
-  "
+           className="absolute left-2 top-0 bottom-0 w-0.5 bg-[#8A38F5]/30 rounded-full"
+
             />
 
             {/* 🔵 SINGLE MOVING BLUE LINE */}
@@ -195,14 +188,8 @@ const DealExperience = () => {
                     cardRefs.current[index] = el;
                   }}
 
-                  className={`
-          relative pl-12 pr-6 py-10
-          transition-all duration-500
-          ${activeIndex === index
-                      ? "bg-[#2A173E] border border-[#8A38F575] rounded-md"
-                      : "bg-transparent border border-transparent"
-                    }
-        `}
+                 className={`relative pl-12 pr-6 py-10 transition-all duration-500 ${activeIndex === index ? "bg-[#2A173E] border border-[#8A38F575] rounded-md" : "bg-transparent border border-transparent"}`}
+
                 >
                   {/* Number box */}
                   <div className="w-14 h-14 border border-[#FF94D2] flex items-center justify-center mb-4 -mt-4 -ml-8">

@@ -1,10 +1,10 @@
 'use client'
 
-
 import { ibmPlexSerif } from './fonts'
-
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect ,useRef} from 'react'
+import { useLayoutEffect } from "react";
+
 import Aboutus from './components/home/Aboutus'
 import ServicesSection from './components/home/service'
 import CoreValuesSection from './components/home/CoreValues'
@@ -13,158 +13,159 @@ import ProcessSection from './components/home/ProcessSection'
 import FooterSection from './components/home/Footer'
 
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
+gsap.registerPlugin(ScrollTrigger);
 
-const HEADER_OFFSET = 160 // px
+const CURTAIN_DELAY = 300;
+const CURTAIN_DURATION = 2000;
 
-export default function Page() {
-  const [mounted, setMounted] = useState(false)
-  const [collapsed, setCollapsed] = useState(false)
-  const [expanded, setExpanded] = useState(false)
-  const [animatingUp, setAnimatingUp] = useState(false)
+const HEADER_OFFSET = 73
+export default function ScrollImageTakeover() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
+  /* ================= CURTAIN STATE ================= */
+  const [collapsed, setCollapsed] = useState(false);
+  const [curtainDone, setCurtainDone] = useState(false);
+
+  /* ================= CURTAIN LOGIC ================= */
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    const t1 = setTimeout(() => setCollapsed(true), CURTAIN_DELAY);
+    const t2 = setTimeout(() => {
+      setCurtainDone(true);
+      window.scrollTo({ top: 0 });
+    }, CURTAIN_DELAY + CURTAIN_DURATION);
 
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  /* ================= LOCK SCROLL ================= */
   useEffect(() => {
-  const timer = setTimeout(() => {
-    setCollapsed(true)
-  }, 300) // slight cinematic delay
+    document.body.style.overflow = curtainDone ? "auto" : "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [curtainDone]);
 
-  return () => clearTimeout(timer)
-}, [])
+  /* ================= GSAP SCROLL ================= */
+useLayoutEffect(() => {
+  if (!curtainDone) return;
+  if (!sectionRef.current || !textRef.current || !imageRef.current) return;
 
-  useEffect(() => {
-    if (animatingUp) {
-      const t = setTimeout(() => {
-        setAnimatingUp(false)
-      }, 2200) // MUST match CSS duration
+  let ctx = gsap.context(() => {
+    gsap.set(imageRef.current, {
+      width: "58%",
+      height: "45vh",
+      y: 200,
+      borderRadius: "36px",
+    });
 
-      return () => clearTimeout(t)
-    }
-  }, [animatingUp])
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=240%",
+        scrub: 1.4,
+        pin: sectionRef.current, // 👈 EXPLICIT pin target
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    })
+    .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
+    .to(textRef.current, {
+      autoAlpha: 0,
+      y: -80,
+      pointerEvents: "none",
+    }, 0.25)
+    .to(imageRef.current, {
+      width: "100%",
+      height: "100vh",
+      borderRadius: "0px",
+    }, 0.25);
 
-  if (!mounted) return null
+  }, sectionRef);
+
+  return () => {
+    // 🔥 THIS PREVENTS removeChild ERROR
+    ScrollTrigger.getAll().forEach(st => st.kill());
+    ctx.revert();
+  };
+}, [curtainDone]);
 
 
   return (
     <>
-      <div className="relative overflow-hidden">
-        {/* HERO WRAPPER — reserves space for absolute image */}
-        <div
-          className={`relative transition-all duration-1500 ${expanded ? 'pt-10 ' : 'pb-36'
-            }`}
-        >
-          <section className="h-screen bg-white flex items-center justify-center text-center px-10 -mt-6 relative overflow-visible">
-            <div className="relative w-full max-w-6xl">
-
-              {/* TEXT */}
-              <div
-                className={`transition-all duration-1500
-          ease-[cubic-bezier(0.77,0,0.175,1)]
-          ${expanded ? 'translate-y-32 opacity-0' : 'translate-y-0 opacity-100'}`}
-              >
-                <h1 className={`text-6xl font-semibold ${ibmPlexSerif.className} leading-[1.15]`}>
-                  Your Strategic Legal Partner
-                  <br />
-                  in the Digital Economy
-                </h1>
-
-                <p className="mt-6 text-lg text-[#5E6784]">
-                  Specialized in Venture Capital, Corporate Law, and M&amp;A
-                </p>
-
-                <button className="mt-6 bg-[#193170] text-white py-3 px-12 text-xl">
-                  Get in touch
-                </button>
-              </div>
-
-              {/* 🔥 TRIGGER ZONE */}
-              {!expanded && (
-                <div
-                  className="absolute left-0 right-0 h-24"
-                  style={{ top: 'calc(50% + 30px)' }}
-                  onMouseEnter={() => {
-                    if (!expanded && !animatingUp) {
-                      setAnimatingUp(true)
-                      setExpanded(true)
-                    }
-                  }}
-                />
-              )}
-
-              {/* IMAGE */}
-              <div
-                className="absolute transition-[transform,width,height]
-          duration-1500
-          ease-[cubic-bezier(0.77,0,0.175,1)]"
-                style={{
-                  top: '120%',
-                  left: '50%',
-                  width: expanded ? '120%' : '70%',
-                  height: expanded ? '90vh' : '20rem',
-                  transform: expanded
-                    ? `translate(-50%, calc(-110% + ${HEADER_OFFSET}px))`
-                    : 'translate(-50%, 0%)',
-                  pointerEvents: animatingUp ? 'none' : 'auto',
-                }}
-              >
-                {expanded && (
-                  <div
-                    className="absolute top-32 left-0 right-0 h-24 z-20"
-                    onMouseEnter={() => setExpanded(false)}
-                  />
-                )}
-
-                <Image
-                  src="/Images/GetInTouch.jpg"
-                  alt="Get In Touch"
-                  fill
-                  priority
-                  className="object-cover"
-                />
-              </div>
-
-            </div>
-          </section>
-        </div>
-
-
-        {/* BLUE OVERLAY (unchanged logic) */}
-        <section
-  className={`fixed top-18.5 left-0 w-full h-[calc(105vh-60px)] z-50 overflow-hidden
-    ${collapsed ? 'pointer-events-none' : ''}`}
+      {/* ================= BLUE CURTAIN ================= */}
+     <section
+  className={`fixed left-0 w-full z-50 overflow-hidden
+  ${collapsed ? 'pointer-events-none' : ''}`}
+  style={{
+    top: `${HEADER_OFFSET}px`,
+    height: `calc(100vh - ${HEADER_OFFSET}px)`,
+  }}
 >
 
-          <div className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]
-      transition-transform duration-2000 ease-in-out
-      ${collapsed ? 'translate-y-full' : ''}`}
-          />
-          <div className={`absolute top-0 left-1/3 h-full w-1/3 bg-[#193170]
-      flex items-center justify-center z-10 overflow-hidden
-      transition-transform duration-2000
-      ease-[cubic-bezier(0.77,0,0.175,1)]
-      ${collapsed ? '-translate-y-full' : 'translate-y-0'}`}
-          >
-            <div className={`transition-all duration-800
-        ease-[cubic-bezier(0.55,0.055,0.675,0.19)]
-        ${collapsed
-                ? 'translate-y-24 scale-95 opacity-0'
-                : 'translate-y-0 scale-100 opacity-100'
-              }`}
-            >
-              <Image src="/Images/T.png" alt="T" width={120} height={120} />
-            </div>
-          </div>
-          <div className={`absolute top-0 right-0 h-full w-1/3 bg-[#193170]
-      transition-transform duration-2000 ease-in-out
-      ${collapsed ? 'translate-y-full' : ''}`}
-          />
-        </section>
-      </div>
+        <div
+          className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]  transition-transform duration-2000
+          ${collapsed ? "translate-y-full" : ""}`}
+        />
 
+        <div
+          className={`absolute top-0 left-1/3 h-full w-1/3 bg-[#193170] flex items-center justify-center transition-transform duration-2000
+          ${collapsed ? "-translate-y-full" : ""}`}
+        >
+          <Image src="/Images/T.png" alt="T" width={120} height={120} />
+        </div>
+
+        <div
+          className={`absolute top-0 right-0 h-full w-1/3 bg-[#193170] transition-transform duration-2000 ${collapsed ? "translate-y-full" : ""}`}
+        />
+      </section>
+
+      {/* ================= SCROLL SECTION ================= */}
+      <section
+        ref={sectionRef}
+        className="relative h-screen overflow-hidden bg-white"
+      >
+        {/* TEXT */}
+        <div
+          ref={textRef}
+          className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-68 text-center"
+        >
+          <h1 className="mb-2.5 text-[65px] leading-20 font-medium  ">
+           Your Strategic Legal Partner in the Digital Economy
+          </h1>
+          <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
+           Specialized in Venture Capital, Corporate Law, and M&A
+          </p>
+          <button className='w-45.25  mb-18 h-12.25 bg-[#193170] text-white rounded-md p-4'>Get in touch</button>
+        </div>
+
+        {/* IMAGE */}
+        <div className="absolute inset-0 flex justify-center items-end">
+          <div
+            ref={imageRef}
+            className="relative overflow-hidden bg-gray-200"
+          >
+            <Image
+              src="/Images/GetInTouch.jpg"
+              alt="Get in touch"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+<section>
       <Aboutus />
       <ServicesSection />
       <CoreValuesSection />
@@ -172,6 +173,8 @@ export default function Page() {
     <ProcessSection />
     <FooterSection />
    
+</section>
+      
     </>
-  )
+  );
 }

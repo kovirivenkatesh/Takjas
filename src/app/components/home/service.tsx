@@ -143,23 +143,16 @@ export default function ServicesSection() {
 
                   {/* expanding bg */}
                   <div
-                    className="absolute top-0 right-0
-             h-32 w-32
-             scale-100
-             origin-top-right
-             transition-all duration-700 ease-out
-             group-hover:scale-x-[2]"
+                  className="absolute top-0 right-0 h-32 w-32 scale-100 origin-top-right transition-all duration-700 ease-out group-hover:scale-x-[2]"
+
                     style={{ backgroundColor: service.arrow }}
                   />
 
 
                   {/* arrow */}
                   <div
-                    className="relative  h-[90.36] w-[90.36]
-             flex items-center justify-center
-             transition-transform duration-500 ease-out
-             -rotate-15
-             group-hover:rotate-45"
+                    className="relative h-[90.36] w-[90.36] flex items-center justify-center transition-transform duration-500 ease-out -rotate-15 group-hover:rotate-45"
+
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
                       <g clipPath="url(#clip0_1411_5996)">

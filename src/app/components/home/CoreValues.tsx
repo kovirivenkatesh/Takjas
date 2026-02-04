@@ -21,39 +21,19 @@ export default function CoreValuesSection() {
           {values.map((item, index) => (
             <button
               key={index}
-              className="
-        relative overflow-hidden
-       w-64
-        px-6 py-5.25
-        border-r last:border-r-0
-        group
+            className="relative overflow-hidden w-64 px-6 py-5.25 border-r last:border-r-0 group flex items-center justify-start text-left"
 
-        flex items-center justify-start
-        text-left
-      "
             >
               {/* 🔹 INITIAL TOP-LEFT BAR */}
               <span
-                className="
-          absolute top-0 left-0
-          w-22.25 h-2
-          bg-[#1f3a8a]
-          transition-all duration-600
-          ease-in-out
-          group-hover:w-full
-          group-hover:h-full
-        "
+             className="absolute top-0 left-0 w-22.25 h-2 bg-[#1f3a8a] transition-all duration-600 ease-in-out group-hover:w-full group-hover:h-full"
+
               />
 
               {/* 🔹 BUTTON TEXT */}
               <span
-                className={`
-          relative z-10
-          text-[#193170] font-medium
-          transition-colors duration-300
-          group-hover:text-white text-[28px]
-          ${ibmPlexSerif.className}
-        `}
+               className={`relative z-10 text-[#193170] font-medium transition-colors duration-300 group-hover:text-white text-[28px] ${ibmPlexSerif.className}`}
+
               >
                 {item}
               </span>
@@ -70,11 +50,8 @@ export default function CoreValuesSection() {
         <img
           src="/Images/GetInTouch.jpg"
           alt="Legal discussion"
-          className="
-      w-360 h-144 object-cover
-      transition-transform duration-700 ease-in-out
-      group-hover:scale-110
-    "
+         className="w-360 h-144 object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+
         />
 
         {/* MAIN DARK BLUE OVERLAY */}

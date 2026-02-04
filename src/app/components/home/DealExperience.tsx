@@ -38,10 +38,8 @@ export default function DealExperience() {
         {[...tags, ...tags, ...tags].map((tag, i) => (
           <div
             key={i}
-            className="flex items-center justify-center
-                       w-94 h-24
-                       bg-[#1f3a8a]
-                       mx-3 px-5.75"
+            className="flex items-center justify-center w-94 h-24 bg-[#1f3a8a] mx-3 px-5.75"
+
           >
             <div className="flex items-center gap-6">
               <img
