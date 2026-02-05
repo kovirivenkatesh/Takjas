@@ -1,5 +1,7 @@
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { ibmPlexSerif } from "@/app/fonts";
 
 const services = [
   { title: "Compliance & Risk Management", href: "/services/compliance-risk-management" },
@@ -12,44 +14,60 @@ const services = [
 
 export default function ServicesDropdown() {
   return (
-   <div className="bg-white shadow-xl border border-gray-200 rounded-md p-6 w-160">
-  <div className="grid grid-cols-2 gap-4">
-    {services.map((item, index) => (
-      <Link key={index} href={item.href} className="block">
-        {/* 🔒 EACH ITEM IS ITS OWN HOVER ISLAND */}
-  <div
-  className=" relative overflow-hidden flex items-center gap-4 px-4 py-3 h-13 border border-[#E6EBF2] bg-[#EAF0FF]  cursor-pointer group "
->
-  {/* BG FILL */}
+    <div className="bg-white shadow-[0_4px_18px_rgba(0,0,0,0.25)] border border-gray-200 px-3.75 py-5.5 w-165 h-55.25">
+      <div className="grid grid-cols-2 gap-4">
+        {services.map((item, index) => (
+          <Link key={index} href={item.href}>
+            <div className="relative group/item overflow-hidden flex items-center gap-4 p-3.25 h-12 border border-[#E6EBF2] bg-[#EAF0FF] cursor-pointer">
+
+              {/* 🔵 BACKGROUND FILL */}
+              <span
+               className="absolute inset-0 bg-[#C1D2FF70] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover/item:scale-x-100 z-0"
+
+              />
+
+            
+{/* 🟦 STRIP CONTAINER */}
+<span className="absolute left-0 top-0 w-1.25 h-full overflow-hidden z-20">
+
+  {/* STRIP A — visible → moves DOWN + GAP */}
   <span
-    className="absolute inset-0 bg-[#193170] scale-x-0 origin-left hover:scale-x-100 transition-transform duration-500 ease-in-out z-0"
+  className="absolute top-0 left-0 w-full h-full bg-[#193170] translate-y-0 transition-transform duration-1000 ease-in-out group-hover/item:translate-y-[calc(100%+6px)]"
 
   />
 
-  {/* STRIP */}
-  <span className="relative w-1 h-8 bg-[#193170] z-10" />
-
-  {/* TEXT */}
+  {/* STRIP B — hidden ABOVE → moves DOWN into place */}
   <span
-    className=" relative z-10 text-[#193170] font-medium text-sm  transition-colors duration-300 "
-  >
-    {item.title}
-  </span>
+   className="absolute top-0 left-0 w-full h-full bg-[#193170] -translate-y-[calc(100%+6px)] transition-transform duration-1000 ease-in-out group-hover/item:translate-y-0"
 
-  {/* ARROW */}
+  />
+
+</span>
+
+
+
+              {/* TEXT */}
+              <span className={`relative z-10 text-[#193170] transition-colors duration-300 ${ibmPlexSerif.className}`}>
+                {item.title}
+              </span>
+
+              {/* ARROW */}
+       {/* ▶ FILLED TRIANGLE */}
+<span
+  className="absolute right-4 z-10 opacity-0 translate-x-3 transition-all duration-300 ease-out group-hover/item:opacity-100 group-hover/item:translate-x-0"
+
+>
   <span
-    className="absolute right-4 z-10 opacity-0 translate-x-3 hover:opacity-100 hover:translate-x-0 transition-all duration-300 ease-out"
+    className="block w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-10 border-l-[#193170]"
 
-  >
-    <ChevronRight size={16} className="text-blue-900" />
-  </span>
-</div>
-
-      </Link>
-    ))}
-  </div>
-</div>
+  />
+</span>
 
 
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }

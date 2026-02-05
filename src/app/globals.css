@@ -25,4 +25,8 @@
   -webkit-clip-path: inset(0 0 0 0);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 

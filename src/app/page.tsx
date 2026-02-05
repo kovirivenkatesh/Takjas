@@ -55,49 +55,53 @@ export default function ScrollImageTakeover() {
   }, [curtainDone]);
 
   /* ================= GSAP SCROLL ================= */
-  useLayoutEffect(() => {
+ useLayoutEffect(() => {
+  if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+
+  let ctx = gsap.context(() => {
+
+    // ✅ SET INITIAL STATE IMMEDIATELY (even during curtain)
+    gsap.set(imageRef.current, {
+      width: "58%",
+      height: "45vh",
+      y: 200,
+      borderRadius: "36px",
+    });
+
     if (!curtainDone) return;
-    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
 
-    let ctx = gsap.context(() => {
-      gsap.set(imageRef.current, {
-        width: "58%",
-        height: "45vh",
-        y: 200,
-        borderRadius: "36px",
-      });
+    // ✅ SCROLL ANIMATION ONLY AFTER CURTAIN
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=240%",
+        scrub: 1.4,
+        pin: sectionRef.current,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    })
+      .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
+      .to(textRef.current, {
+        autoAlpha: 0,
+        y: -80,
+        pointerEvents: "none",
+      }, 0)
+      .to(imageRef.current, {
+        width: "100%",
+        height: "100vh",
+        borderRadius: "0px",
+      }, 0.25);
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=240%",
-          scrub: 1.4,
-          pin: sectionRef.current, // 👈 EXPLICIT pin target
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      })
-        .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
-        .to(textRef.current, {
-          autoAlpha: 0,
-          y: -80,
-          pointerEvents: "none",
-        }, 0)
-        .to(imageRef.current, {
-          width: "100%",
-          height: "100vh",
-          borderRadius: "0px",
-        }, 0.25);
+  }, sectionRef);
 
-    }, sectionRef);
+  return () => {
+    ScrollTrigger.getAll().forEach(st => st.kill());
+    ctx.revert();
+  };
+}, [curtainDone]);
 
-    return () => {
-      // 🔥 THIS PREVENTS removeChild ERROR
-      ScrollTrigger.getAll().forEach(st => st.kill());
-      ctx.revert();
-    };
-  }, [curtainDone]);
 
 
   return (

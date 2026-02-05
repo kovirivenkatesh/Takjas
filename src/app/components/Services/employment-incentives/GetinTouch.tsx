@@ -84,7 +84,7 @@ export default function GetInTouchSection() {
   {" / "}
 
   <span className="text-[#193170] ">
-    Compliance & Risk Management
+    Employment & Incentives
   </span>
 </p>
 
