@@ -50,7 +50,7 @@ export default function CoreValues() {
         {coreValues.map((item, index) => (
           <div
             key={index}
-            className="group relative overflow-hidden border border-[#0000004D] bg-white  w-76.25 h-81 pt-5.25"
+            className="group relative overflow-hidden border border-[#0000004D] bg-[#F5F5F5]  w-76.25 h-81 pt-5.25"
           >
             {/* animated blue layer */}
             <div className="absolute top-0 left-0 h-2 w-20 bg-[#1E3A8A] transition-all duration-500 ease-in-out group-hover:w-full group-hover:h-full origin-top-left" />
@@ -83,16 +83,43 @@ export default function CoreValues() {
         ))}
       </div>
 
-      {/* ================= IMAGE SECTION ================= */}
-  <div className="relative mt-32.25 w-full overflow-hidden group">
+       {/* ===== IMAGE SECTION ===== */}
+      <div className="relative mt-33.75 w-full h-144 overflow-hidden group/image">
 
         {/* IMAGE */}
         <img
           src="/Images/GetInTouch.jpg"
           alt="Legal discussion"
-          className=" w-360 h-144 object-cover transition-transform duration-700 ease-in-out  group-hover:scale-110"
-    
+          className="w-360 h-144 object-cover transition-transform duration-700 ease-in-out group-hover/image:scale-110"
+
         />
+        {/* TOP-RIGHT STRIP */}
+        <div
+          className="absolute top-0 right-0 h-3.75 w-132.5 bg-[#F5F5F5] origin-right transition-all duration-1500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:w-[calc(100%-390px)] z-30"
+
+        />
+
+
+        {/* STRIP */}
+        <div
+          className="absolute bottom-0 left-0 h-3.75 w-132.5 bg-[#F5F5F5] origin-left transition-[width] duration-1500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:w-[calc(100%-388px)] z-30"
+
+        >
+          {/* HR — REST STATE */}
+          <div
+            className="absolute bottom-0 left-0 h-px scale-y-[0.2] w-full bg-[#0f1f4a] opacity-100 transition-opacity duration-200 group-hover/image:opacity-0"
+
+          />
+
+
+
+          {/* HR — EXPANDED STATE */}
+          <div
+            className="absolute bottom-0 left-0 h-px w-full bg-[#0f1f4a] scale-y-[0.2] opacity-0 transition-opacity duration-200 group-hover/image:opacity-100 group-hover/image:delay-1500"
+
+          />
+        </div>
+
 
         {/* MAIN DARK BLUE OVERLAY */}
         <div className="absolute inset-0 bg-[#0f1f4a]/70" />
@@ -110,13 +137,13 @@ export default function CoreValues() {
 
 
           {/* 🔹 CENTER-LEFT TEXT */}
-          <div className="max-w-xl mt-60 ml-20.75">
+          <div className=" mt-60 ml-20.75 pr-90">
             <h2 className={`text-white text-[48px] font-bold leading-16.75 ${ibmPlexSerif.className}`}>
               Legal certainty is the foundation
               of operational confidence.
             </h2>
 
-            <p className=" text-[#FFFFFF] text-[16px] leading-5.75">
+            <p className=" text-[#FFFFFF] text-[16px] pb-10 leading-5.75">
               We uphold uncompromising standards of integrity and transparency.
               Our proactive approach ensures every strategy is guided by clear
               commercial objectives and prompt, decisive communication.
@@ -125,9 +152,26 @@ export default function CoreValues() {
 
           {/* BOTTOM-RIGHT BUTTON WRAPPER — ATTACHED TO IMAGE */}
           <div className="absolute bottom-0 right-0 bg-white/20 w-97 h-40 flex ">
-            <div className=" bg-white  w-40 h-10 flex items-center justify-center  mx-26 my-16">
-              <span className="text-[#193170]  text-[17px]">Get in touch</span>
+            <div className="group/button bg-white w-40 h-10 flex items-center justify-center mx-26 my-16 cursor-pointer overflow-hidden">
+              <span
+                className="flex items-center text-[#193170] text-[22px] transition-all duration-300 group-hover/button:text-[18px]"
+
+              >
+                {/* Arrow */}
+                <span
+                  className="inline-block w-0 overflow-hidden transition-all duration-300 group-hover/button:w-4"
+
+                >
+                  →
+                </span>
+
+                <span className="ml-1">
+                  Get in touch
+                </span>
+              </span>
             </div>
+
+
           </div>
         </div>
       </div>

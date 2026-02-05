@@ -33,7 +33,7 @@ const services = [
 
 export default function OurSolutionsSection() {
   return (
-    <section className=" mt-23.5 ml-22.75 mr-16.75 ">
+    <section className=" mt-23.5 ml-22.75 mr-16.75   bg-[#F5F5F5] ">
       {/* HEADER */}
       <p className="leading-6.25 text-[16px] text-[#000000] mb-2.5">→ Our Solutions</p>
 
@@ -88,16 +88,13 @@ export default function OurSolutionsSection() {
 
       {/* SKY BLUE FLOW — FILLS ENTIRE COLUMN INCLUDING PADDING */}
       <div
-        className="absolute inset-0 bg-[#EAF1FF]
-        scale-x-0 group-hover:scale-x-100 origin-left
-        transition-transform duration-2500
-        ease-[cubic-bezier(0.22,1,0.36,1)]"
+       className="absolute inset-0 bg-[#EAF1FF] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-2500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+
       />
 
       {/* TITLE TEXT */}
       <h3
-        className={`relative z-10 text-[#193170] text-[24px]
-        leading-8.5 font-medium ${ibmPlexSerif.className}`}
+        className={`relative z-10 text-[#193170] text-[24px]  leading-8.5 font-medium ${ibmPlexSerif.className}`}
       >
         {item.title}
       </h3>

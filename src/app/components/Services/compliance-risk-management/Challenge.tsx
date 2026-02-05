@@ -23,7 +23,7 @@ export default function RegulatoryChallenge() {
 
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12.25  mt-23.5 ml-22.75 mr-16.75">
+    <section className="  bg-[#F5F5F5] grid grid-cols-1 lg:grid-cols-2 gap-12.25  mt-23.5 ml-22.75 mr-16.75">
       {/* LEFT IMAGE */}
       <div className="relative h-124.25 w-139 overflow-hidden">
         <Image

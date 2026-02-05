@@ -6,7 +6,7 @@ import FooterSection from '../components/home/Footer'
 
 export default function page() {
   return (
-    <div>
+    <div className='bg-[#F5F5F5]'>
       <ServiceSection />
       <ScopeSection />
       <DealExperience />

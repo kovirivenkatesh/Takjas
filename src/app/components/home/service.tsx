@@ -19,6 +19,8 @@ const services = [
     arrow: '#A1B9F9',
     bot_arrow: '#82A5FF',
     iconBorder: false,
+    arrow_fill: '#193170',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Corporate, M&A, Venture Capital',
@@ -34,6 +36,8 @@ const services = [
     arrow: '#355098',
     bot_arrow: '#355098',
     iconBorder: true,
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Real Estate Law',
@@ -49,6 +53,8 @@ const services = [
     arrow: '#5C5C5C',
     bot_arrow: '#4A4A4A',
     iconBorder: true,
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Employment & Incentives',
@@ -64,6 +70,8 @@ const services = [
     arrow: '#A9A9A95C',
     bot_arrow: '#4A4A4A1F',
     iconBorder: false,
+    arrow_fill: 'black',
+    arrow_opacity: '0.42',
   },
   {
     title: 'Dispute Resolution',
@@ -79,6 +87,8 @@ const services = [
     arrow: '#A1B9F9',
     bot_arrow: '#82A5FF',
     iconBorder: false,
+    arrow_fill: '#193170',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Finance & Restructuring',
@@ -94,41 +104,43 @@ const services = [
     arrow: '#355098',
     bot_arrow: '#355098',
     iconBorder: true,
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   }
 ]
 
 export default function ServicesSection() {
   return (
-    <section className=" bg-white">
+    <section className="bg-[#F5F5F5]">
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
 
-         
-         {/* LEFT – STICKY */}
-<div className="relative">
-  <div className="sticky top-0  bg-[#F5F5F5]  h-183.5">
 
-    {/* LEFT CARD */}
-    <div className="h-183.5 px-21.25 pt-35.25 ">
-      <p className="text-[16px] mb-[16.5px]">→ Our Services</p>
+          {/* LEFT – STICKY */}
+          <div className="relative">
+            <div className="sticky top-0    h-183.5">
 
-      <h2
-        className={`text-[36px] text-[#2C2C2C] leading-13 font-medium mb-14 ${ibmPlexSerif.className}`}
-      >
-        We manage complex deals in Venture Capital and Corporate Law.
-        Trusted advisors in critical moments.
-      </h2>
+              {/* LEFT CARD */}
+              <div className="h-183.5 px-21.25 pt-35.25 ">
+                <p className="text-[16px] mb-[16.5px]">→ Our Services</p>
 
-      <Link
-        href="/services"
-        className="inline-block mt-8 bg-[#1E3A75] font-semibold text-white px-6 py-3 text-[17.2px]"
-      >
-        Explore our services
-      </Link>
-    </div>
+                <h2
+                  className={`text-[36px] text-[#2C2C2C] leading-13 font-medium mb-14 ${ibmPlexSerif.className}`}
+                >
+                  We manage complex deals in Venture Capital and Corporate Law.
+                  Trusted advisors in critical moments.
+                </h2>
 
-  </div>
-</div>
+                <Link
+                  href="/services"
+                  className="inline-block mt-8 bg-[#1E3A75] font-semibold text-white px-6 py-3 text-[17.2px]"
+                >
+                  Explore our services
+                </Link>
+              </div>
+
+            </div>
+          </div>
 
           {/* RIGHT – CARDS */}
           <div className="flex flex-col">
@@ -143,7 +155,7 @@ export default function ServicesSection() {
 
                   {/* expanding bg */}
                   <div
-                  className="absolute top-0 right-0 h-32 w-32 scale-100 origin-top-right transition-all duration-700 ease-out group-hover:scale-x-[2]"
+                    className="absolute top-0 right-0 h-32 w-32 scale-100 origin-top-right transition-all duration-700 ease-out group-hover:scale-x-[2]"
 
                     style={{ backgroundColor: service.arrow }}
                   />
@@ -151,18 +163,14 @@ export default function ServicesSection() {
 
                   {/* arrow */}
                   <div
-                    className="relative h-[90.36] w-[90.36] flex items-center justify-center transition-transform duration-500 ease-out -rotate-15 group-hover:rotate-45"
+                    className="relative h-[92.5] w-[92.5] flex items-center justify-center transition-transform duration-500 ease-out -rotate-15 group-hover:rotate-45"
 
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
-                      <g clipPath="url(#clip0_1411_5996)">
-                        <path d="M85.4942 76.4124L84.8086 42.2179L50.611 42.7261C50.2539 42.6841 49.8919 42.7193 49.5496 42.8293C49.2072 42.9393 48.8925 43.1216 48.6268 43.3639C48.3611 43.6061 48.1505 43.9026 48.0093 44.2333C47.8681 44.564 47.7996 44.9212 47.8084 45.2806C47.8173 45.6401 47.9032 45.9935 48.0605 46.3168C48.2178 46.6402 48.4427 46.926 48.7201 47.1548C48.9974 47.3837 49.3207 47.5503 49.668 47.6434C50.0153 47.7364 50.3786 47.7538 50.7332 47.6943L76.3599 47.3535L43.0049 81.8936C42.5424 82.3725 42.2892 83.0154 42.3008 83.681C42.3124 84.3466 42.588 84.9803 43.0668 85.4428C43.5457 85.9052 44.1886 86.1585 44.8542 86.1468C45.5198 86.1352 46.1535 85.8597 46.616 85.3808L79.971 50.8407L80.5248 76.4636C80.5387 77.1296 80.8167 77.7627 81.2974 78.2237C81.7782 78.6847 82.4224 78.9358 83.0883 78.9218C83.7542 78.9078 84.3873 78.6299 84.8483 78.1491C85.3093 77.6684 85.5605 77.0242 85.5465 76.3582L85.4942 76.4124Z" fill="#193170" fillOpacity="0.6" />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_1411_5996">
-                          <rect width="90.3603" height="90.3603" fill="white" transform="translate(62.7695) rotate(44)" />
-                        </clipPath>
-                      </defs>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                      <path d="M43.1939 34.1937L42.5083 -0.000834531L8.31067 0.507331C7.95356 0.465313 7.59159 0.500512 7.24926 0.610549C6.90694 0.720586 6.59225 0.902891 6.3265 1.14512C6.06076 1.38735 5.85016 1.68384 5.70897 2.01454C5.56777 2.34523 5.49927 2.70241 5.50812 3.06187C5.51696 3.42134 5.60293 3.77471 5.76022 4.09807C5.9175 4.42142 6.14243 4.7072 6.41976 4.93607C6.6971 5.16494 7.02037 5.33155 7.36769 5.42462C7.71502 5.51768 8.07828 5.53504 8.4329 5.47552L34.0596 5.13471L0.704562 39.6749C0.242131 40.1537 -0.0111324 40.7967 0.000485592 41.4623C0.0121036 42.1279 0.28765 42.7616 0.766512 43.224C1.24537 43.6864 1.88832 43.9397 2.55392 43.9281C3.21951 43.9165 3.85323 43.6409 4.31566 43.1621L37.6707 8.62191L38.2245 34.2449C38.2384 34.9108 38.5164 35.5439 38.9971 36.0049C39.4779 36.4659 40.1221 36.717 40.788 36.7031C41.4539 36.6891 42.087 36.4111 42.548 35.9304C43.009 35.4496 43.2602 34.8054 43.2462 34.1395L43.1939 34.1937Z"
+                        fill={service.arrow_fill}
+                        fillOpacity={service.arrow_opacity}
+                      />
                     </svg>
 
                   </div>

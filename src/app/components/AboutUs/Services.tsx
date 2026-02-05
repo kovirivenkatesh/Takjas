@@ -58,13 +58,13 @@ const [stripTop, setStripTop] = useState(20);
 }, []);
 
   return (
-    <section className="bg-white mt-16 pl-22.5">
+    <section className="bg-[#F5F5F5] mt-16 pl-22.5">
       <div className="  grid grid-cols-1 md:grid-cols-2 gap-10 ">
 
         {/* LEFT STICKY CARD */}
         <div className="relative">
           <div className="sticky top-16 ">
-            <div className="bg-[white]">
+            <div className="bg-[#F5F5F5]">
 
               {/* IMAGE */}
               <img
@@ -126,8 +126,8 @@ const [stripTop, setStripTop] = useState(20);
 
     ${
       active === "mission"
-        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-left"
-        : "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-right"
+        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#B2B2B2_50%,#B2B2B2_100%)] bg-size-[200%_100%] bg-left"
+        : "bg-[linear-gradient(90deg,white_0%,white_50%,#B2B2B2_50%,#B2B2B2_100%)] bg-size-[200%_100%] bg-right"
     }
   `}
 >
@@ -154,8 +154,8 @@ const [stripTop, setStripTop] = useState(20);
 
     ${
       active === "vision"
-        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-left"
-        : "bg-[linear-gradient(90deg,white_0%,white_50%,#f472b6_50%,#f472b6_100%)] bg-size-[200%_100%] bg-right"
+        ? "bg-[linear-gradient(90deg,white_0%,white_50%,#B2B2B2_50%,#B2B2B2_100%)] bg-size-[200%_100%] bg-left"
+        : "bg-[linear-gradient(90deg,white_0%,white_50%,#B2B2B2_50%,#B2B2B2_100%)] bg-size-[200%_100%] bg-right"
     }
   `}
 >

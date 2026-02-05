@@ -58,7 +58,7 @@ export default function CoreLegalCompetence() {
 
                         {/* SHADOW + BG AREA (BETWEEN LINES) */}
                         <div
-                            className="relative bg-transparent group-hover:bg-white transition-all duration-300 pl-6 pb-10 -ml-6 group-hover:shadow-xl"
+                            className="relative bg-transparent group-hover:bg-white transition-all duration-300 pl-6 pb-10 -ml-6 group-hover:shadow-sm"
 
                         >
 

@@ -42,7 +42,7 @@ const mandates = [
 
 export default function Mandates() {
     return (
-        <section className=" mt-32.25 px-20.75  ">
+        <section className=" mt-32.25 px-20.75 bg-[#F5F5F5] ">
             <p className="text-[16px] text-[#000000] mb-3">→ Our Deal Experience</p>
 
             <h2

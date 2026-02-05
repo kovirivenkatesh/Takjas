@@ -18,7 +18,7 @@ export default function GetInTouchSection() {
   }, []);
 
   return (
-   <section className="relative pl-22.25 h-150 overflow-hidden">
+    <section className="relative pl-22.25 h-150 overflow-hidden">
       {/* ================= CURTAIN (BLUE) ================= */}
       <div className="absolute inset-0 flex z-20 pointer-events-none">
         {[0, 1, 2].map((i) => (
@@ -27,12 +27,11 @@ export default function GetInTouchSection() {
             className={`
               w-1/3 bg-[#193170]
               transition-transform duration-1200 ease-in-out
-              ${
-                revealed
-                  ? i === 1
-                    ? "-translate-y-full"   // middle goes UP
-                    : "translate-y-full"    // sides go DOWN
-                  : "translate-y-0"
+              ${revealed
+                ? i === 1
+                  ? "-translate-y-full"   // middle goes UP
+                  : "translate-y-full"    // sides go DOWN
+                : "translate-y-0"
               }
             `}
             style={{ transitionDelay: `${i * 120}ms` }}
@@ -49,7 +48,7 @@ export default function GetInTouchSection() {
           {/* REVEAL MASK */}
           <div
             className={`
-              absolute inset-0 bg-white z-20
+              absolute inset-0 bg-  bg-[#F5F5F5] z-20
               transition-transform duration-2000 ease-out delay-200
               ${revealed ? "translate-x-full" : "translate-x-0"}
             `}
@@ -64,45 +63,55 @@ export default function GetInTouchSection() {
               ${revealed ? "scale-100" : "scale-110"}
             `}
           >
-           <p className="text-[16px] text-gray-500 mb-5.25">
-  <Link
-    href="/"
-    className="hover:text-[#193170] transition-colors"
-  >
-    Home
-  </Link>
+            <p className="text-[16px] text-gray-500 mb-5.25">
+              <Link
+                href="/"
+                className="hover:text-[#193170] transition-colors"
+              >
+                Home
+              </Link>
 
-  {" / "}
+              {" / "}
 
-  <Link
-    href="/services"
-    className="hover:text-[#193170] transition-colors"
-  >
-    Services
-  </Link>
+              <Link
+                href="/services"
+                className="hover:text-[#193170] transition-colors"
+              >
+                Services
+              </Link>
 
-  {" / "}
+              {" / "}
 
-  <span className="text-[#193170] ">
-    Finance & Restructuring
-  </span>
-</p>
+              <span className="text-[#193170] ">
+                Finance & Restructuring
+              </span>
+            </p>
 
             <h2
               className={`text-[66px] font-medium leading-20 mb-6 ${ibmPlexSerif.className}`}
             >
               Structuring Capital
-and Strategic
-Restructuring
+              and Strategic
+              Restructuring
             </h2>
 
             <p className="text-[16px] text-gray-600 mb-10.75 leading-6.25">
               Expert legal counsel essential for navigating critical financing structures, managing corporate debt, and ensuring stability during financial uncertainty
             </p>
 
-            <button className="bg-[#193170] text-white px-2.5 py-3 text-[16px]">
-              Get in touch
-            </button>
+           <button
+  className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
+>
+  {/* Arrow: hidden initially, shown on hover */}
+  <span className="hidden group-hover:inline pr-2">
+    →
+  </span>
+
+  {/* Text: shrinks on hover */}
+  <span className="group-hover:text-[18px]">
+    Get in touch
+  </span>
+</button>
           </div>
         </div>
 
@@ -112,7 +121,7 @@ Restructuring
             src="/Images/1a.png"
             alt="Corporate meeting"
             fill
-           
+
             className={`
               object-cover 
               transition-transform duration-1000 ease-out

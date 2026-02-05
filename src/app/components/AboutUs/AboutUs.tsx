@@ -20,7 +20,7 @@ export default function AboutSection() {
   return (
     <div className="relative  ml-22 flex gap-18 ">
       {/* LEFT SECTION */}
-      <div className="relative w-163  bg-white flex flex-col  mt-29.5">
+      <div className="relative w-163  bg-[#F5F5F5] flex flex-col  mt-29.5">
         <p className="text-[16px]  text-[#5E6784] mb-5.25">
   <Link
     href="/"
@@ -56,9 +56,19 @@ export default function AboutSection() {
           and compliance throughout the complex digital economy lifecycle.
         </p>
 
-        <button className="w-45.25 h-12.15 px-6 py-3 bg-[#193170] text-white mb-29.5">
-          Get in touch
-        </button>
+         <button
+  className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
+>
+  {/* Arrow: hidden initially, shown on hover */}
+  <span className="hidden group-hover:inline pr-2">
+    →
+  </span>
+
+  {/* Text: shrinks on hover */}
+  <span className="group-hover:text-[18px]">
+    Get in touch
+  </span>
+</button>
       </div>
 
       {/* RIGHT IMAGE SECTION */}

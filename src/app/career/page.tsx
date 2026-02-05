@@ -15,7 +15,7 @@ function FooterColumn({
   items: { label: string; href: string }[];
 }) {
   return (
-    <div>
+    <div className="  bg-[#F5F5F5] ">
       <h4 className={`font-semibold mb-10 relative ${ibmPlexSerif.className}`}>
         {title}
         <span className="absolute -top-3 left-0 w-6 h-0.75 bg-[#1b3470]" />
@@ -59,13 +59,13 @@ const [hasRevealed, setHasRevealed] = useState(false);
   }, [revealed]);
 
   return (
-    <>
+    <div className="bg-[#F5F5F5]">
       <section
         ref={sectionRef}
         onMouseEnter={() => {
           if (!revealed) setRevealed(true);
         }}
-        className="relative flex items-start gap-21.75 pt-16.75 bg-white "
+        className="relative flex items-start gap-21.75 pt-16.75    "
       >
         {/* LEFT CONTENT */}
         <div className="ml-20 mt-16.75 self-start">
@@ -215,7 +215,7 @@ const [hasRevealed, setHasRevealed] = useState(false);
 
   />
 
-  <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5">
+  <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5 pb-13">
 
     {/* ===== LEFT CONTENT ===== */}
     <div className="flex flex-col justify-between">
@@ -289,7 +289,7 @@ const [hasRevealed, setHasRevealed] = useState(false);
 </section>
 
         {/* ===== FOOTER ===== */}
-       <footer className="bg-white mt-13 relative overflow-hidden ">
+       <footer className="  bg-[#F5F5F5]  mt-13 relative overflow-hidden ">
     
             {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
             <div className="relative  group  ">
@@ -419,6 +419,6 @@ const [hasRevealed, setHasRevealed] = useState(false);
           </footer>
       </div>
 
-    </>
+    </div>
   );
 }

@@ -29,7 +29,7 @@ const mandates = [
 
 export default function ProofOfCompetenceSection() {
     return (
-        <section className="mt-23.5 ml-22.75 mr-16.75">
+        <section className="mt-23.5 ml-22.75   bg-[#F5F5F5] mr-16.75">
             <p className="leading-6.25 text-[16px] text-[#000000] mb-2.5">→ Proof of Competence</p>
 
             <h2

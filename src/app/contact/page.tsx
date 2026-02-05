@@ -88,7 +88,7 @@ useEffect(() => {
   return (
     // 🔥 PAGE-LEVEL HOVER (ONCE ONLY)
     <div
-      className="relative  "
+      className="relative bg-[#F5F5F5]   "
       onMouseEnter={() => {
         if (!revealed) setRevealed(true);
       }}
@@ -159,7 +159,7 @@ useEffect(() => {
 
   />
 
-  <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5">
+  <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5 pb-13">
 
     {/* ===== LEFT CONTENT ===== */}
     <div className="flex flex-col justify-between">
@@ -233,7 +233,7 @@ useEffect(() => {
 </section>
 
         {/* ================= FOOTER ================= */}
-     <footer className="bg-white mt-13 relative overflow-hidden ">
+     <footer className="bg-[#F5F5F5]  mt-13 relative overflow-hidden ">
   
           {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
           <div className="relative  group  ">

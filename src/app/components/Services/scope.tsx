@@ -105,7 +105,7 @@ const services = [
 
 export default function ScopeSection() {
   return (
-    <section className=" bg-white mt-18.5">
+    <section className=" bg-[#F5F5F5] mt-18.5">
       <div className="ml-21.25 mr-22.5">
         <p className="text-[16px] mb-2 leading-6.25">→ The Scope of Our Practice</p>
 

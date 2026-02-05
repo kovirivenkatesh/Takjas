@@ -10,7 +10,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>
+    <div className='bg-[#F5F5F5]'>
       <GetInTouchSection/>
       <RegulatoryChallenge />
       <OurSolutionsSection />

@@ -49,7 +49,7 @@ export default function GetInTouchSection() {
           {/* REVEAL MASK */}
           <div
             className={`
-              absolute inset-0 bg-white z-20
+              absolute inset-0   bg-[#F5F5F5]  z-20
               transition-transform duration-2000 ease-out delay-200
               ${revealed ? "translate-x-full" : "translate-x-0"}
             `}
@@ -100,9 +100,19 @@ Property Assets
               Expert legal counsel essential for managing complex transactions, property development, and securing long-term commercial asset value.
             </p>
 
-            <button className="bg-[#193170] text-white px-2.5 py-3 text-[16px]">
-              Get in touch
-            </button>
+             <button
+  className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
+>
+  {/* Arrow: hidden initially, shown on hover */}
+  <span className="hidden group-hover:inline pr-2">
+    →
+  </span>
+
+  {/* Text: shrinks on hover */}
+  <span className="group-hover:text-[18px]">
+    Get in touch
+  </span>
+</button>
           </div>
         </div>
 

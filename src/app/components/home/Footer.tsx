@@ -85,7 +85,7 @@ export default function FooterSection() {
 
   return (
     <div className="mt-33.75 ">
-      <section className="relative bg-[#1b3470] text-white  overflow-hidden group">
+      <section className="relative bg-[#1b3470] text-[#F5F5F5] overflow-hidden group">
 
         {/* ===== BLUE CURTAIN (RIGHT HALF) ===== */}
         <div
@@ -93,7 +93,7 @@ export default function FooterSection() {
 
         />
 
-        <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5">
+        <div className=" mx-20.75 relative  grid grid-cols-1 md:grid-cols-2 gap-30.5 pt-19.5  pb-13">
 
           {/* ===== LEFT CONTENT ===== */}
           <div className="flex flex-col justify-between">
@@ -130,7 +130,7 @@ export default function FooterSection() {
           </div>
 
           {/* ===== RIGHT FORM ===== */}
-          <form className="space-y-8 relative z-10">
+          <form className="space-y-8 relative z-10 ">
             <input
               type="text"
               placeholder="Name  *"
@@ -168,7 +168,7 @@ export default function FooterSection() {
 
 
       {/* ===== FAQ SECTION ===== */}
-      <section className="ml-20.75 mr-17.75 mt-20 mb-14.25 bg-white">
+      <section className="ml-20.75 mr-17.75 mt-20 mb-14.25 bg-[#F5F5F5]">
         <div className="max-w-7xl  grid grid-cols-1 md:grid-cols-2 gap-30.5 ">
 
           {/* LEFT */}
@@ -262,7 +262,7 @@ export default function FooterSection() {
 
 
       {/* ===== FOOTER ===== */}
-      <footer className="bg-white mt-13 relative overflow-hidden ">
+      <footer className="bg-[#F5F5F5] mt-13 relative overflow-hidden ">
 
         {/* ===== MAIN FOOTER (HOVER AREA) ===== */}
         <div className="relative  group  ">

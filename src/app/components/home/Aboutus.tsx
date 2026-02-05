@@ -6,22 +6,6 @@ import { ibmPlexSerif } from '@/app/fonts'
 import Link from 'next/link'
 
 export default function Aboutus() {
-  const imageRef = useRef<HTMLDivElement | null>(null)
-  const [showQuote, setShowQuote] = useState(false)
-
-  useEffect(() => {
-    if (!imageRef.current) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowQuote(entry.isIntersecting)
-      },
-      { threshold: 0.35 }
-    )
-
-    observer.observe(imageRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <div className="w-full bg-[#1E3A75] pt-17.5 pb-19.75 -mt-8 group">
@@ -31,7 +15,7 @@ export default function Aboutus() {
         <div className="relative">
           {/* IMAGE CONTAINER */}
           <div
-            ref={imageRef}
+
             className="relative w-126.25 h-96 overflow-hidden"
           >
             <Image
@@ -43,14 +27,8 @@ export default function Aboutus() {
 
             {/* QUOTE – COMES FROM INSIDE IMAGE */}
             <div
-              className={`
-                absolute left-6 right-6 bottom-0 
-                bg-white pt-4.75 pr-8.25 pb-4.5 pl-8.5 shadow-xl
-                transition-all duration-2500 ease-[cubic-bezier(0.77,0,0.175,1)]
-                ${showQuote
-                  ? 'translate-y-0 mb-7 opacity-100'
-                  : 'translate-y-32 opacity-0'}
-              `}
+              className="absolute left-6 right-6 bottom-0 bg-white pt-4.75 pr-8.25 pb-4.5 pl-8.5 shadow-xl transition-all duration-2000 ease-[cubic-bezier(0.77,0,0.175,1)] translate-y-32 opacity-0 group-hover:translate-y-0 group-hover:mb-7 group-hover:opacity-100"
+
             >
               <p
                 className={`text-[#193170] font-semibold text-[17.2px] leading-relaxed pl-4 ${ibmPlexSerif.className}`}
@@ -71,17 +49,17 @@ export default function Aboutus() {
           <p className="text-[20px] text-[#F5F5F5] mb-4">→ About Us</p>
 
           <h2
-  className={`
+            className={`
     text-3xl leading-snug font-semibold
     bg-clip-text text-transparent bg-no-repeat
 
-    /* Pink → White gradient */
-    bg-[linear-gradient(90deg,#F472B6_0%,#F472B6_50%,#ffffff_50%,#ffffff_100%)]
+    /* Gray → White gradient */
+    bg-[linear-gradient(90deg,#B2B2B2_0%,#B2B2B2_50%,#ffffff_50%,#ffffff_100%)]
 
     /* Large background for sliding */
     bg-size-[200%_100%]
 
-    /* DEFAULT: show PINK */
+    /* DEFAULT: show GRAY */
     bg-position-[0%_0%]
 
     /* Smooth animation */
@@ -91,10 +69,11 @@ export default function Aboutus() {
     /* HOVER (entire section): turn WHITE */
     group-hover:bg-position-[100%_0%]
   `}
->
-  A business law firm with a dedicated focus on assisting founders,
-  start-ups and scale-ups, investors and executives.
-</h2>
+          >
+            A business law firm with a dedicated focus on assisting founders,
+            start-ups and scale-ups, investors and executives.
+          </h2>
+
 
           <Link href="/aboutUs">
             <button className="mt-8 bg-white text-[#1E3A75] px-6 py-2 text-sm font-medium rounded-md">

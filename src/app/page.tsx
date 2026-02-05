@@ -55,52 +55,52 @@ export default function ScrollImageTakeover() {
   }, [curtainDone]);
 
   /* ================= GSAP SCROLL ================= */
- useLayoutEffect(() => {
-  if (!sectionRef.current || !textRef.current || !imageRef.current) return;
+  useLayoutEffect(() => {
+    if (!sectionRef.current || !textRef.current || !imageRef.current) return;
 
-  let ctx = gsap.context(() => {
+    let ctx = gsap.context(() => {
 
-    // ✅ SET INITIAL STATE IMMEDIATELY (even during curtain)
-    gsap.set(imageRef.current, {
-      width: "58%",
-      height: "45vh",
-      y: 200,
-      borderRadius: "36px",
-    });
+      // ✅ SET INITIAL STATE IMMEDIATELY (even during curtain)
+      gsap.set(imageRef.current, {
+        width: "58%",
+        height: "45vh",
+        y: 200,
+        borderRadius: "36px",
+      });
 
-    if (!curtainDone) return;
+      if (!curtainDone) return;
 
-    // ✅ SCROLL ANIMATION ONLY AFTER CURTAIN
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=240%",
-        scrub: 1.4,
-        pin: sectionRef.current,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    })
-      .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
-      .to(textRef.current, {
-        autoAlpha: 0,
-        y: -80,
-        pointerEvents: "none",
-      }, 0)
-      .to(imageRef.current, {
-        width: "100%",
-        height: "100vh",
-        borderRadius: "0px",
-      }, 0.25);
+      // ✅ SCROLL ANIMATION ONLY AFTER CURTAIN
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=240%",
+          scrub: 1.4,
+          pin: sectionRef.current,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+        .to(imageRef.current, { y: 0, ease: "power3.out" }, 0)
+        .to(textRef.current, {
+          autoAlpha: 0,
+          y: -80,
+         
+        }, 0)
+        .to(imageRef.current, {
+          width: "100%",
+          height: "100vh",
+          borderRadius: "0px",
+        }, 0.25);
 
-  }, sectionRef);
+    }, sectionRef);
 
-  return () => {
-    ScrollTrigger.getAll().forEach(st => st.kill());
-    ctx.revert();
-  };
-}, [curtainDone]);
+    return () => {
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      ctx.revert();
+    };
+  }, [curtainDone]);
 
 
 
@@ -136,24 +136,40 @@ export default function ScrollImageTakeover() {
       {/* ================= SCROLL SECTION ================= */}
       <section
         ref={sectionRef}
-        className="relative h-screen overflow-hidden bg-white"
+        className="relative h-screen overflow-hidden bg-[#F5F5F5] z-20"
       >
         {/* TEXT */}
         <div
           ref={textRef}
           className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-68 text-center"
         >
-          <h1 className="mb-2.5 text-[65px] leading-20 font-medium pt-10  ">
+          <h1 className={`mb-2.5 text-[65px] leading-20 font-medium pt-10 ${ibmPlexSerif.className}`}>
             Your Strategic Legal Partner in the Digital Economy
           </h1>
           <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
             Specialized in Venture Capital, Corporate Law, and M&A
           </p>
-          <button className='w-45.25  mb-18 h-12.25 bg-[#193170] text-white rounded-md p-4'>Get in touch</button>
+     <button
+  className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
+>
+  {/* Arrow: hidden initially, shown on hover */}
+  <span className="hidden group-hover:inline pr-2">
+    →
+  </span>
+
+  {/* Text: shrinks on hover */}
+  <span className="group-hover:text-[18px]">
+    Get in touch
+  </span>
+</button>
+
+
+
+
         </div>
 
         {/* IMAGE */}
-        <div className="absolute inset-0 flex justify-center items-end">
+        <div className="absolute inset-0 flex justify-center items-end pointer-events-none">
           <div
             ref={imageRef}
             className="relative overflow-hidden bg-gray-200"
@@ -169,7 +185,7 @@ export default function ScrollImageTakeover() {
         </div>
       </section>
 
-      <section>
+      <section className='bg-[#F5F5F5]'>
         <Aboutus />
         <ServicesSection />
         <CoreValuesSection />
