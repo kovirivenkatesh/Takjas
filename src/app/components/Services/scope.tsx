@@ -19,7 +19,9 @@ const services = [
     arrow: '#A1B9F9',
     bot_arrow: '#82A5FF',
     iconBorder: false,
-     href: '/services/compliance-risk-management',
+    href: '/services/compliance-risk-management',
+     arrow_fill: '#193170',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Corporate, M&A, Venture Capital',
@@ -35,7 +37,9 @@ const services = [
     arrow: '#355098',
     bot_arrow: '#355098',
     iconBorder: true,
-    href: '/services/corporate-ma-venture-capital'
+    href: '/services/corporate-ma-venture-capital',
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Real Estate Law',
@@ -51,7 +55,9 @@ const services = [
     arrow: '#355098',
     bot_arrow: '#355098',
     iconBorder: true,
-    href: '/services/real-estate-law'
+    href: '/services/real-estate-law',
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Employment & Incentives',
@@ -67,7 +73,9 @@ const services = [
     arrow: '#A1B9F9',
     bot_arrow: '#82A5FF',
     iconBorder: false,
-    href: '/services/employment-incentives'
+    href: '/services/employment-incentives',
+     arrow_fill: '#193170',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Dispute Resolution',
@@ -83,7 +91,9 @@ const services = [
     arrow: '#A1B9F9',
     bot_arrow: '#82A5FF',
     iconBorder: false,
-    href: '/services/dispute-resolution'
+    href: '/services/dispute-resolution',
+     arrow_fill: '#193170',
+    arrow_opacity: '0.6',
   },
   {
     title: 'Finance & Restructuring',
@@ -99,7 +109,9 @@ const services = [
     arrow: '#355098',
     bot_arrow: '#355098',
     iconBorder: true,
-    href: '/services/finance-restructuring'
+    href: '/services/finance-restructuring',
+    arrow_fill: 'white',
+    arrow_opacity: '0.6',
   }
 ];
 
@@ -121,43 +133,37 @@ export default function ScopeSection() {
               className={`group relative h-171 overflow-hidden border border-white ${service.bg}`}
             >
               {/* ARROW CORNER */}
-              <div className="absolute top-0 right-0 z-20 flex items-center gap-2 pr-6 pt-6">
+              <div className="absolute top-0 right-0 z-20 flex items-center gap-3 pr-6 pt-6">
 
                 {/* KNOW MORE TEXT */}
-               <Link
-  href={service.href}
-  className={`absolute right-0 text-[20px] font-medium leading-17.75 translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-24 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
->
-  Know more
-</Link>
+                <Link
+                  href={service.href}
+                  className={`absolute right-0 text-[20px] font-medium leading-17.75 translate-x-full transition-transform duration-500 ease-out group-hover:-translate-x-26 -mt-1 z-30 ${ibmPlexSerif.className} ${service.iconBorder ? 'text-[#FFFFFF]' : 'text-[#3E538D]'}`}
+                >
+                  Know more
+                </Link>
 
 
 
                 {/* ARROW BG */}
-               <div
- className="absolute top-0 right-0 h-33 w-33 origin-top-right transition-[width] duration-700 ease-out group-hover:w-75"
-
-  style={{ backgroundColor: service.arrow }}
-/>
-                {/* ARROW */}
                 <div
-                  className=" relative h-24 w-24 flex items-center justify-center transition-transform duration-500 ease-out  -rotate-45  group-hover:rotate-0"
+                  className="absolute top-0 right-0 h-33 w-33 origin-top-right transition-[width] duration-700 ease-out group-hover:w-75"
 
-                >
-                  <svg
-                    width="77"
-                    height="77"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#6A7798"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  style={{ backgroundColor: service.arrow }}
+                />
+                {/* ARROW */}
+                 <div
+                    className="relative h-[92.5] w-[92.5] flex items-center justify-center transition-transform duration-500 ease-out -rotate-15 group-hover:rotate-45"
+
                   >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                      <path d="M43.1939 34.1937L42.5083 -0.000834531L8.31067 0.507331C7.95356 0.465313 7.59159 0.500512 7.24926 0.610549C6.90694 0.720586 6.59225 0.902891 6.3265 1.14512C6.06076 1.38735 5.85016 1.68384 5.70897 2.01454C5.56777 2.34523 5.49927 2.70241 5.50812 3.06187C5.51696 3.42134 5.60293 3.77471 5.76022 4.09807C5.9175 4.42142 6.14243 4.7072 6.41976 4.93607C6.6971 5.16494 7.02037 5.33155 7.36769 5.42462C7.71502 5.51768 8.07828 5.53504 8.4329 5.47552L34.0596 5.13471L0.704562 39.6749C0.242131 40.1537 -0.0111324 40.7967 0.000485592 41.4623C0.0121036 42.1279 0.28765 42.7616 0.766512 43.224C1.24537 43.6864 1.88832 43.9397 2.55392 43.9281C3.21951 43.9165 3.85323 43.6409 4.31566 43.1621L37.6707 8.62191L38.2245 34.2449C38.2384 34.9108 38.5164 35.5439 38.9971 36.0049C39.4779 36.4659 40.1221 36.717 40.788 36.7031C41.4539 36.6891 42.087 36.4111 42.548 35.9304C43.009 35.4496 43.2602 34.8054 43.2462 34.1395L43.1939 34.1937Z"
+                        fill={service.arrow_fill}
+                        fillOpacity={service.arrow_opacity}
+                      />
+                    </svg>
+
+                  </div>
               </div>
 
               {/* BOTTOM RIGHT DECOR */}

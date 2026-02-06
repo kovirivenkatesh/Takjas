@@ -22,7 +22,7 @@ export default function DealExperience() {
                 </h1>
       </section>
       </div>
-<div className="relative  bg-white  mt-18.75">
+<div className="relative  bg-[#F5F5F5]  mt-18.75">
   <div className="relative max-w-7xl  px-4">
 
    {/* LEFT BLUE STRIP */}

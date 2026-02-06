@@ -112,13 +112,13 @@ useEffect(() => {
   
    <div
   ref={imageRef}
-  className="relative h-113 w-316.25"
+  className="relative h-113 w-full"
   onMouseEnter={() => animate(interaction, 1, { duration: 1.2 })}
   onMouseLeave={() => animate(interaction, 0, { duration: 1.2 })}
 >
   {/* PADDING WRAPPER */}
   <div className="relative h-full w-full px-19.25">
-    <div className="relative h-full w-full overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden max-w-316.25 mx-auto">
       {/* BACKGROUND IMAGE */}
       <Image
         src="/Images/contactUs.png"
@@ -156,7 +156,7 @@ useEffect(() => {
       {/* ================= LIFTING CONTENT ================= */}
       <motion.div
   initial={{ marginTop: "0vh" }}
-  animate={revealed ? { marginTop: "-65vh" } : { marginTop: "0vh" }}
+  animate={revealed ? { marginTop: "-62.5vh" } : { marginTop: "0vh" }}
   transition={{ duration: 1.2, ease: "easeInOut" }}
   className="relative z-20"
 >

@@ -92,7 +92,7 @@ const DealExperience = () => {
       {/* ================= DESKTOP VIEW ================= */}
 
       <div className="hidden sm:block mt-33.75 mx-20.75">
-        <section className="w-full">
+        <section className="w-full group">
           <section className="space-y-12  px-2">
                        <p className="text-[16px] mb-2">→ Our Process</p>
                        <h1 className={`text-[55px] font-medium leading-17.75 ${ibmPlexSerif.className} `}>
@@ -128,7 +128,7 @@ const DealExperience = () => {
                 )}
 
                 {/* Number box */}
-                <div className="w-22.5 h-22.5 border border-[#193170] flex items-center justify-center mb-10 mt-8.75">
+                <div className="w-22.5 h-22.5 border border-[#193170] flex items-center justify-center mb-10 mt-8.75   transition-colors duration-300 group-hover:bg-[#19317014]">
                   <span className="text-[#193170] text-[32px] font-medium">
                     {step.id}
                   </span>
