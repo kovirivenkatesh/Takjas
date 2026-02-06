@@ -88,7 +88,7 @@ export default function CoreValues() {
 
         {/* IMAGE */}
         <img
-          src="/Images/GetInTouch.jpg"
+          src="/Images/GetInTouch1.png"
           alt="Legal discussion"
           className="w-360 h-144 object-cover transition-transform duration-700 ease-in-out group-hover/image:scale-110"
 
