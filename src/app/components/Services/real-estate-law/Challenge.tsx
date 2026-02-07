@@ -61,7 +61,7 @@ export default function RegulatoryChallenge() {
        >
          {/* HEADER ROW */}
          <div
-           className={`flex  justify-between  py-3 cursor-pointer transition-colors duration-300   ${isOpen ? "bg-[#193170]" : "bg-transparent"} `}
+           className={`flex  justify-between  py-3 px-2 cursor-pointer transition-colors duration-300   ${isOpen ? "bg-[#193170]" : "bg-transparent"} `}
          >
            {/* LEFT DOT + TEXT */}
            <div className="flex items-center gap-3">

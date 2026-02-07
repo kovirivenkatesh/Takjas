@@ -117,72 +117,72 @@ export default function OurSolutionsSection() {
            </div>
    
            {/* RIGHT COLUMN */}
-           <div className="flex flex-col gap-5">
-             {/* FORM */}
-             <div className="relative group overflow-hidden border border-[#C9D3EA] bg-white">
-               {/* SKY BLUE FLOW LAYER */}
-               <div className="absolute inset-0 bg-[#EAF1FF] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-4000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-   
-               <div className="relative z-10 flex flex-col">
-                 {/* HEADER */}
-                 <div className="bg-[#193170] text-white px-6.25 py-5.5 h-35.5">
-                   <h3 className={`text-[24px] mb-2.75 leading-6.75 font-medium ${ibmPlexSerif.className} `}>Begin Your Inquiry</h3>
-                   <p className="text-[16px] leading-6.5 opacity-80">
-                     Talk to an M&A specialist for quick, secure communication.
-                   </p>
-                 </div>
-   
-                 {/* FORM BODY */}
-                 <div className=" space-y-4 mt-3.5 mx-5">
-                   {["Name", "Email", "Phone No.", "Message"].map((label, i) => (
-                     <div key={i} className="relative overflow-hidden">
-                       <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-4000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-   
-                       {label === "Message" ? (
-                         <textarea
-                           placeholder={label}
-                           className="relative z-10 px-4 py-3 w-full h-40 mb-4.75 resize-none  bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] text-[15px] placeholder-[#5E6784] outline-none"
-                         />
-                       ) : (
-                         <input
-                           placeholder={label}
-                           className="relative z-10 px-4 py-3 w-full h-14 bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] placeholder-[#5E6784] outline-none"
-                         />
-                       )}
-                     </div>
-                   ))}
-   
-                   <button className="w-full h-15 bg-[#193170] text-white text-[16px] py-1 px-3 mb-5.5">
-                     Submit
-                   </button>
-                 </div>
-               </div>
-             </div>
-   
-             {/* CONTACT US — spans 1 row */}
-             <div className="row-span-1 bg-[#393E49] text-white px-6 py-6 h-47.5 flex flex-col justify-center">
-               <h4 className="text-[20px] leading-6.25 font-medium mb-5.5">Contact Us</h4>
-   
-               <ul className="space-y-3.5 text-[16px] opacity-90">
-                 <li className="flex items-center gap-3">
-                   <Phone size={18} className="text-white" />
-                   <span>+49 (0)30 257 44 863</span>
-                 </li>
-   
-                 <li className="flex items-center gap-3">
-                   <Mail size={18} className="text-white" />
-                   <span>info@takjas.com</span>
-                 </li>
-   
-                 <li className="flex items-start gap-3">
-                   <MapPin size={18} className="text-white mt-0.5 leading-5.75" />
-                   <span>
-                     Fehrbelliner Str. 23, 10119 Berlin, Germany
-                   </span>
-                 </li>
-               </ul>
-             </div>
-           </div>
+        <div className="flex flex-col gap-5">
+          {/* FORM */}
+          <div className="relative group overflow-hidden border border-[#C9D3EA] bg-white">
+            {/* SKY BLUE FLOW LAYER */}
+            <div className="absolute inset-0 bg-[#EAF1FF] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-4000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+
+            <div className="relative z-10 flex flex-col">
+              {/* HEADER */}
+              <div className="bg-[#193170] text-white px-6.25 py-5.5 h-35.5">
+                <h3 className={`text-[24px] mb-2.75 leading-6.75 font-medium ${ibmPlexSerif.className} `}>Begin Your Inquiry</h3>
+                <p className="text-[16px] leading-6.5 opacity-80">
+                  Talk to an M&A specialist for quick, secure communication.
+                </p>
+              </div>
+
+              {/* FORM BODY */}
+              <div className=" space-y-4 mt-3.5 mx-5">
+                {["Name", "Email", "Phone No.", "Message"].map((label, i) => (
+                  <div key={i} className="relative overflow-hidden">
+                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-4000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+
+                    {label === "Message" ? (
+                      <textarea
+                        placeholder={label}
+                        className="relative z-10 px-4 py-3 w-full h-40 mb-4.75 resize-none  bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] text-[15px] placeholder-[#5E6784] outline-none"
+                      />
+                    ) : (
+                      <input
+                        placeholder={label}
+                        className="relative z-10 px-4 py-3 w-full h-14 bg-[#EAF1FF] group-hover:bg-transparent text-[#193170] placeholder-[#5E6784] outline-none"
+                      />
+                    )}
+                  </div>
+                ))}
+
+                <button className="w-full h-15 bg-[#193170] text-white text-[16px] py-1 px-3 mb-6">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* CONTACT US — spans 1 row */}
+          <div className="row-span-1 bg-[#393E49] text-white px-6 py-6 h-50 flex flex-col justify-center">
+            <h4 className="text-[20px] leading-6.25 font-medium mb-5.5">Contact Us</h4>
+
+            <ul className="space-y-3.5 text-[16px] opacity-90">
+              <li className="flex items-center gap-3">
+                <Phone size={18} className="text-white" />
+                <span>+49 (0)30 257 44 863</span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <Mail size={18} className="text-white" />
+                <span>info@takjas.com</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <MapPin size={18} className="text-white mt-0.5 leading-5.75" />
+                <span>
+                  Fehrbelliner Str. 23, 10119 Berlin, Germany
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
    
          </div>
        </section>

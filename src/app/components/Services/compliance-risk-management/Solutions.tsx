@@ -152,7 +152,7 @@ export default function OurSolutionsSection() {
                   </div>
                 ))}
 
-                <button className="w-full h-15 bg-[#193170] text-white text-[16px] py-1 px-3 mb-5.5">
+                <button className="w-full h-15 bg-[#193170] text-white text-[16px] py-1 px-3 mb-6">
                   Submit
                 </button>
               </div>
@@ -160,7 +160,7 @@ export default function OurSolutionsSection() {
           </div>
 
           {/* CONTACT US — spans 1 row */}
-          <div className="row-span-1 bg-[#393E49] text-white px-6 py-6 h-47.5 flex flex-col justify-center">
+          <div className="row-span-1 bg-[#393E49] text-white px-6 py-6 h-50 flex flex-col justify-center">
             <h4 className="text-[20px] leading-6.25 font-medium mb-5.5">Contact Us</h4>
 
             <ul className="space-y-3.5 text-[16px] opacity-90">

@@ -96,6 +96,25 @@ useEffect(() => {
   interaction.set(0);           // ensure visible
 }, []);
 
+const [lift, setLift] = useState("-62.5vh");
+
+useEffect(() => {
+  const updateLift = () => {
+    const h = window.innerHeight;
+
+    if (h >= 1200) {
+      setLift("-48vh");      // very large screens
+    } else if (h >= 900) {
+      setLift("-42vh");      // large desktops
+    } else {
+      setLift("-62.5vh");   // normal / small
+    }
+  };
+
+  updateLift();
+  window.addEventListener("resize", updateLift);
+  return () => window.removeEventListener("resize", updateLift);
+}, []);
 
   return (
     // 🔥 PAGE-LEVEL HOVER (ONCE ONLY)
@@ -154,12 +173,13 @@ useEffect(() => {
 </section>
 
       {/* ================= LIFTING CONTENT ================= */}
-      <motion.div
+     <motion.div
   initial={{ marginTop: "0vh" }}
-  animate={revealed ? { marginTop: "-62.5vh" } : { marginTop: "0vh" }}
+  animate={revealed ? { marginTop: lift } : { marginTop: "0vh" }}
   transition={{ duration: 1.2, ease: "easeInOut" }}
   className="relative z-20"
 >
+
 
 
         {/* ================= CONTACT ================= */}

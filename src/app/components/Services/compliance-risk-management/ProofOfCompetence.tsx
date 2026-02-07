@@ -58,19 +58,22 @@ export default function ProofOfCompetenceSection() {
                 </div>
           
                 {/* ================= 2nd COLUMN ================= */}
-                <div className="relative z-10 flex items-center pl-5.25 pr-12.75">
-                    {/* SKY BLUE BASE */}
-                <div className="absolute inset-0 bg-[#ACC3FF4A]" />
-                  <div
-                    className={`text-[48px] font-medium leading-17.75 text-[#193170] group-hover:text-white transition-colors duration-500 ${ibmPlexSerif.className}`}
-                  >
-                    {m.client}
-                  </div>
-          
-                  {/* DARK BLUE HOVER FILL */}
-                  <div className="absolute inset-y-0 left-0 w-0 bg-[#193170] transition-all duration-700 group-hover:w-full -z-10" />
-                </div>
-          
+            <div className="relative z-10 flex items-center pl-5.25 pr-12.75 overflow-hidden">
+
+  {/* SKY BLUE BASE */}
+  <div className="absolute inset-0 bg-[#ACC3FF4A] z-0 group-hover:opacity-0 transition-opacity duration-300" />
+
+  {/* DARK BLUE HOVER FILL */}
+  <div className="absolute inset-y-0 left-0 w-0 bg-[#193170] z-10 transition-all duration-700 group-hover:w-full" />
+
+  {/* TEXT */}
+  <div
+    className={`relative z-20 text-[48px] font-medium leading-17.75 text-[#193170] group-hover:text-white transition-colors duration-500 ${ibmPlexSerif.className}`}
+  >
+    {m.client}
+  </div>
+</div>
+
                 {/* ================= 3rd COLUMN ================= */}
                 <div className="relative z-10  flex flex-col pt-9.75 pl-7 pr-10.25 bg-[#F5F5F5] group-hover:bg-[#E9E9E9]">
                   <span className="inline-block w-fit mb-2.75 p-2 text-4 font-medium leading-4.75 border border-[#193170] text-[#193170] group-hover:bg-[#FFFFFFEB]">
