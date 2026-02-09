@@ -331,7 +331,7 @@ export default function FooterSection() {
 
                 </div>
 
-              
+
                 {/* ===== LINKS ===== */}
                 <FooterColumn
                   title="Links"
@@ -358,7 +358,7 @@ export default function FooterSection() {
                       { label: "Finance & Restructuring", href: "/services/finance-restructuring" },
                     ]}
                   />
-               </div>
+                </div>
 
                 {/* ===== NEWSLETTER ===== */}
                 <div className="">
@@ -400,9 +400,13 @@ export default function FooterSection() {
 
 
         {/* ===== COPYRIGHT (SEPARATE) ===== */}
-        <div className="bg-[#1b3470] text-white relative z-20 text-center py-4.5  text-medium text-[14px]">
-          © 2025 Takjas, All rights reserved.
+        <div className="bg-[#1b3470] text-white relative z-20 text-center py-4.5 text-[14px]">
+          <div>© 2025 Takjas, All rights reserved.</div>
+          <div className="text-[14px] mt-1 text-[#FFFFFF8A]">
+            Powered By <span className="text-[#FFFFFF]">SoftwareGiant</span>
+          </div>
         </div>
+
 
       </footer>
 
