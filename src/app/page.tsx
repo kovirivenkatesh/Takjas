@@ -23,6 +23,8 @@ const CURTAIN_DELAY = 300;
 const CURTAIN_DURATION = 2000;
 
 const HEADER_OFFSET = 96
+const HEADER_MOBILE_OFFSET = 80
+
 export default function ScrollImageTakeover() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -86,7 +88,7 @@ export default function ScrollImageTakeover() {
         .to(textRef.current, {
           autoAlpha: 0,
           y: -80,
-         
+
         }, 0)
         .to(imageRef.current, {
           width: "100%",
@@ -105,16 +107,17 @@ export default function ScrollImageTakeover() {
 
 
   return (
-    <>
+    <div className="overflow-x-hidden sm:overflow-x-visible">
+
       {/* ================= BLUE CURTAIN ================= */}
-      <section
-        className={`fixed left-0 w-full z-50 overflow-hidden
-  ${collapsed ? 'pointer-events-none' : ''}`}
-        style={{
-          top: `${HEADER_OFFSET}px`,
-          height: `calc(100vh - ${HEADER_OFFSET}px)`,
-        }}
-      >
+    <section
+  className={`fixed left-0 w-full z-50 overflow-hidden
+    top-20 sm:top-24
+    h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)]
+    ${collapsed ? "pointer-events-none" : ""}`}
+>
+
+
 
         <div
           className={`absolute top-0 left-0 h-full w-1/3 bg-[#193170]  transition-transform duration-2000
@@ -133,15 +136,15 @@ export default function ScrollImageTakeover() {
         />
       </section>
 
-      {/* ================= SCROLL SECTION ================= */}
+      {/* ================= SCROLL SECTION (DESKTOP VIEW) ================= */}
       <section
         ref={sectionRef}
-        className="relative h-screen overflow-hidden bg-[#F5F5F5] z-20"
+        className="hidden sm:block relative h-screen overflow-hidden bg-[#F5F5F5] z-20"
       >
         {/* TEXT */}
         <div
           ref={textRef}
-          className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-68 text-center"
+          className="absolute top-[18vh] left-1/2  w-full  -translate-x-1/2 px-6 md:px-12 lg:px-68 text-center"
         >
           <h1 className={`mb-2.5 text-[65px] leading-20 font-medium pt-10 ${ibmPlexSerif.className}`}>
             Your Strategic Legal Partner in the Digital Economy
@@ -149,23 +152,19 @@ export default function ScrollImageTakeover() {
           <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
             Specialized in Venture Capital, Corporate Law, and M&A
           </p>
-     <button
-  className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
->
-  {/* Arrow: hidden initially, shown on hover */}
-  <span className="hidden group-hover:inline pr-2">
-    →
-  </span>
+          <button
+            className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
+          >
+            {/* Arrow: hidden initially, shown on hover */}
+            <span className="hidden group-hover:inline pr-2">
+              →
+            </span>
 
-  {/* Text: shrinks on hover */}
-  <span className="group-hover:text-[18px]">
-    Get in touch
-  </span>
-</button>
-
-
-
-
+            {/* Text: shrinks on hover */}
+            <span className="group-hover:text-[18px]">
+              Get in touch
+            </span>
+          </button>
         </div>
 
         {/* IMAGE */}
@@ -185,6 +184,45 @@ export default function ScrollImageTakeover() {
         </div>
       </section>
 
+      {/* ================= SCROLL SECTION (MOBILE VIEW) ================= */}
+     <section className="block sm:hidden relative bg-[#F5F5F5] pt-24">
+
+
+        {/* TEXT */}
+        <div className="px-6 text-center">
+          <h1
+            className={`  mb-4 font-medium text-[32px] leading-10  ${ibmPlexSerif.className}  `}
+          >
+            Your Strategic Legal Partner in the Digital Economy
+          </h1>
+
+          <p className="mb-6 text-[14px] leading-6 text-[#5E6784]">
+            Specialized in Venture Capital, Corporate Law, and M&A
+          </p>
+
+          <button
+            className="mx-auto flex items-center justify-center h-12 px-6 bg-[#193170] text-white rounded-md text-[16px]"
+
+          >
+            Get in touch
+          </button>
+        </div>
+
+        {/* IMAGE */}
+        <div className="mt-6 flex justify-center">
+          <div className="relative w-full h-[35vh]  overflow-hidden bg-gray-200">
+            <Image
+              src="/Images/GetInTouch.jpg"
+              alt="Get in touch"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+      </section>
+
       <section className='bg-[#F5F5F5]'>
         <Aboutus />
         <ServicesSection />
@@ -195,6 +233,6 @@ export default function ScrollImageTakeover() {
 
       </section>
 
-    </>
+    </div>
   );
 }

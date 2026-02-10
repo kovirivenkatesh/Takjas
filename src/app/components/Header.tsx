@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState,useRef,useEffect } from "react";
 import { usePathname } from "next/navigation";
 import ServicesDropdown from "./Services/SerivceDropdown";
 
@@ -14,12 +15,38 @@ const navItems = [
 
 export default function Header() {
   const pathname = usePathname();
+   const [menuOpen, setMenuOpen] = useState(false);
+const menuRef = useRef<HTMLDivElement>(null);
+const buttonRef = useRef<HTMLButtonElement>(null);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  useEffect(() => {
+  const handleClickOutside = (e: MouseEvent) => {
+    if (
+      menuOpen &&
+      menuRef.current &&
+      !menuRef.current.contains(e.target as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(e.target as Node)
+    ) {
+      setMenuOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [menuOpen]);
+
   return (
-    <header className="fixed top-0 left-0 w-full h-24 bg-[#F5F5F5]  z-50 shadow-sm">
+    <>
+
+    {/* ================= DESKTOP VIEW ================= */}
+
+     <header className=" hidden sm:block fixed top-0 left-0 w-full h-24 bg-[#F5F5F5]  z-50 shadow-sm">
       <div className=" mx-22 flex justify-between py-6.5 relative ">
         {/* LOGO */}
         <Link href="/" className="flex items-center h-full">
@@ -101,6 +128,76 @@ export default function Header() {
         </nav>
       </div>
     </header>
+
+  
+     {/* ================= MOBILE VIEW ================= */}
+
+<header className="block sm:hidden fixed top-0 left-0 w-full h-20 bg-[#F5F5F5] z-50 shadow-sm">
+  <div className="px-6 h-full flex items-center justify-between">
+
+    {/* LOGO */}
+    <Link href="/" className="flex items-center">
+      <div className="relative w-24 h-9">
+        <Image
+          src="/Images/logo.png"
+          alt="Company Logo"
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
+    </Link>
+
+    {/* HAMBURGER */}
+    <button
+  ref={buttonRef}
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="flex flex-col gap-1.5"
+>
+
+      <span className="w-6 h-0.5 bg-[#193170]" />
+      <span className="w-6 h-0.5 bg-[#193170]" />
+      <span className="w-6 h-0.5 bg-[#193170]" />
+    </button>
+  </div>
+
+  {/* MOBILE MENU */}
+  {menuOpen && (
+     <div ref={menuRef}>
+    <nav className="absolute top-full left-0 w-full bg-white shadow-md py-6">
+      <ul className="flex flex-col gap-6 px-6 text-[16px]">
+
+        {navItems.map(item => (
+          <li key={item.name}>
+            <Link
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-[#193170]"
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+
+        {/* CONTACT */}
+        <li>
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="block text-center py-3 border border-[#193170] text-[#193170] rounded-md"
+          >
+            Contact Us
+          </Link>
+        </li>
+
+      </ul>
+    </nav>
+    </div>
+  )}
+</header>
+
+    </>
+   
   );
 }
 

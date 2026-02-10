@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@media (max-width: 639px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+
 
 @keyframes marquee {
   0% {
