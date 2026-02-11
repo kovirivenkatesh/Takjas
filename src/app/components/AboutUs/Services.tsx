@@ -87,7 +87,7 @@ export default function MissionVisionSection() {
                     “Our expertise eliminates friction and secures the<br /> transaction.”
                   </p>
                   <span className="block text-[12px] text-gray-500 leading-6">
-                    — Philip S. Taube, Co-Founder, Partner, Managing Director
+                    -Philipp S. Takjas, (Co-Founder, Partner, Managing Director)
                   </span>
                 </div>
 
@@ -190,7 +190,7 @@ export default function MissionVisionSection() {
                 “Our expertise eliminates friction and secures the transaction.”
               </p>
               <span className="block text-xs text-gray-500">
-                — Philip S. Taube, Co-Founder, Partner, Managing Director
+                -Philipp S. Takjas, (Co-Founder, Partner, Managing Director)
               </span>
             </div>
           </div>

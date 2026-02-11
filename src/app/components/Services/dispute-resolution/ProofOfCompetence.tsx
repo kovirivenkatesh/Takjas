@@ -22,7 +22,7 @@ export default function ProofOfCompetenceSection() {
                    <h2
                        className={`text-[55px] font-medium mb-18.75 leading-17.75 text-[#2C2C2C]  ${ibmPlexSerif.className}`}
                    >
-                       Expertise proven across Dispute Resolution 
+                       Proven expertise across Dispute Resolution 
                    </h2>
        
                      <div className="border border-[#193170]  divide-y divide-[#193170]">

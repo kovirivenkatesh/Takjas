@@ -94,7 +94,7 @@ export default function CareerHeroCurtain() {
           </h3>
 
           <p className="text-[#5E6784] mb-9.75 text-[16px] leading-6.25">
-            If interested, reach out. We look forward to receiving your CV and supporting documents.
+            If you are interested, please reach out. We look forward to receiving your CV and supporting documents.
           </p>
 
           <a
