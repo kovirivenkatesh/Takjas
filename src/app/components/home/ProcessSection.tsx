@@ -94,11 +94,11 @@ const DealExperience = () => {
       <div className="hidden sm:block mt-33.75 mx-20.75">
         <section className="w-full group">
           <section className="space-y-12  px-2">
-                       <p className="text-[16px] mb-2">→ Our Process</p>
-                       <h1 className={`text-[55px] font-medium leading-17.75 ${ibmPlexSerif.className} `}>
-                      A precise, business-first methodology designed for efficiency and legal clarity.
-                         </h1>
-               </section>
+            <p className="text-[16px] mb-2">→ Our Process</p>
+            <h1 className={`text-[55px] font-medium leading-17.75 ${ibmPlexSerif.className} `}>
+              A precise, business-first methodology designed for efficiency and legal clarity.
+            </h1>
+          </section>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-18.75">
             {steps.map((step, index) => (
@@ -151,16 +151,17 @@ const DealExperience = () => {
       {/* ================= MOBILE VIEW ================= */}
 
       <div className="block sm:hidden">
-        <section className="w-full px-8">
-          <h1 className="text-white text-[35px] font-semibold mb-12">
-            How We Build Your ERP
+        <section className="w-full px-8 mt-20">
+          <p className="text-[14px] mb-2">→ Our Process</p>
+          <h1 className={`text-[30px] font-medium leading-tight  mb-5 ${ibmPlexSerif.className} `}>
+            A precise, business-first methodology designed for efficiency and legal clarity.
           </h1>
 
           <div className="relative md:hidden px-6">
 
             {/* STATIC VERTICAL LINE */}
             <div
-           className="absolute left-2 top-0 bottom-0 w-0.5 bg-[#8A38F5]/30 rounded-full"
+              className="absolute left-2 top-0 bottom-0 w-0.5 bg-[#8A38F5]/30 rounded-full"
 
             />
 
@@ -184,16 +185,25 @@ const DealExperience = () => {
               {steps.map((step, index) => (
                 <div
                   key={index}
+                  data-index={index}
                   ref={(el) => {
                     cardRefs.current[index] = el;
                   }}
 
-                 className={`relative pl-12 pr-6 py-10 transition-all duration-500 ${activeIndex === index ? "bg-[#2A173E] border border-[#8A38F575] rounded-md" : "bg-transparent border border-transparent"}`}
+                  className={`relative pl-12 pr-6 py-10 transition-all duration-500 `}
 
                 >
                   {/* Number box */}
-                  <div className="w-14 h-14 border border-[#FF94D2] flex items-center justify-center mb-4 -mt-4 -ml-8">
-                    <span className="text-[#FF94D2] text-xl font-medium">
+                  <div
+                    className={`
+    w-14 h-14 flex items-center justify-center mb-4 -mt-4 -ml-8
+    border border-[#193170]
+    transition-colors duration-300
+    ${activeIndex === index ? 'bg-[#19317014]' : 'bg-transparent'}
+  `}
+                  >
+
+                    <span className="text-[#193170] text-xl font-medium">
                       {step.id}
                     </span>
                   </div>
