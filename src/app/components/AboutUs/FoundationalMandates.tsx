@@ -1,6 +1,7 @@
 "use client";
 import { ibmPlexSerif } from "@/app/fonts";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const mandates = [
     {
@@ -41,8 +42,62 @@ const mandates = [
 ];
 
 export default function Mandates() {
+
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = Number(entry.target.getAttribute("data-index"));
+
+        if (entry.isIntersecting) {
+          setActiveIndex(index);
+        }
+      });
+    },
+    {
+      threshold: 0.6, // must be 60% visible
+    }
+  );
+
+  itemRefs.current.forEach((el) => {
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, []);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute("data-index"));
+          setVisibleItems((prev) =>
+            prev.includes(index) ? prev : [...prev, index]
+          );
+        }
+      });
+    },
+    { threshold: 1 }
+  );
+
+  itemRefs.current.forEach((el) => {
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, []);
+
     return (
-        <section className=" mt-32.25 px-20.75  ">
+      <>
+
+        {/* ================= DESKTOP VIEW ================= */}
+        <section className="hidden sm:block mt-32.25 px-20.75  ">
             <p className="text-[16px] text-[#000000] mb-3">→ Foundational Transactional Mandates</p>
 
             <h2
@@ -104,5 +159,115 @@ export default function Mandates() {
 </div>
 
         </section>
+
+       {/* ================= MOBILE VIEW ================= */}
+<section className="block sm:hidden mt-20 px-6">
+
+  <p className="text-[14px] text-black mb-3">
+    → Foundational Transactional Mandates
+  </p>
+
+  <h2
+    className={`text-[28px] leading-9 mb-12 ${ibmPlexSerif.className}`}
+  >
+    These mandates define our competence and strategic depth in corporate
+    and financing.
+  </h2>
+
+  <div className="border border-[#193170] divide-y divide-[#193170]">
+
+    {mandates.map((m, i) => {
+      const isVisible = visibleItems.includes(i);
+
+      return (
+        <div
+          key={i}
+          ref={(el) => {
+  itemRefs.current[i] = el;
+}}
+
+          data-index={i}
+          className="relative flex flex-col"
+        >
+
+          {/* ================= ICON ================= */}
+          <div className="flex items-center justify-center bg-[#193170] py-6">
+            <Image
+              src={m.icon}
+              alt={m.client}
+              width={64}
+              height={64}
+              className="object-contain"
+            />
+          </div>
+
+        
+        {/* ================= CLIENT NAME ================= */}
+<div className="relative px-6 py-6 overflow-hidden">
+
+  {/* SKY BLUE BASE */}
+  <div
+    className={`absolute inset-0 bg-[#ACC3FF4A] z-0 transition-opacity duration-300 ${
+      activeIndex === i ? "opacity-0" : "opacity-100"
+    }`}
+  />
+
+  {/* DARK BLUE FILL (TOP → BOTTOM) */}
+  <div
+    className={`absolute top-0 left-0 w-full bg-[#193170] z-10 transition-all duration-700 ${
+      activeIndex === i ? "h-full" : "h-0"
+    }`}
+  />
+
+  <div
+    className={`relative z-20 text-[22px] font-medium transition-colors duration-500 ${
+      activeIndex === i ? "text-white" : "text-[#193170]"
+    } ${ibmPlexSerif.className}`}
+  >
+    {m.client}
+  </div>
+
+</div>
+
+         {/* ================= DESCRIPTION ================= */}
+<div className="relative px-6 py-6 overflow-hidden">
+
+  {/* BASE BACKGROUND */}
+  <div
+    className={`absolute inset-0 bg-[#F5F5F5] z-0 transition-opacity duration-300 ${
+      activeIndex === i ? "opacity-0" : "opacity-100"
+    }`}
+  />
+
+  {/* HOVER FILL TOP → BOTTOM */}
+  <div
+    className={`absolute top-0 left-0 w-full bg-[#E9E9E9] z-10 transition-all duration-700 ${
+      activeIndex === i ? "h-full" : "h-0"
+    }`}
+  />
+
+  {/* CONTENT */}
+  <div className="relative z-20">
+    <span className="inline-block mb-3 px-3 py-1 text-[13px] font-medium border border-[#193170] text-[#193170] bg-white">
+      {m.tag}
+    </span>
+
+    <p className="text-[15px] leading-6 text-[#5D5D5D]">
+      {m.desc}
+    </p>
+  </div>
+
+</div>
+
+
+        </div>
+      );
+    })}
+
+  </div>
+
+</section>
+
+        </>
     );
 }

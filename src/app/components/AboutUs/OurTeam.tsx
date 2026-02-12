@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { ibmPlexSerif } from "@/app/fonts";
 import { MapPin, GraduationCap } from "lucide-react";
+import { useState,useEffect,useRef } from "react";
 
 const team = [
   {
@@ -51,6 +52,7 @@ const people = [
     name: "Philipp S. Takjas",
     role: "Co-Founder, Partner, Managing \n Director (MD)",
     className: "left-[31px] bottom-[79px] w-[241px] h-[94px]",
+    
   },
   {
     name: "Ben L. Elleser",
@@ -70,8 +72,37 @@ const people = [
 ];
 
 export default function OurTeam() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+const [isVisible, setIsVisible] = useState(false);
+const sectionRef = useRef<HTMLDivElement | null>(null);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    { threshold: 0.4 }
+  );
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => observer.disconnect();
+}, []);
+
+const toggleMember = (index: number) => {
+  setActiveIndex((prev) => (prev === index ? null : index));
+};
+
   return (
-    <section className="mt-32.25 pl-22.5 pr-21">
+
+    <>
+
+    {/* ================= DESKTOP VIEW ================= */}
+    <section className=" hidden sm:block mt-32.25 pl-22.5 pr-21">
       <p className="text-[16px] text-black mb-2.25">→ Our Team</p>
 
       <h2
@@ -234,6 +265,178 @@ ${i === 0
       </div>
 
     </section>
+
+   {/* ================= MOBILE VIEW ================= */}
+<section className="block sm:hidden mt-16 px-6">
+
+  {/* Heading */}
+  <p className="text-[14px] text-black mb-2">
+    → Our Team
+  </p>
+
+  <h2
+    className={`text-[28px] leading-9 text-[#2C2C2C] mb-10 font-medium ${ibmPlexSerif.className}`}
+  >
+    Meet the legal strategists who drive your business forward
+  </h2>
+
+  {/* TEAM LIST */}
+  <div className="flex flex-col gap-6">
+    {team.map((member, i) => {
+      const isActive = activeIndex === i;
+
+      return (
+        <div
+          key={i}
+          className="bg-[#1E3A8A] text-white overflow-hidden transition-all duration-500"
+        >
+
+          {/* CLICKABLE HEADER */}
+          <div
+            onClick={() => toggleMember(i)}
+            className="cursor-pointer"
+          >
+            {/* IMAGE */}
+            <div className="relative w-full h-70">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className={`object-cover transition duration-500 ${
+                  isActive ? "grayscale-0" : "grayscale"
+                }`}
+              />
+            </div>
+
+            {/* NAME + ROLE */}
+            <div className="p-5">
+              <h3
+                className={`text-[20px] mb-1 font-semibold ${ibmPlexSerif.className}`}
+              >
+                {member.name}
+              </h3>
+              <p className="text-[14px] text-[#D4D4D4]">
+                {member.role}
+              </p>
+            </div>
+          </div>
+
+          {/* EXPANDABLE RIGHT PANEL */}
+          <div
+            className={`
+              overflow-hidden transition-all duration-500 ease-in-out
+              ${isActive ? "max-h-250 opacity-100 p-5 pt-0" : "max-h-0 opacity-0"}
+            `}
+          >
+
+            {/* Degree + Location */}
+            <div className="flex flex-wrap gap-4 text-[14px] text-[#D4D4D4] mb-3">
+              <span className="flex items-center gap-2">
+                <GraduationCap size={18} /> {member.degree}
+              </span>
+              <span className="flex items-center gap-2">
+                <MapPin size={18} /> {member.location}
+              </span>
+            </div>
+
+            {/* Bio */}
+            <p className="text-[14px] leading-6 text-[#DADADA] mb-4">
+              {member.bio}
+            </p>
+
+            {/* Highlights */}
+            {member.highlights && member.highlights.length > 0 && (
+              <ul className="text-[14px] text-[#DADADA] space-y-2 leading-6 list-disc list-outside ml-4">
+                {member.highlights.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  {/* ================= BOTTOM IMAGE SECTION ================= */}
+ <div
+  ref={sectionRef}
+  className="relative w-full mt-16 overflow-hidden"
+>
+
+  {/* IMAGE */}
+  <div className="relative w-full">
+    <Image
+      src="/Images/clients.png"
+      alt="Team"
+      width={1200}
+      height={800}
+      priority
+      className={`
+        w-full h-auto object-contain
+        transition-transform duration-700 ease-in-out
+        ${isVisible ? "scale-105" : "scale-100"}
+      `}
+    />
+  </div>
+
+  {/* BLUE MASK */}
+  <div
+    className={`
+      absolute inset-0 bg-[#193170B8]
+      transition-opacity duration-700 ease-in-out
+      ${isVisible ? "opacity-0" : "opacity-100"}
+    `}
+  />
+
+  {/* TAKJAS IMAGE */}
+  <div
+    className={`
+      absolute bottom-0 left-1/2 -translate-x-1/2
+      w-[85%]
+      transition-all duration-1500 ease-in-out
+      ${isVisible ? "-bottom-full opacity-0" : "bottom-4 opacity-100"}
+    `}
+  >
+    <Image
+      src="/Images/takjas.png"
+      alt="Takjas"
+      width={600}
+      height={250}
+      className="w-full h-auto object-contain"
+      priority
+    />
+  </div>
+
+  {/* PERSON TAGS */}
+  {people.map((p, i) => (
+    <div
+      key={i}
+      className={`
+        absolute ${p.className}
+        bg-[#193170] text-white
+        transition-transform duration-2000
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        ${isVisible ? "scale-100" : "scale-0"}
+        shadow-lg flex flex-col
+        ${ibmPlexSerif.className}
+      `}
+    >
+      <p className="text-[14px] font-semibold text-center pt-2">
+        {p.name}
+      </p>
+      <p className="text-[12px] text-[#D4D4D4] text-center px-3 pb-2">
+        {p.role}
+      </p>
+    </div>
+  ))}
+
+</div>
+
+
+</section>
+
+    </>
   );
 }
 
