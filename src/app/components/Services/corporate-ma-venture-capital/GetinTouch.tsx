@@ -201,7 +201,7 @@ export default function GetInTouchSection() {
                 </Link>
                 {" / "}
                 <span className="text-[#193170]">
-                  Compliance & Risk Management
+                   Corporate , M&A , Venture Capital
                 </span>
               </p>
 
@@ -209,13 +209,12 @@ export default function GetInTouchSection() {
               <h2
                 className={`text-[28px] leading-tight font-medium mb-5 ${ibmPlexSerif.className}`}
               >
-                Securing Your Business Against Regulatory Risk
+                Legal Precision For Your Corporate Ambitions
               </h2>
 
               {/* Description */}
               <p className="text-[14px] text-gray-600 mb-8 leading-6">
-                Expert legal counsel essential for navigating data protection,
-                compliance frameworks, and long-term regulatory adherence
+                Our comprehensive legal counsel is tailored for the digital economy, guiding founders and investors through every stage of the corporate lifecycle.
               </p>
 
               {/* Button */}

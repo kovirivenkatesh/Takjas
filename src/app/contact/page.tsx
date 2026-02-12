@@ -51,8 +51,12 @@ function FooterColumn({
 /* ================= PAGE ================= */
 export default function Page() {
   const [revealed, setRevealed] = useState(false);
+  const [mobileRevealed, setMobileRevealed] = useState(false);
 const imageRef = useRef<HTMLDivElement | null>(null);
-
+ const formRef = useRef<HTMLFormElement | null>(null)
+  const [formInView, setFormInView] = useState(false)
+ const footerRef = useRef<HTMLDivElement | null>(null);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
 // SCROLL
 const { scrollYProgress } = useScroll({
@@ -78,7 +82,31 @@ useEffect(() => {
   });
 }, []);
 
+useEffect(() => {
+  setMobileRevealed(true);
+}, []);
 
+ useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFooterVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+  
 // SYNC SCROLL → interaction
 useEffect(() => {
   const unsubscribe = scrollYProgress.on("change", (v) => {
@@ -89,6 +117,20 @@ useEffect(() => {
   return unsubscribe;
 }, [scrollYProgress, interaction]);
 
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFormInView(true)
+        }
+      },
+      { threshold: 0.35 }
+    )
+
+    if (formRef.current) observer.observe(formRef.current)
+    return () => observer.disconnect()
+  }, [])
 
 
 
@@ -105,10 +147,16 @@ useEffect(() => {
     if (h >= 1200) {
       setLift("-48vh");      // very large screens
     } else if (h >= 900) {
-      setLift("-42vh");      // large desktops
-    } else {
+      setLift("-42vh"); 
+           // large desktops
+    }
+    else if(h>=700) {
+      setLift("-25vh"); // very small screens
+    }
+    else if(h>=500) {
       setLift("-62.5vh");   // normal / small
     }
+    
   };
 
   updateLift();
@@ -118,8 +166,12 @@ useEffect(() => {
 
   return (
     // 🔥 PAGE-LEVEL HOVER (ONCE ONLY)
+    <>
+     
+      {/* ================= DESKTOP VIEW ================= */}
+
     <div
-      className="relative bg-[#F5F5F5]   "
+      className="hidden sm:block relative bg-[#F5F5F5]   "
       onMouseEnter={() => {
         if (!revealed) setRevealed(true);
       }}
@@ -414,5 +466,279 @@ useEffect(() => {
       </motion.div>
     
     </div>
+
+      {/* ================= MOBILE VIEW ================= */}
+
+    <div
+      className="block sm:hidden relative bg-[#F5F5F5]   "
+     
+    >
+
+    
+ {/* ================= IMAGE ================= */}
+<section className="bg-[#F5F5F5] mb-2.5">
+  <div
+    ref={imageRef}
+    className="relative h-65  w-full"
+  >
+    {/* PADDING WRAPPER */}
+    <div className="relative h-full w-full px-4 ">
+      <div className="relative h-full w-full overflow-hidden max-w-316.25 mx-auto">
+
+        {/* BACKGROUND IMAGE */}
+        <Image
+          src="/Images/contactUs.png"
+          alt="clients"
+          fill
+          className="object-cover object-top mt-10"
+          priority
+        />
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/30 z-10" />
+      </div>
+    </div>
+
+    {/* TAKJAS LOGO IMAGE */}
+    <motion.div
+      initial={{ y: 0 }}
+      style={{ y: logoY }}
+      className="absolute left-1/2 bottom-0 -translate-x-1/2 z-20 pointer-events-none"
+    >
+      <Image
+        src="/Images/takjas.png"
+        alt="Takjas Logo"
+        width={500}
+        height={150}
+        priority
+        className="object-contain w-55 h-auto"
+      />
+    </motion.div>
+  </div>
+</section>
+
+
+      {/* ================= LIFTING CONTENT ================= */}
+     <motion.div
+  initial={{ marginTop: "0vh" }}
+ animate={mobileRevealed ? { marginTop: lift } : { marginTop: "0vh" }}
+
+  transition={{ duration: 1.2, ease: "easeInOut" }}
+  className="relative z-20"
+>
+
+
+
+        {/* ================= CONTACT ================= */}
+  <section className="relative bg-[#1b3470] text-[#F5F5F5] overflow-hidden group/section">
+
+          {/* ===== BLUE CURTAIN ===== */}
+          <div
+            className={`absolute top-0 right-0 w-full sm:w-1/2 h-full bg-[#324981]/90 transform -translate-y-full transition-transform duration-2500 ease-in-out pointer-events-none group-hover/section:translate-y-0 ${formInView ? "translate-y-0" : ""}`}
+
+          />
+
+          <div className="relative z-10 mx-6 sm:mx-20.75 grid grid-cols-1 md:grid-cols-2 gap-16 sm:gap-30.5 pt-16 sm:pt-19.5 pb-14 sm:pb-13">
+
+
+            {/* ===== LEFT CONTENT ===== */}
+            <div className="flex flex-col justify-between">
+              <div>
+                <p className="text-[14px] sm:text-[16px] mb-2">→ Contact Us</p>
+
+                <h2
+                  className={`text-[32px] sm:text-[55px] font-medium leading-tight sm:leading-17.75 mb-6.5 ${ibmPlexSerif.className}`}
+
+                >
+                  Schedule Your <br className="sm:hidden" />
+                  Initial Consultation
+                </h2>
+
+                <p className="text-[14px] sm:text-[16px] text-white/80 leading-6">
+                  Let's discuss your transaction or complex legal challenge.
+                </p>
+              </div>
+
+              <div className="mt-10 sm:mt-18 space-y-6 sm:space-y-7 text-[16px] sm:text-[20px]">
+                <div className="flex items-center gap-4 sm:gap-7">
+                  <Phone size={18} />
+                  <span>+49 (0)30 257 44 863</span>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <Mail size={18} />
+                  <span>info@takjas.com</span>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <MapPin size={18} />
+                  <span>Fehrbelliner Str. 23, 10119 Berlin, Germany</span>
+                </div>
+              </div>
+            </div>
+
+            {/* ===== RIGHT FORM ===== */}
+            <form
+              ref={formRef}
+              className="space-y-6 sm:space-y-8 relative z-10"
+            >
+              <input
+                type="text"
+                placeholder="Name *"
+                className="w-full bg-transparent border border-white/60 px-5 sm:px-6.25 py-4 sm:py-5 text-[16px] sm:text-[18px] outline-none placeholder:text-white/70"
+              />
+
+              <input
+                type="email"
+                placeholder="Email *"
+                className="w-full bg-transparent border border-white/60 px-5 sm:px-6.25 py-4 sm:py-5 text-[16px] sm:text-[18px] outline-none placeholder:text-white/70"
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone No. *"
+                className="w-full bg-transparent border border-white/60 px-5 sm:px-6.25 py-4 sm:py-5 text-[16px] sm:text-[18px] outline-none placeholder:text-white/70"
+              />
+
+              <textarea
+                placeholder="Message"
+                rows={4}
+                className="w-full bg-transparent border border-white/60 px-5 sm:px-6.25 py-4 sm:py-5 text-[16px] sm:text-[18px] outline-none resize-none placeholder:text-white/70"
+              />
+
+              <button
+                type="submit"
+                className="group/button w-full bg-white text-[#1b3470] py-3 font-medium flex items-center justify-center gap-0 transition-all duration-300"
+              >
+                <span className="inline-block w-0 overflow-hidden transition-all duration-300 group-hover/button:w-8">
+                  →
+                </span>
+
+                <span className="text-[18px] sm:text-[22px] transition-all duration-300 group-hover/button:text-[18px]">
+                  Submit
+                </span>
+              </button>
+            </form>
+
+          </div>
+        </section>
+
+
+        {/* ================= FOOTER ================= */}
+      <footer
+               ref={footerRef}
+               className="bg-[#FDFDFD] pt-10 sm:pt-12 lg:pt-13 relative overflow-hidden"
+             >
+     
+               {/* ===== TOP BLUE STRIP ===== */}
+               <div className="absolute top-0 left-0 w-full h-2 overflow-hidden">
+                 <div
+                   className={`h-1.5 sm:h-1.75 w-32 sm:w-41.5 bg-[#1b3470] transform transition-transform duration-1500 ease-[cubic-bezier(0.22,1,0.36,1)]
+           ${isFooterVisible ? "translate-x-[calc(100vw-8rem)]" : "translate-x-0"}`}
+                 />
+               </div>
+     
+               {/* ===== MAIN CONTENT ===== */}
+               <div className="relative px-6 sm:px-10 lg:px-22 max-w-7xl mx-auto">
+     
+                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+     
+                   {/* ===== BRAND ===== */}
+                   <div className="flex flex-col">
+     
+                     <div
+                       className={`w-12 h-12 bg-[#1b3470] flex items-center justify-center text-white mb-2 font-bold text-xl ${ibmPlexSerif.className}`}
+                     >
+                       T
+                     </div>
+     
+                     <p className={`text-xs text-[#193170] font-medium mb-8 ${ibmPlexSerif.className}`}>
+                       Legal Certainty.Business Clarity.
+                     </p>
+     
+                     <p className="text-[#626262] text-sm leading-6 mb-6">
+                       Fehrbelliner Str. 23,<br />
+                       10119 Berlin, Germany
+                     </p>
+     
+                   </div>
+     
+                   {/* ===== LINKS ===== */}
+                   <FooterColumn
+                     title="Links"
+                     items={[
+                       { label: "Home", href: "/" },
+                       { label: "About Us", href: "/aboutUs" },
+                       { label: "Services", href: "/services" },
+                       { label: "Career", href: "/career" },
+                       { label: "Legal Notice (Imprint)", href: "/imprint" },
+                       { label: "Privacy Policy", href: "/privacy-policy" },
+                     ]}
+                   />
+     
+                   {/* ===== SERVICES ===== */}
+                   <FooterColumn
+                     title="Services"
+                     items={[
+                       { label: "Compliance & Risk Management", href: "#" },
+                       { label: "Corporate, M&A, Venture Capital", href: "#" },
+                       { label: "Real Estate Law", href: "#" },
+                       { label: "Employment & Incentives", href: "#" },
+                       { label: "Dispute Resolution", href: "#" },
+                       { label: "Finance & Restructuring", href: "#" },
+                     ]}
+                   />
+     
+                   {/* ===== NEWSLETTER ===== */}
+                   <div>
+                     <h4 className={`font-bold text-base mb-6 relative ${ibmPlexSerif.className}`}>
+                       Subscribe for Newsletter
+                       <span className="absolute -top-2 left-0 w-6 h-0.5 bg-[#1b3470]" />
+                     </h4>
+     
+                     <div className="flex flex-col sm:flex-row gap-3">
+                       <input
+                         className="w-full sm:w-52 h-12 px-4 border border-gray-200 text-sm bg-[#F6F6F6]"
+                         placeholder="Your email"
+                       />
+                       <button className="bg-[#1b3470] text-white px-6 h-12 text-sm">
+                         Send
+                       </button>
+                     </div>
+     
+                     <p className="text-sm text-[#8D8D8D] mt-4">
+                       No spam. Only releases, updates and discounts
+                     </p>
+                   </div>
+     
+                 </div>
+               </div>
+     
+               {/* ===== TAKJAS DECORATIVE SVG ===== */}
+               <div
+                 className={`absolute right-0 bottom-0 transform transition-all duration-1000 ease-out pointer-events-none
+         ${isFooterVisible
+                     ? "translate-y-0 opacity-15"
+                     : "translate-y-20 opacity-0"}`}
+               >
+                 <svg width="350" height="150" viewBox="0 0 554 206" fill="none">
+                   <path d="M510.522 84.748L530.988 91.443C546.618 96.0647 553.708 104.831 553.708 119.494..." fill="#193170" />
+                 </svg>
+               </div>
+     
+               {/* ===== COPYRIGHT ===== */}
+               <div className="bg-[#1b3470] text-white text-center py-4 text-sm mt-12">
+                 <div>© 2025 Takjas, All rights reserved.</div>
+                 <div className="mt-1 text-white/70">
+                   Powered By <span className="text-white">SoftwareGiant</span>
+                 </div>
+               </div>
+     
+             </footer>
+     
+      </motion.div>
+    
+    </div>
+      </>
   );
 }
