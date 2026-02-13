@@ -239,8 +239,8 @@ export default function GetInTouchSection() {
               fill
               className={`
           object-cover
-          transition-transform duration-1000 ease-out
-          ${revealed ? "scale-100" : "scale-110"}
+          transition-transform duration-1200 ease-out
+          ${revealed ? "scale-100" : "scale-150"}
         `}
             />
           </div>

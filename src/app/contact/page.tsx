@@ -106,7 +106,7 @@ useEffect(() => {
       }
     };
   }, []);
-  
+
 // SYNC SCROLL → interaction
 useEffect(() => {
   const unsubscribe = scrollYProgress.on("change", (v) => {
@@ -150,10 +150,7 @@ useEffect(() => {
       setLift("-42vh"); 
            // large desktops
     }
-    else if(h>=700) {
-      setLift("-25vh"); // very small screens
-    }
-    else if(h>=500) {
+    else{
       setLift("-62.5vh");   // normal / small
     }
     

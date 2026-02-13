@@ -83,14 +83,18 @@ export default function AboutSection() {
               src="/Images/GetInTouch.jpg"
               alt="About"
               fill
-              className="object-cover"
+              className={`
+              object-cover 
+              transition-transform duration-1200 ease-out
+              ${revealed ? "scale-100" : "scale-150"}
+            `}
             />
 
             {/* BLUE CURTAIN */}
             <div
               className={`
             absolute inset-0 bg-[#193170]
-            transition-transform duration-700
+            transition-transform duration-1200
             ease-[cubic-bezier(0.76,0,0.24,1)]
             ${revealed ? "-translate-y-full" : "translate-y-0"}
             pointer-events-none
@@ -145,12 +149,16 @@ export default function AboutSection() {
               src="/Images/GetInTouch.jpg"
               alt="About"
               fill
-              className="object-cover"
+               className={`
+              object-cover 
+              transition-transform duration-1200 ease-out
+              ${revealed ? "scale-100" : "scale-150"}
+            `}
             />
 
             {/* BLUE CURTAIN */}
             <div
-              className={`absolute inset-0 bg-[#193170] transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]
+              className={`absolute inset-0 bg-[#193170] transition-transform duration-1200 ease-[cubic-bezier(0.76,0,0.24,1)]
         ${revealed ? "-translate-y-full" : "translate-y-0"}
         pointer-events-none`}
             />
