@@ -145,7 +145,7 @@ export default function ProofOfCompetenceSection() {
 
       {/* ================= MOBILE VIEW ================= */}
 
-      <section className="block sm:hidden mt-20 px-6">
+      <section className="block sm:hidden mt-10 px-6">
 
         <p className="text-[14px] text-black mb-3">
           → Proof of Competence

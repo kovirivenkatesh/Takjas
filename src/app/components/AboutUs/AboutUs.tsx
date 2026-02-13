@@ -109,7 +109,7 @@ export default function AboutSection() {
         <div className="px-6 flex flex-col gap-12">
 
           {/* LEFT SECTION */}
-          <div className="bg-[#F5F5F5] flex flex-col pt-28 pb-12">
+          <div className="bg-[#F5F5F5] flex flex-col pt-28 ">
 
             {/* Breadcrumb */}
             <p className="text-sm text-[#5E6784] mb-4">

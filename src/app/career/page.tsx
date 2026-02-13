@@ -587,7 +587,7 @@ export default function CareerHeroCurtain() {
           </div>
         </section>
 
-        <div className="mt-10">
+        <div className="">
           {/* ===== CTA SECTION ===== */}
           <section
             ref={sectionRef}

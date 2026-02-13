@@ -132,7 +132,7 @@ export default function RegulatoryChallenge() {
 
       {/* ================= MOBILE VIEW ================= */}
 
-      <div className="block sm:hidden bg-[#F5F5F5] px-6 py-14">
+      <div className="block sm:hidden bg-[#F5F5F5] px-6">
 
         <section className="flex flex-col gap-10">
 
