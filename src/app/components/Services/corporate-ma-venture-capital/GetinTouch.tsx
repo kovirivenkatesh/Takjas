@@ -22,7 +22,7 @@ export default function GetInTouchSection() {
 
       {/* ================= DESKTOP VIEW ================= */}
 
-        <section className="hidden sm:block relative pl-22.25 h-150   bg-[#F5F5F5] overflow-hidden">
+       <section className="hidden sm:block relative pl-22.25 h-150 overflow-hidden">
         {/* ================= CURTAIN (BLUE) ================= */}
         <div className="absolute inset-0 flex z-20 pointer-events-none">
           {[0, 1, 2].map((i) => (
@@ -87,23 +87,21 @@ export default function GetInTouchSection() {
                 {" / "}
 
                 <span className="text-[#193170] ">
-                 Corporate, M&A, Venture Capital
+                  Corporate, M&A, Venture Capital
                 </span>
               </p>
 
               <h2
                 className={`text-[66px] font-medium leading-20 mb-6 ${ibmPlexSerif.className}`}
               >
-               Legal Precision For
-Your Corporate
-Ambitions
+                Legal Precision For Corporate Ambitions
               </h2>
 
               <p className="text-[16px] text-gray-600 mb-10.75 leading-6.25">
-               Our comprehensive legal counsel is tailored for the digital economy, guiding founders and investors through every stage of the corporate lifecycle.
+                Expert legal counsel for managing complex commercial disputes, focused on efficient resolution and maximum asset protection.
               </p>
-       
-              <Link href="/contact">
+
+<Link href="/contact">
               <button
                 className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
               >
@@ -124,7 +122,7 @@ Ambitions
           {/* RIGHT IMAGE */}
           <div className="relative h-171 ">
             <Image
-              src="/Images/2a.jpg"
+              src="/Images/5a.png"
               alt="Corporate meeting"
               fill
 
