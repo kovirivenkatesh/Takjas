@@ -22,7 +22,7 @@ export default function GetInTouchSection() {
 
       {/* ================= DESKTOP VIEW ================= */}
 
-      <section className="hidden sm:block relative pl-22.25 h-150 overflow-hidden">
+        <section className="hidden sm:block relative pl-22.25 h-150   bg-[#F5F5F5] overflow-hidden">
         {/* ================= CURTAIN (BLUE) ================= */}
         <div className="absolute inset-0 flex z-20 pointer-events-none">
           {[0, 1, 2].map((i) => (
@@ -52,7 +52,7 @@ export default function GetInTouchSection() {
             {/* REVEAL MASK */}
             <div
               className={`
-              absolute inset-0   bg-[#F5F5F5]  z-20
+              absolute inset-0 bg-[#F5F5F5] z-20
               transition-transform duration-2000 ease-out delay-200
               ${revealed ? "translate-x-full" : "translate-x-0"}
             `}
@@ -87,24 +87,23 @@ export default function GetInTouchSection() {
                 {" / "}
 
                 <span className="text-[#193170] ">
-                  Corporate , M&A , Venture Capital
+                 Corporate, M&A, Venture Capital
                 </span>
               </p>
 
               <h2
                 className={`text-[66px] font-medium leading-20 mb-6 ${ibmPlexSerif.className}`}
               >
-
-                Legal Precision For Your Corporate Ambitions
-
-
+               Legal Precision For
+Your Corporate
+Ambitions
               </h2>
 
               <p className="text-[16px] text-gray-600 mb-10.75 leading-6.25">
-                Our comprehensive legal counsel is tailored for the digital economy, guiding founders and investors through every stage of the corporate lifecycle.
+               Our comprehensive legal counsel is tailored for the digital economy, guiding founders and investors through every stage of the corporate lifecycle.
               </p>
-
-               <Link href="/contact">
+       
+              <Link href="/contact">
               <button
                 className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
               >
@@ -220,7 +219,6 @@ export default function GetInTouchSection() {
               </p>
 
               {/* Button */}
-              <Link href="/contact">
               <button className="group w-full h-12 bg-[#193170] text-white rounded-md text-[16px] flex items-center justify-center transition-all duration-300">
                 <span className="hidden group-hover:inline mr-2">
                   →
@@ -229,7 +227,6 @@ export default function GetInTouchSection() {
                   Get in touch
                 </span>
               </button>
-              </Link>
             </div>
           </div>
 

@@ -22,6 +22,7 @@ export default function GetInTouchSection() {
 
       {/* ================= DESKTOP VIEW ================= */}
 
+   
       <section className="hidden sm:block relative pl-22.25 h-150 overflow-hidden">
         {/* ================= CURTAIN (BLUE) ================= */}
         <div className="absolute inset-0 flex z-20 pointer-events-none">
@@ -52,7 +53,7 @@ export default function GetInTouchSection() {
             {/* REVEAL MASK */}
             <div
               className={`
-              absolute inset-0 bg-  bg-[#F5F5F5] z-20
+              absolute inset-0   bg-[#F5F5F5]  z-20
               transition-transform duration-2000 ease-out delay-200
               ${revealed ? "translate-x-full" : "translate-x-0"}
             `}
@@ -87,20 +88,18 @@ export default function GetInTouchSection() {
                 {" / "}
 
                 <span className="text-[#193170] ">
-                  Finance & Restructuring
+                 Real Estate Law
                 </span>
               </p>
 
               <h2
                 className={`text-[66px] font-medium leading-20 mb-6 ${ibmPlexSerif.className}`}
               >
-                Structuring Capital
-                and Strategic
-                Restructuring
+                Securing Value in Commercial Property Assets
               </h2>
 
               <p className="text-[16px] text-gray-600 mb-10.75 leading-6.25">
-                Expert legal counsel essential for navigating critical financing structures, managing corporate debt, and ensuring stability during financial uncertainty
+               Expert legal counsel essential for managing complex transactions, property development, and securing long-term commercial asset value.
               </p>
 
 <Link href="/contact">
@@ -238,7 +237,7 @@ export default function GetInTouchSection() {
           {/* ================= IMAGE ================= */}
           <div className="relative w-full h-70 overflow-hidden rounded-lg">
             <Image
-              src="/Images/2a.jpg"
+              src="/Images/1a.png"
               alt="Corporate meeting"
               fill
               className={`
