@@ -1,6 +1,8 @@
 "use client";
 
 import { ibmPlexSerif } from '@/app/fonts'
+import Link from "next/link";
+
 import { useEffect, useRef, useState } from 'react';
 
 const values = [
@@ -146,6 +148,8 @@ useEffect(() => {
           {/* BOTTOM-RIGHT BUTTON WRAPPER — ATTACHED TO IMAGE */}
           <div className="absolute bottom-0 right-0 bg-white/20 w-97 h-40 flex ">
             <div className="group/button bg-white w-40 h-10 flex items-center justify-center mx-26 my-16 cursor-pointer overflow-hidden">
+             
+             <Link href="/contact" >
               <span
                 className="flex items-center text-[#193170] text-[22px] transition-all duration-300 group-hover/button:text-[18px]"
 
@@ -162,6 +166,7 @@ useEffect(() => {
                   Get in touch
                 </span>
               </span>
+              </Link>
             </div>
 
 
@@ -261,9 +266,11 @@ useEffect(() => {
 
       {/* CTA BUTTON */}
       <div className="self-start bg-white px-5 py-2">
+          <Link href="/contact" >
         <span className="text-[#193170] font-medium text-[16px]">
           Get in touch →
         </span>
+        </Link>
       </div>
     </div>
   </div>

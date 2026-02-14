@@ -103,6 +103,7 @@ export default function GetInTouchSection() {
                 Expert legal counsel essential for managing complex transactions, property development, and securing long-term commercial asset value.
               </p>
 
+<Link href="/contact">
               <button
                 className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
               >
@@ -116,6 +117,7 @@ export default function GetInTouchSection() {
                   Get in touch
                 </span>
               </button>
+              </Link>
             </div>
           </div>
 
@@ -219,6 +221,7 @@ export default function GetInTouchSection() {
               </p>
 
               {/* Button */}
+              <Link href="/contact">
               <button className="group w-full h-12 bg-[#193170] text-white rounded-md text-[16px] flex items-center justify-center transition-all duration-300">
                 <span className="hidden group-hover:inline mr-2">
                   →
@@ -227,6 +230,7 @@ export default function GetInTouchSection() {
                   Get in touch
                 </span>
               </button>
+              </Link>
             </div>
           </div>
 

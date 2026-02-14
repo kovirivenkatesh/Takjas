@@ -15,6 +15,7 @@ import FooterSection from './components/home/Footer'
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -137,6 +138,7 @@ export default function ScrollImageTakeover() {
       </section>
 
       {/* ================= SCROLL SECTION (DESKTOP VIEW) ================= */}
+
       <section
         ref={sectionRef}
         className="hidden sm:block relative h-screen overflow-hidden bg-[#F5F5F5] z-20"
@@ -152,6 +154,7 @@ export default function ScrollImageTakeover() {
           <p className="mb-6.25 text-[16px] leading-6.25 text-[#5E6784]">
             Specialized in Venture Capital, Corporate Law, and M&A
           </p>
+          <Link href="/contact">
           <button
             className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
           >
@@ -165,6 +168,7 @@ export default function ScrollImageTakeover() {
               Get in touch
             </span>
           </button>
+         </Link>
         </div>
 
         {/* IMAGE */}
@@ -185,6 +189,7 @@ export default function ScrollImageTakeover() {
       </section>
 
       {/* ================= SCROLL SECTION (MOBILE VIEW) ================= */}
+
      <section className="block sm:hidden relative bg-[#F5F5F5] pt-24">
 
 
@@ -200,12 +205,14 @@ export default function ScrollImageTakeover() {
             Specialized in Venture Capital, Corporate Law, and M&A
           </p>
 
+       <Link href="/contact">
           <button
             className="mx-auto flex items-center justify-center h-12 px-6 bg-[#193170] text-white rounded-md text-[16px]"
 
           >
             Get in touch
           </button>
+          </Link>
         </div>
 
         {/* IMAGE */}

@@ -59,6 +59,7 @@ export default function AboutSection() {
               We provide focused expertise across the entire corporate lifecycle, ensuring certainty and strategic advantage for founders and investors.
             </p>
 
+             <Link href="/contact">
             <button
               className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
             >
@@ -72,6 +73,7 @@ export default function AboutSection() {
                 Get in touch
               </span>
             </button>
+            </Link>
           </div>
 
           {/* RIGHT IMAGE SECTION */}
@@ -132,11 +134,13 @@ export default function AboutSection() {
             <p className="text-[#5E6784] mb-8 text-base leading-6">
              We provide focused expertise across the entire corporate lifecycle, ensuring certainty and strategic advantage for founders and investors.
             </p>
-
+           
+              <Link href="/contact">
             <button className="group w-full h-12 bg-[#193170] text-white rounded-md text-lg transition-all duration-300 hover:scale-105">
               <span className="hidden group-hover:inline pr-2">→</span>
               <span className="group-hover:text-base">Get in touch</span>
             </button>
+            </Link>
           </div>
 
           {/* RIGHT IMAGE SECTION */}

@@ -157,6 +157,19 @@ export default function Page() {
   const [lift, setLift] = useState("-62.5vh");
 
   useEffect(() => {
+    if (isDesktop) {
+      setRevealed(true);
+    }
+  }, [isDesktop]);
+
+  useEffect(() => {
+  if (isDesktop) {
+    animate(interaction, 1, { duration: 1.2 });
+  }
+}, [isDesktop, interaction]);
+
+
+  useEffect(() => {
     const updateLift = () => {
       const height = window.innerHeight;
       const width = window.innerWidth;
@@ -187,9 +200,7 @@ export default function Page() {
 
       <div
         className="hidden sm:block relative bg-[#F5F5F5]   "
-        onMouseEnter={() => {
-          if (!revealed) setRevealed(true);
-        }}
+
       >
 
 
@@ -733,7 +744,7 @@ export default function Page() {
               </div>
             </div>
 
-           
+
             {/* ===== COPYRIGHT ===== */}
             <div className="bg-[#1b3470] text-white text-center py-4 text-sm mt-12">
               <div>© 2025 Takjas, All rights reserved.</div>

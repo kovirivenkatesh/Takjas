@@ -260,9 +260,11 @@ export default function CareerHeroCurtain() {
               complex queries today
             </h2>
 
+<Link href="/contact" >
             <button className="relative z-10 text-[22px] w-63.5 h-15.75 bg-white text-[#1b3470] px-2.5 py-0 ">
               Get in touch
             </button>
+            </Link>
           </section>
 
 
@@ -622,12 +624,13 @@ export default function CareerHeroCurtain() {
               Start resolving your most
               complex queries today
             </h2>
-
+ 
+ <Link href="/contact" >
             <button className="relative z-10 text-lg sm:text-[20px] lg:text-[22px] w-48 sm:w-56 lg:w-63.5 h-12 sm:h-14 lg:h-15.75 bg-[#FDFDFD] text-[#1b3470] transition-all duration-300 hover:scale-105">
 
               Get in touch
             </button>
-
+</Link>
           </section>
 
 

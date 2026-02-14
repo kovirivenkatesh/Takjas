@@ -62,6 +62,7 @@ export default function AboutSection() {
               and compliance throughout the complex digital economy lifecycle.
             </p>
 
+           <Link href="/contact">
             <button
               className="group w-45.25 mb-18 h-12.25 bg-[#193170] text-white rounded-md  text-[22px]"
             >
@@ -75,6 +76,7 @@ export default function AboutSection() {
                 Get in touch
               </span>
             </button>
+            </Link>
           </div>
 
           {/* RIGHT IMAGE SECTION */}
@@ -136,11 +138,14 @@ export default function AboutSection() {
               We are an integrated legal practice committed to ensuring certainty
               and compliance throughout the complex digital economy lifecycle.
             </p>
-
+ 
+              <Link href="/contact">
             <button className="group w-full h-12 bg-[#193170] text-white rounded-md text-lg transition-all duration-300 hover:scale-105">
               <span className="hidden group-hover:inline pr-2">→</span>
+              
               <span className="group-hover:text-base">Get in touch</span>
             </button>
+            </Link>
           </div>
 
           {/* RIGHT IMAGE SECTION */}
